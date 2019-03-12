@@ -1,0 +1,31 @@
+{
+  "name": "react-native-scrollable-navigation-bar",
+  "version": "0.0.1",
+  "description": "Scrollable Navigation Bar for React Native",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:zobeirhamid/react-native-scrollable-navigation-bar.git"
+  },
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*",
+    "react-native-vector-icons": "*"
+  },
+  "keywords": [
+    "react-native",
+    "scrollable",
+    "navigation",
+    "bar",
+    "component"
+  ],
+  "author": "Zobeir Hamid",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zobeirhamid/react-native-scrollable-navigation-bar/issues"
+  },
+  "homepage": "https://github.com/zobeirhamid/react-native-scrollable-navgation-bar"
+}
