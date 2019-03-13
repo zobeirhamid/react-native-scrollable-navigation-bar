@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Animated, View, StatusBar, ScrollView } from 'react-native';
+import { Animated, View, StatusBar } from 'react-native';
 import NavigationBar from './NavigationBar';
 import BigNavigationBar from './BigNavigationBar';
 import ImageNavigationBar from './ImageNavigationBar';
@@ -47,6 +47,7 @@ class ScrollableBigNavBar extends React.Component {
       backButton = {},
       bigBackButton = {},
       image,
+      ImageComponent,
       imageStyle,
       parallax,
       imageToNavBar,
@@ -79,7 +80,17 @@ class ScrollableBigNavBar extends React.Component {
           title={title}
           titleStyle={titleStyle}
           style={{
-            borderBottomWidth: borderColor !== undefined && reached ? 1 : 0,
+            borderBottomWidth:
+              borderColor !== undefined
+                ? this.scroll.interpolate({
+                    inputRange: [
+                      height - NAVIGATION_BAR_HEIGHT - 1,
+                      height - NAVIGATION_BAR_HEIGHT
+                    ],
+                    outputRange: [0, 1],
+                    extrapolate: 'clamp'
+                  })
+                : 0,
             borderBottomColor: borderColor,
             opacity: this.scroll.interpolate({
               inputRange: [
@@ -96,17 +107,8 @@ class ScrollableBigNavBar extends React.Component {
           leftIcons={leftIcons}
           rightIcons={rightIcons}
         />
-        {image !== undefined && (
-          <ImageNavigationBar
-            animatedValue={this.scroll}
-            height={height}
-            image={image}
-            parallax={parallax}
-            imageToNavBar={imageToNavBar}
-            imageStyle={imageStyle}
-          />
-        )}
         <ScrollComponent
+          nestedScrollEnabled
           scrollEventThrottle={1}
           onScroll={Animated.event(
             [{ nativeEvent: { contentOffset: { y: this.scroll } } }],
@@ -115,12 +117,51 @@ class ScrollableBigNavBar extends React.Component {
               useNativeDriver: !(
                 withShadow ||
                 increaseFontSize ||
-                imageToNavBar
+                imageToNavBar ||
+                borderColor !== undefined
               )
             }
           )}
           ListHeaderComponent={() => (
+            <View>
+              {image !== undefined && (
+                <ImageNavigationBar
+                  animatedValue={this.scroll}
+                  height={height}
+                  image={image}
+                  parallax={parallax}
+                  imageToNavBar={imageToNavBar}
+                  imageStyle={imageStyle}
+                  ImageComponent={ImageComponent}
+                />
+              )}
+              <BigNavigationBar
+                pointerEvents="none"
+                animatedValue={this.scroll}
+                height={height}
+                backgroundColor="transparent"
+                borderColor={borderColor}
+                bigTitleStyle={bigTitleStyle}
+                title={!hideBigTitle && title}
+                increaseFontSize={increaseFontSize}
+              />
+            </View>
+          )}
+        >
+          <View>
+            {image !== undefined && (
+              <ImageNavigationBar
+                animatedValue={this.scroll}
+                height={height}
+                image={image}
+                parallax={parallax}
+                imageToNavBar={imageToNavBar}
+                imageStyle={imageStyle}
+                ImageComponent={ImageComponent}
+              />
+            )}
             <BigNavigationBar
+              pointerEvents="none"
               animatedValue={this.scroll}
               height={height}
               backgroundColor="transparent"
@@ -129,17 +170,7 @@ class ScrollableBigNavBar extends React.Component {
               title={!hideBigTitle && title}
               increaseFontSize={increaseFontSize}
             />
-          )}
-        >
-          <BigNavigationBar
-            animatedValue={this.scroll}
-            height={height}
-            backgroundColor="transparent"
-            borderColor={borderColor}
-            bigTitleStyle={bigTitleStyle}
-            title={!hideBigTitle && title}
-            increaseFontSize={increaseFontSize}
-          />
+          </View>
           {children}
         </ScrollComponent>
       </View>

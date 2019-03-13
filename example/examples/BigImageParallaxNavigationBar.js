@@ -3,7 +3,7 @@ import BigImageNavigationBar from './BigImageNavigationBar';
 
 class BigImageParallaxNavigationBar extends React.Component {
   render() {
-    return <BigImageNavigationBar parallax {...this.props} />;
+    return <BigImageNavigationBar parallax={0.5} {...this.props} />;
   }
 }
 

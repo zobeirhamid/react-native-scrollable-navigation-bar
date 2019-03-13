@@ -8,10 +8,11 @@ class ImageNavigationBar extends React.Component {
       animatedValue,
       height,
       image,
-      parallax,
+      parallax = 0,
       backgroundColor,
       imageToNavBar,
-      imageStyle
+      imageStyle,
+      ImageComponent = Animated.Image
     } = this.props;
     return (
       <Animated.View
@@ -43,15 +44,17 @@ class ImageNavigationBar extends React.Component {
               {
                 translateY: animatedValue.interpolate({
                   inputRange: [0, 1],
-                  outputRange: [0, parallax ? -0.4 : -1],
+                  outputRange: [0, parallax],
                   extrapolateLeft: 'clamp'
                 })
               }
             ]
           }}
         >
-          <Animated.Image
+          <ImageComponent
             source={image}
+            imageHeight={height}
+            imageStyle={imageStyle}
             style={[
               {
                 height,

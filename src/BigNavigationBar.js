@@ -12,10 +12,12 @@ class BigNavigationBar extends React.Component {
       borderColor,
       bigTitleStyle,
       title,
-      increaseFontSize
+      increaseFontSize,
+      pointerEvents
     } = this.props;
     return (
       <View
+        pointerEvents={pointerEvents}
         style={{
           height,
           justifyContent: 'flex-end',

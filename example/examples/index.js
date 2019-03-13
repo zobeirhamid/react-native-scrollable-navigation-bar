@@ -3,6 +3,7 @@ import CustomStickyNavigationBar from './CustomStickyNavigationBar';
 import BigNavigationBar from './BigNavigationBar';
 import BigNavigationBarCustomTitle from './BigNavigationBarCustomTitle';
 import BigImageNavigationBar from './BigImageNavigationBar';
+import BigCustomImageNavigationBar from './BigCustomImageNavigationBar';
 import BigImageParallaxNavigationBar from './BigImageParallaxNavigationBar';
 import BigImageToNavigationBar from './BigImageToNavigationBar';
 import AnimatedNavigationBar from './AnimatedNavigationBar';
@@ -14,6 +15,7 @@ export {
   BigNavigationBar,
   BigNavigationBarCustomTitle,
   BigImageNavigationBar,
+  BigCustomImageNavigationBar,
   BigImageParallaxNavigationBar,
   BigImageToNavigationBar,
   AnimatedNavigationBar,

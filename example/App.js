@@ -7,6 +7,7 @@ import {
   BigNavigationBar,
   BigNavigationBarCustomTitle,
   BigImageNavigationBar,
+  BigCustomImageNavigationBar,
   BigImageParallaxNavigationBar,
   BigImageToNavigationBar,
   AnimatedNavigationBar,
@@ -70,6 +71,7 @@ class HomeScreen extends React.Component {
         {this.renderLink('BigNavigationBar')}
         {this.renderLink('BigNavigationBarCustomTitle')}
         {this.renderLink('BigImageNavigationBar')}
+        {this.renderLink('BigCustomImageNavigationBar')}
         {this.renderLink('BigImageParallaxNavigationBar')}
         {this.renderLink('BigImageToNavigationBar')}
         {this.renderLink('AnimatedNavigationBar')}
@@ -87,6 +89,7 @@ const AppNavigator = createStackNavigator(
     BigNavigationBar: Screen(BigNavigationBar),
     BigNavigationBarCustomTitle: Screen(BigNavigationBarCustomTitle),
     BigImageNavigationBar: Screen(BigImageNavigationBar),
+    BigCustomImageNavigationBar: Screen(BigCustomImageNavigationBar),
     BigImageParallaxNavigationBar: Screen(BigImageParallaxNavigationBar),
     BigImageToNavigationBar: Screen(BigImageToNavigationBar),
     AnimatedNavigationBar: Screen(AnimatedNavigationBar),

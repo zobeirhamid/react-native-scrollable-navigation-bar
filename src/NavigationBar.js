@@ -52,7 +52,7 @@ class NavigationBar extends React.Component {
         pointerEvents={pointerEvents}
         style={{
           position: 'absolute',
-          zIndex: 1,
+          zIndex: 2,
           top: 0,
           left: 0,
           right: 0,
