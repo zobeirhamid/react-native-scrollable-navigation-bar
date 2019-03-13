@@ -8,11 +8,15 @@ import {
   Platform
 } from 'react-native';
 import NavigationBar from './NavigationBar';
-import CustomNavigationBar from './CustomNavigationBar';
+import AnimatedNavigationBar from './AnimatedNavigationBar';
 import { NAVIGATION_BAR_HEIGHT } from './constants';
 
-class ScrollableCustomNavBar extends React.Component {
-  scroll = new Animated.Value(0);
+class ScrollableAnimatedNavBar extends React.Component {
+  constructor(props) {
+    super(props);
+    if (props.animatedValue !== undefined) this.scroll = props.animatedValue;
+    else this.scroll = new Animated.Value(0);
+  }
 
   render() {
     const {
@@ -31,7 +35,7 @@ class ScrollableCustomNavBar extends React.Component {
     return (
       <View style={{ flex: 1 }}>
         <StatusBar {...statusBar} />
-        <CustomNavigationBar
+        <AnimatedNavigationBar
           animatedValue={this.scroll}
           height={height}
           backgroundColor={backgroundColor}
@@ -66,4 +70,4 @@ class ScrollableCustomNavBar extends React.Component {
   }
 }
 
-export default ScrollableCustomNavBar;
+export default ScrollableAnimatedNavBar;

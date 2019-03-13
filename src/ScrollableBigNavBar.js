@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Animated, View, StatusBar } from 'react-native';
+import { Animated, View, StatusBar, ScrollView } from 'react-native';
 import NavigationBar from './NavigationBar';
 import BigNavigationBar from './BigNavigationBar';
 import ImageNavigationBar from './ImageNavigationBar';
@@ -7,11 +7,15 @@ import ImageNavigationBar from './ImageNavigationBar';
 import { NAVIGATION_BAR_HEIGHT } from './constants';
 
 class ScrollableBigNavBar extends React.Component {
-  scroll = new Animated.Value(0);
-
   state = {
     reached: false
   };
+
+  constructor(props) {
+    super(props);
+    if (props.animatedValue !== undefined) this.scroll = props.animatedValue;
+    else this.scroll = new Animated.Value(0);
+  }
 
   scrollListener(event) {
     const { y } = event.nativeEvent.contentOffset;
@@ -20,84 +24,12 @@ class ScrollableBigNavBar extends React.Component {
 
     if (!reached && y >= height - NAVIGATION_BAR_HEIGHT) {
       this.setState({ reached: true });
-      if (onReached) onReached();
+      if (onReached !== undefined) onReached();
     }
     if (reached && y < height - NAVIGATION_BAR_HEIGHT) {
       this.setState({ reached: false });
-      if (onUnReached) onUnReached();
+      if (onUnReached !== undefined) onUnReached();
     }
-  }
-
-  renderVirtualList() {
-    const {
-      height,
-      borderColor,
-      bigTitleStyle,
-      title,
-      withShadow,
-      increaseFontSize,
-      imageToNavBar,
-      VirtualList
-    } = this.props;
-    return (
-      <VirtualList
-        scrollEventThrottle={1}
-        onScroll={Animated.event(
-          [{ nativeEvent: { contentOffset: { y: this.scroll } } }],
-          {
-            listener: this.scrollListener.bind(this),
-            useNativeDriver: !(withShadow || increaseFontSize || imageToNavBar)
-          }
-        )}
-        ListHeaderComponent={() => (
-          <BigNavigationBar
-            animatedValue={this.scroll}
-            height={height}
-            backgroundColor="transparent"
-            borderColor={borderColor}
-            bigTitleStyle={bigTitleStyle}
-            title={title}
-            increaseFontSize={increaseFontSize}
-          />
-        )}
-      />
-    );
-  }
-
-  renderScrollView() {
-    const {
-      children,
-      height,
-      borderColor,
-      bigTitleStyle,
-      title,
-      withShadow,
-      increaseFontSize,
-      imageToNavBar
-    } = this.props;
-    return (
-      <Animated.ScrollView
-        scrollEventThrottle={1}
-        onScroll={Animated.event(
-          [{ nativeEvent: { contentOffset: { y: this.scroll } } }],
-          {
-            listener: this.scrollListener.bind(this),
-            useNativeDriver: !(withShadow || increaseFontSize || imageToNavBar)
-          }
-        )}
-      >
-        <BigNavigationBar
-          animatedValue={this.scroll}
-          height={height}
-          backgroundColor="transparent"
-          borderColor={borderColor}
-          bigTitleStyle={bigTitleStyle}
-          title={title}
-          increaseFontSize={increaseFontSize}
-        />
-        {children}
-      </Animated.ScrollView>
-    );
   }
 
   render() {
@@ -107,6 +39,10 @@ class ScrollableBigNavBar extends React.Component {
       borderColor,
       titleStyle,
       title,
+      hideBigTitle,
+      bigTitleStyle,
+      increaseFontSize,
+      children,
       withShadow,
       backButton = {},
       bigBackButton = {},
@@ -119,7 +55,7 @@ class ScrollableBigNavBar extends React.Component {
       bigLeftIcons,
       bigRightIcons,
       statusBar,
-      VirtualList
+      ScrollComponent = Animated.ScrollView
     } = this.props;
     const { reached } = this.state;
     return (
@@ -141,13 +77,13 @@ class ScrollableBigNavBar extends React.Component {
           animatedValue={this.scroll}
           backgroundColor={backgroundColor}
           title={title}
-          titleStyle={[titleStyle]}
+          titleStyle={titleStyle}
           style={{
             borderBottomWidth: borderColor !== undefined && reached ? 1 : 0,
             borderBottomColor: borderColor,
             opacity: this.scroll.interpolate({
               inputRange: [
-                height - (NAVIGATION_BAR_HEIGHT + 10),
+                height - (NAVIGATION_BAR_HEIGHT + 30),
                 height - NAVIGATION_BAR_HEIGHT
               ],
               outputRange: [0, 1],
@@ -170,9 +106,42 @@ class ScrollableBigNavBar extends React.Component {
             imageStyle={imageStyle}
           />
         )}
-        {VirtualList !== undefined
-          ? this.renderVirtualList()
-          : this.renderScrollView()}
+        <ScrollComponent
+          scrollEventThrottle={1}
+          onScroll={Animated.event(
+            [{ nativeEvent: { contentOffset: { y: this.scroll } } }],
+            {
+              listener: this.scrollListener.bind(this),
+              useNativeDriver: !(
+                withShadow ||
+                increaseFontSize ||
+                imageToNavBar
+              )
+            }
+          )}
+          ListHeaderComponent={() => (
+            <BigNavigationBar
+              animatedValue={this.scroll}
+              height={height}
+              backgroundColor="transparent"
+              borderColor={borderColor}
+              bigTitleStyle={bigTitleStyle}
+              title={!hideBigTitle && title}
+              increaseFontSize={increaseFontSize}
+            />
+          )}
+        >
+          <BigNavigationBar
+            animatedValue={this.scroll}
+            height={height}
+            backgroundColor="transparent"
+            borderColor={borderColor}
+            bigTitleStyle={bigTitleStyle}
+            title={!hideBigTitle && title}
+            increaseFontSize={increaseFontSize}
+          />
+          {children}
+        </ScrollComponent>
       </View>
     );
   }

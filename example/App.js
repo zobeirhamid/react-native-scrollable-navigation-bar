@@ -3,12 +3,14 @@ import { View, Text, TouchableOpacity, StatusBar } from 'react-native';
 import { createStackNavigator, createAppContainer } from 'react-navigation';
 import {
   RegularNavigationBar,
+  CustomStickyNavigationBar,
   BigNavigationBar,
+  BigNavigationBarCustomTitle,
   BigImageNavigationBar,
   BigImageParallaxNavigationBar,
   BigImageToNavigationBar,
-  CustomNavigationBar,
-  CustomImageNavigationBar
+  AnimatedNavigationBar,
+  AnimatedImageNavigationBar
 } from './examples';
 import NavigationService from './NavigationService';
 
@@ -64,12 +66,14 @@ class HomeScreen extends React.Component {
           barStyle="dark-content"
         />
         {this.renderLink('RegularNavigationBar')}
+        {this.renderLink('CustomStickyNavigationBar')}
         {this.renderLink('BigNavigationBar')}
+        {this.renderLink('BigNavigationBarCustomTitle')}
         {this.renderLink('BigImageNavigationBar')}
         {this.renderLink('BigImageParallaxNavigationBar')}
         {this.renderLink('BigImageToNavigationBar')}
-        {this.renderLink('CustomNavigationBar')}
-        {this.renderLink('CustomImageNavigationBar')}
+        {this.renderLink('AnimatedNavigationBar')}
+        {this.renderLink('AnimatedImageNavigationBar')}
       </View>
     );
   }
@@ -79,12 +83,14 @@ const AppNavigator = createStackNavigator(
   {
     HomeScreen,
     RegularNavigationBar: Screen(RegularNavigationBar),
+    CustomStickyNavigationBar: Screen(CustomStickyNavigationBar),
     BigNavigationBar: Screen(BigNavigationBar),
+    BigNavigationBarCustomTitle: Screen(BigNavigationBarCustomTitle),
     BigImageNavigationBar: Screen(BigImageNavigationBar),
     BigImageParallaxNavigationBar: Screen(BigImageParallaxNavigationBar),
     BigImageToNavigationBar: Screen(BigImageToNavigationBar),
-    CustomNavigationBar: Screen(CustomNavigationBar),
-    CustomImageNavigationBar: Screen(CustomImageNavigationBar)
+    AnimatedNavigationBar: Screen(AnimatedNavigationBar),
+    AnimatedImageNavigationBar: Screen(AnimatedImageNavigationBar)
   },
   {
     headerMode: 'none'

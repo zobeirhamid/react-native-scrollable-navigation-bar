@@ -20,7 +20,7 @@ function interpolateStyles(animatedValue, inputRange, startStyle, endStyle) {
   return interpolatedStyle;
 }
 
-class CustomNavigationBar extends React.Component {
+class AnimatedNavigationBar extends React.Component {
   state = {
     titleWidth: 0
   };
@@ -139,4 +139,4 @@ class CustomNavigationBar extends React.Component {
   }
 }
 
-export default CustomNavigationBar;
+export default AnimatedNavigationBar;
