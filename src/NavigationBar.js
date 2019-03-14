@@ -4,8 +4,6 @@ import NavigationBarTitle from './NavigationBarTitle';
 import BackButton from './BackButton';
 import NavigationBarIcon from './NavigationBarIcon';
 
-import { NAVIGATION_BAR_HEIGHT } from './constants';
-
 class NavigationBar extends React.Component {
   renderIcons(icons, side) {
     if (icons === undefined) return null;
@@ -28,7 +26,8 @@ class NavigationBar extends React.Component {
       backButton,
       pointerEvents,
       leftIcons,
-      rightIcons
+      rightIcons,
+      navigationBarHeight
     } = this.props;
     if (collapsible) {
       const minScroll = 100;
@@ -43,7 +42,7 @@ class NavigationBar extends React.Component {
 
       const translateY = Animated.diffClamp(
         minusScrollY,
-        -NAVIGATION_BAR_HEIGHT,
+        -navigationBarHeight,
         0
       );
     }
@@ -56,7 +55,7 @@ class NavigationBar extends React.Component {
           top: 0,
           left: 0,
           right: 0,
-          height: NAVIGATION_BAR_HEIGHT,
+          height: navigationBarHeight,
           shadowRadius: 5,
           shadowColor: '#000',
           shadowOffset: { height: 8, width: 0 },

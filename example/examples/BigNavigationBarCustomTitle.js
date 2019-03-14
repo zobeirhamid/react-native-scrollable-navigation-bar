@@ -2,61 +2,48 @@ import React from 'react';
 import { View, FlatList, Text, Animated } from 'react-native';
 import BigImageToNavigationBar from './BigImageToNavigationBar';
 
-function PlaceHolder() {
-  return (
-    <View
-      style={{
-        height: 200,
-        backgroundColor: '#EAEAEA',
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginBottom: 15,
-        marginHorizontal: 15
-      }}
-    />
-  );
-}
-
 class BigNavigationBarCustomTitle extends React.Component {
   scroll = new Animated.Value(0);
 
   state = {
-    titleStyle: {}
+    titleStyle: {},
+    rendered: false
   };
 
   render() {
-    const { titleStyle } = this.state;
+    const { titleStyle, rendered } = this.state;
     return (
       <View style={{ flex: 1 }}>
         <BigImageToNavigationBar
           animatedValue={this.scroll}
           hideBigTitle
-          ScrollComponent={undefined}
+          ListHeaderComponent={() => (
+            <View
+              onLayout={
+                rendered
+                  ? () => {}
+                  : event => {
+                      const { x, y, width, height } = event.nativeEvent.layout;
+                      this.setState({
+                        rendered: true,
+                        titleStyle: {
+                          opacity: this.scroll.interpolate({
+                            inputRange: [y - height + 30, y - height + 60],
+                            outputRange: [0, 1],
+                            extrapolate: 'clamp'
+                          })
+                        }
+                      });
+                    }
+              }
+              style={{ padding: 15, backgroundColor: 'white' }}
+            >
+              <Text style={{ fontSize: 36, fontWeight: 'bold' }}>Title</Text>
+            </View>
+          )}
           titleStyle={titleStyle}
           {...this.props}
-        >
-          <View
-            onLayout={event => {
-              const { x, y, width, height } = event.nativeEvent.layout;
-              this.setState({
-                titleStyle: {
-                  opacity: this.scroll.interpolate({
-                    inputRange: [y - height, y - height + 30],
-                    outputRange: [0, 1],
-                    extrapolate: 'clamp'
-                  })
-                }
-              });
-            }}
-            style={{ margin: 15 }}
-          >
-            <Text style={{ fontSize: 36, fontWeight: 'bold' }}>Title</Text>
-          </View>
-          <PlaceHolder />
-          <PlaceHolder />
-          <PlaceHolder />
-          <PlaceHolder />
-        </BigImageToNavigationBar>
+        />
       </View>
     );
   }

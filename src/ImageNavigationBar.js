@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Animated, Platform, StatusBar } from 'react-native';
-import { NAVIGATION_BAR_HEIGHT } from './constants';
 
 class ImageNavigationBar extends React.Component {
   render() {
@@ -12,7 +11,8 @@ class ImageNavigationBar extends React.Component {
       backgroundColor,
       imageToNavBar,
       imageStyle,
-      ImageComponent = Animated.Image
+      ImageComponent = Animated.Image,
+      navigationBarHeight
     } = this.props;
     return (
       <Animated.View
@@ -28,15 +28,15 @@ class ImageNavigationBar extends React.Component {
           style={{
             opacity: imageToNavBar
               ? animatedValue.interpolate({
-                  inputRange: [0, height - NAVIGATION_BAR_HEIGHT],
+                  inputRange: [0, height - navigationBarHeight],
                   outputRange: [1, 0],
                   extrapolate: 'clamp'
                 })
               : undefined,
             height: imageToNavBar
               ? animatedValue.interpolate({
-                  inputRange: [0, height - NAVIGATION_BAR_HEIGHT],
-                  outputRange: [height, NAVIGATION_BAR_HEIGHT],
+                  inputRange: [0, height - navigationBarHeight],
+                  outputRange: [height, navigationBarHeight],
                   extrapolateLeft: 'clamp'
                 })
               : undefined,

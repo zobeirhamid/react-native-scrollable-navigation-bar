@@ -19,14 +19,19 @@ class ScrollableBigNavBar extends React.Component {
 
   scrollListener(event) {
     const { y } = event.nativeEvent.contentOffset;
-    const { height, onReached, onUnReached } = this.props;
+    const {
+      height,
+      onReached,
+      onUnReached,
+      navigationBarHeight = NAVIGATION_BAR_HEIGHT
+    } = this.props;
     const { reached } = this.state;
 
-    if (!reached && y >= height - NAVIGATION_BAR_HEIGHT) {
+    if (!reached && y >= height - navigationBarHeight) {
       this.setState({ reached: true });
       if (onReached !== undefined) onReached();
     }
-    if (reached && y < height - NAVIGATION_BAR_HEIGHT) {
+    if (reached && y < height - navigationBarHeight) {
       this.setState({ reached: false });
       if (onUnReached !== undefined) onUnReached();
     }
@@ -56,46 +61,52 @@ class ScrollableBigNavBar extends React.Component {
       bigLeftIcons,
       bigRightIcons,
       statusBar,
-      ScrollComponent = Animated.ScrollView
+      ScrollComponent = Animated.ScrollView,
+      ListHeaderComponent,
+      NavigationBarComponent = NavigationBar,
+      navigationBarHeight = NAVIGATION_BAR_HEIGHT,
+      withBigBorder
     } = this.props;
     const { reached } = this.state;
     return (
       <View style={{ flex: 1 }}>
         <StatusBar {...statusBar} />
-        <NavigationBar
+        <NavigationBarComponent
           backgroundColor={
             image === undefined ? backgroundColor : 'transparent'
           }
           animatedValue={this.scroll}
           withShadow={withShadow}
-          offset={height - NAVIGATION_BAR_HEIGHT}
+          offset={height - navigationBarHeight}
           backButton={{ ...backButton, ...bigBackButton }}
           leftIcons={bigLeftIcons || leftIcons}
           rightIcons={bigRightIcons || rightIcons}
+          navigationBarHeight={navigationBarHeight}
         />
-        <NavigationBar
+        <NavigationBarComponent
           pointerEvents={reached ? 'auto' : 'none'}
           animatedValue={this.scroll}
           backgroundColor={backgroundColor}
           title={title}
           titleStyle={titleStyle}
           style={{
-            borderBottomWidth:
-              borderColor !== undefined
-                ? this.scroll.interpolate({
-                    inputRange: [
-                      height - NAVIGATION_BAR_HEIGHT - 1,
-                      height - NAVIGATION_BAR_HEIGHT
-                    ],
-                    outputRange: [0, 1],
-                    extrapolate: 'clamp'
-                  })
-                : 0,
+            borderBottomWidth: withBigBorder
+              ? this.scroll.interpolate({
+                  inputRange: [
+                    height - navigationBarHeight - 1,
+                    height - navigationBarHeight
+                  ],
+                  outputRange: [0, 1],
+                  extrapolate: 'clamp'
+                })
+              : borderColor !== undefined
+              ? 1
+              : 0,
             borderBottomColor: borderColor,
             opacity: this.scroll.interpolate({
               inputRange: [
-                height - (NAVIGATION_BAR_HEIGHT + 30),
-                height - NAVIGATION_BAR_HEIGHT
+                height - (navigationBarHeight + 30),
+                height - navigationBarHeight
               ],
               outputRange: [0, 1],
               extrapolate: 'clamp'
@@ -103,9 +114,10 @@ class ScrollableBigNavBar extends React.Component {
           }}
           backButton={backButton}
           withShadow={withShadow}
-          offset={height - NAVIGATION_BAR_HEIGHT}
+          offset={height - navigationBarHeight}
           leftIcons={leftIcons}
           rightIcons={rightIcons}
+          navigationBarHeight={navigationBarHeight}
         />
         <ScrollComponent
           nestedScrollEnabled
@@ -118,7 +130,7 @@ class ScrollableBigNavBar extends React.Component {
                 withShadow ||
                 increaseFontSize ||
                 imageToNavBar ||
-                borderColor !== undefined
+                withBigBorder !== undefined
               )
             }
           )}
@@ -133,6 +145,7 @@ class ScrollableBigNavBar extends React.Component {
                   imageToNavBar={imageToNavBar}
                   imageStyle={imageStyle}
                   ImageComponent={ImageComponent}
+                  navigationBarHeight={navigationBarHeight}
                 />
               )}
               <BigNavigationBar
@@ -140,11 +153,12 @@ class ScrollableBigNavBar extends React.Component {
                 animatedValue={this.scroll}
                 height={height}
                 backgroundColor="transparent"
-                borderColor={borderColor}
+                borderColor={withBigBorder ? borderColor : undefined}
                 bigTitleStyle={bigTitleStyle}
                 title={!hideBigTitle && title}
                 increaseFontSize={increaseFontSize}
               />
+              {ListHeaderComponent !== undefined && <ListHeaderComponent />}
             </View>
           )}
         >
@@ -158,6 +172,7 @@ class ScrollableBigNavBar extends React.Component {
                 imageToNavBar={imageToNavBar}
                 imageStyle={imageStyle}
                 ImageComponent={ImageComponent}
+                navigationBarHeight={navigationBarHeight}
               />
             )}
             <BigNavigationBar
@@ -165,11 +180,12 @@ class ScrollableBigNavBar extends React.Component {
               animatedValue={this.scroll}
               height={height}
               backgroundColor="transparent"
-              borderColor={borderColor}
+              borderColor={withBigBorder ? borderColor : undefined}
               bigTitleStyle={bigTitleStyle}
               title={!hideBigTitle && title}
               increaseFontSize={increaseFontSize}
             />
+            {ListHeaderComponent !== undefined && <ListHeaderComponent />}
           </View>
           {children}
         </ScrollComponent>

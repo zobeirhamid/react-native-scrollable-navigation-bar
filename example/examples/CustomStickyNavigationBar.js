@@ -10,8 +10,15 @@ class CustomStickyNavigationBar extends React.Component {
   render() {
     return (
       <RegularNavigationBar
+        navigationBarHeight={100}
         NavigationBarComponent={props => (
-          <StickyNavigationBar {...props}>
+          <StickyNavigationBar
+            NavigationBarComponent={() => (
+              <View style={{ height: 100, backgroundColor: 'red' }} />
+            )}
+            {...props}
+            backgroundColor="red"
+          >
             <View style={{ height: 200, backgroundColor: 'dodgerblue' }} />
           </StickyNavigationBar>
         )}

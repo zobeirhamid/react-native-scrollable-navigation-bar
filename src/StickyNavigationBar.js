@@ -1,6 +1,6 @@
 import React from 'react';
 import { Animated, View } from 'react-native';
-import { NAVIGATION_BAR_HEIGHT, STATUS_BAR_HEIGHT } from './constants';
+import { STATUS_BAR_HEIGHT } from './constants';
 import NavigationBar from './NavigationBar';
 
 class StickyNavigationBar extends React.Component {
@@ -9,7 +9,9 @@ class StickyNavigationBar extends React.Component {
       animatedValue,
       stickyHeight,
       children,
-      backgroundColor
+      backgroundColor,
+      NavigationBarComponent = NavigationBar,
+      navigationBarHeight
     } = this.props;
     return (
       <View
@@ -18,7 +20,7 @@ class StickyNavigationBar extends React.Component {
           position: 'absolute',
           left: 0,
           right: 0,
-          height: NAVIGATION_BAR_HEIGHT
+          height: navigationBarHeight
         }}
       >
         <Animated.View
@@ -34,8 +36,8 @@ class StickyNavigationBar extends React.Component {
               {
                 translateY: animatedValue.interpolate({
                   inputRange: [
-                    NAVIGATION_BAR_HEIGHT - STATUS_BAR_HEIGHT,
-                    NAVIGATION_BAR_HEIGHT
+                    navigationBarHeight - STATUS_BAR_HEIGHT,
+                    navigationBarHeight
                   ],
                   outputRange: [0, -STATUS_BAR_HEIGHT],
                   extrapolate: 'clamp'
@@ -46,20 +48,20 @@ class StickyNavigationBar extends React.Component {
         />
         <Animated.View
           style={{
-            height: NAVIGATION_BAR_HEIGHT + stickyHeight,
+            height: navigationBarHeight + stickyHeight,
             justifyContent: 'flex-end',
             transform: [
               {
                 translateY: animatedValue.interpolate({
-                  inputRange: [0, NAVIGATION_BAR_HEIGHT],
-                  outputRange: [0, -NAVIGATION_BAR_HEIGHT],
+                  inputRange: [0, navigationBarHeight],
+                  outputRange: [0, -navigationBarHeight],
                   extrapolate: 'clamp'
                 })
               }
             ]
           }}
         >
-          <NavigationBar {...this.props} />
+          <NavigationBarComponent {...this.props} />
           {children}
         </Animated.View>
       </View>

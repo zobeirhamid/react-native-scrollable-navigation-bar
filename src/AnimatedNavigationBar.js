@@ -3,7 +3,6 @@ import { Animated, View, Dimensions } from 'react-native';
 import BigNavigationBarTitle from './BigNavigationBarTitle';
 
 const { width } = Dimensions.get('window');
-import { NAVIGATION_BAR_HEIGHT } from './constants';
 
 function interpolateStyles(animatedValue, inputRange, startStyle, endStyle) {
   const interpolatedStyle = {};
@@ -35,7 +34,8 @@ class AnimatedNavigationBar extends React.Component {
       imageStyle,
       title,
       titleStyle,
-      bigTitleStyle
+      bigTitleStyle,
+      navigationBarHeight
     } = this.props;
     const { titleWidth } = this.state;
     return (
@@ -47,8 +47,8 @@ class AnimatedNavigationBar extends React.Component {
           right: 0,
           zIndex: 1,
           height: animatedValue.interpolate({
-            inputRange: [-1, 0, height - NAVIGATION_BAR_HEIGHT],
-            outputRange: [height + 1, height, NAVIGATION_BAR_HEIGHT],
+            inputRange: [-1, 0, height - navigationBarHeight],
+            outputRange: [height + 1, height, navigationBarHeight],
             extrapolateRight: 'clamp'
           }),
           justifyContent: 'flex-end',
@@ -67,12 +67,12 @@ class AnimatedNavigationBar extends React.Component {
                 left: 0,
                 right: 0,
                 height: animatedValue.interpolate({
-                  inputRange: [0, height - NAVIGATION_BAR_HEIGHT],
-                  outputRange: [height, NAVIGATION_BAR_HEIGHT],
+                  inputRange: [0, height - navigationBarHeight],
+                  outputRange: [height, navigationBarHeight],
                   extrapolate: 'clamp'
                 }),
                 opacity: animatedValue.interpolate({
-                  inputRange: [0, height - NAVIGATION_BAR_HEIGHT],
+                  inputRange: [0, height - navigationBarHeight],
                   outputRange: [1, 0],
                   extrapolate: 'clamp'
                 }),
@@ -108,13 +108,13 @@ class AnimatedNavigationBar extends React.Component {
               bigTitleStyle={[
                 interpolateStyles(
                   animatedValue,
-                  [0, height - NAVIGATION_BAR_HEIGHT],
+                  [0, height - navigationBarHeight],
                   bigTitleStyle,
                   titleStyle
                 ),
                 {
                   fontSize: animatedValue.interpolate({
-                    inputRange: [-40, 0, height - NAVIGATION_BAR_HEIGHT],
+                    inputRange: [-40, 0, height - navigationBarHeight],
                     outputRange: [44, 36, 18],
                     extrapolate: 'clamp'
                   })
@@ -127,7 +127,7 @@ class AnimatedNavigationBar extends React.Component {
           <Animated.View
             style={{
               width: animatedValue.interpolate({
-                inputRange: [0, height - NAVIGATION_BAR_HEIGHT],
+                inputRange: [0, height - navigationBarHeight],
                 outputRange: [width - titleWidth - 30, 0],
                 extrapolate: 'clamp'
               })

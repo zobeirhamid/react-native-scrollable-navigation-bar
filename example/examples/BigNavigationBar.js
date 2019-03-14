@@ -33,6 +33,7 @@ class BigNavigationBar extends React.Component {
         title="Regular"
         backgroundColor="white"
         borderColor="#EAEAEA"
+        // withBigBorder
         // withShadow
         backButton={{
           visible: true,

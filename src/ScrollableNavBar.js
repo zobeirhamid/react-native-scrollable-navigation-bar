@@ -17,14 +17,18 @@ class ScrollableNavBar extends React.Component {
 
   scrollListener(event) {
     const { y } = event.nativeEvent.contentOffset;
-    const { onSticky, onUnSticky } = this.props;
+    const {
+      onSticky,
+      onUnSticky,
+      navigationBarHeight = NAVIGATION_BAR_HEIGHT
+    } = this.props;
     const { sticked } = this.state;
 
-    if (!sticked && y >= NAVIGATION_BAR_HEIGHT) {
+    if (!sticked && y >= navigationBarHeight) {
       this.setState({ sticked: true });
       if (onSticky !== undefined) onSticky();
     }
-    if (sticked && y < NAVIGATION_BAR_HEIGHT) {
+    if (sticked && y < navigationBarHeight) {
       this.setState({ sticked: false });
       if (onUnSticky !== undefined) onUnSticky();
     }
@@ -44,7 +48,8 @@ class ScrollableNavBar extends React.Component {
       statusBar,
       ScrollComponent = ScrollView,
       NavigationBarComponent = NavigationBar,
-      stickyHeight = 0
+      stickyHeight = 0,
+      navigationBarHeight = NAVIGATION_BAR_HEIGHT
     } = this.props;
     return (
       <View style={{ flex: 1 }}>
@@ -60,6 +65,7 @@ class ScrollableNavBar extends React.Component {
           leftIcons={leftIcons}
           rightIcons={rightIcons}
           stickyHeight={stickyHeight}
+          navigationBarHeight={navigationBarHeight}
         />
         <ScrollComponent
           scrollEventThrottle={1}
@@ -73,7 +79,7 @@ class ScrollableNavBar extends React.Component {
           )}
           contentContainerStyle={{
             paddingTop:
-              NAVIGATION_BAR_HEIGHT +
+              navigationBarHeight +
               stickyHeight +
               (this.props.contentContainerStyle !== undefined &&
               this.props.contentContainerStyle.paddingTop !== undefined

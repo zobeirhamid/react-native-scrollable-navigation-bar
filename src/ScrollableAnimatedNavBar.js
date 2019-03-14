@@ -30,7 +30,8 @@ class ScrollableAnimatedNavBar extends React.Component {
       titleStyle,
       bigTitleStyle,
       withShadow,
-      statusBar
+      statusBar,
+      navigationBarHeight = NAVIGATION_BAR_HEIGHT
     } = this.props;
     return (
       <View style={{ flex: 1 }}>
@@ -46,6 +47,7 @@ class ScrollableAnimatedNavBar extends React.Component {
           titleStyle={titleStyle}
           bigTitleStyle={bigTitleStyle}
           withShadow={withShadow}
+          navigationBarHeight={navigationBarHeight}
         />
         <Animated.ScrollView
           overScrollMode="never"
