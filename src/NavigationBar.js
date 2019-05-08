@@ -3,6 +3,7 @@ import { Animated, View, Text, StatusBar, Platform } from 'react-native';
 import NavigationBarTitle from './NavigationBarTitle';
 import BackButton from './BackButton';
 import NavigationBarIcon from './NavigationBarIcon';
+import {STATUS_BAR_HEIGHT} from './constants'
 
 class NavigationBar extends React.Component {
   renderIcons(icons, side) {
@@ -83,7 +84,7 @@ class NavigationBar extends React.Component {
         >
           <View
             style={{
-              paddingTop: Platform.OS === 'ios' ? 20 : StatusBar.currentHeight,
+              paddingTop: STATUS_BAR_HEIGHT,
               flex: 1,
               flexDirection: 'row',
               alignItems: 'center',

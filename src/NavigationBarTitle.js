@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Animated, View, Text, StatusBar, Platform } from 'react-native';
+import {STATUS_BAR_HEIGHT} from './constants'
 
 class NavigationBarTitle extends React.Component {
   render() {
@@ -9,7 +10,7 @@ class NavigationBarTitle extends React.Component {
         pointerEvents="box-none"
         style={{
           position: 'absolute',
-          top: Platform.OS === 'ios' ? 20 : StatusBar.currentHeight,
+          top: STATUS_BAR_HEIGHT,
           left: 0,
           right: 0,
           bottom: 0,
