@@ -5449,9 +5449,10 @@ react-native-safe-area-view@^0.13.0:
   version "1.0.0-alpha.22"
   resolved "https://registry.yarnpkg.com/react-native-screens/-/react-native-screens-1.0.0-alpha.22.tgz#7a120377b52aa9bbb94d0b8541a014026be9289b"
 
-react-native-scrollable-navigation-bar@^0.0.5:
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/react-native-scrollable-navigation-bar/-/react-native-scrollable-navigation-bar-0.0.5.tgz#a19f9898c5d96304df03f050790da007fa5093be"
+react-native-scrollable-navigation-bar@^0.0.7:
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/react-native-scrollable-navigation-bar/-/react-native-scrollable-navigation-bar-0.0.7.tgz#a031cf4e5c3d13337dc7470165966720af8d7925"
+  integrity sha512-/5DKatP1WLv0ijHDEXT2kRLbMubEjTXq68MTThB2Sqx95I72lLhKIeLLMF1arOc1fjSWFasmgIKMRxjJay1N0w==
 
 react-native-status-bar-height@^2.2.0:
   version "2.3.1"

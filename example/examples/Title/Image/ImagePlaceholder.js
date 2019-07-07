@@ -6,7 +6,7 @@ const { width } = Dimensions.get('window');
 class ImagePlaceholder extends React.Component {
   render() {
     return (
-      <Image source={require('./header.jpg')} style={{ width, height: 200 }} />
+      <Image source={require('./header.jpg')} style={{ width, height: 250 }} />
     );
   }
 }

@@ -11,14 +11,14 @@ class MainTitleNavigationBar extends React.Component {
   render() {
     return (
       <ScrollableNavigationBar
-        transitionPoint={200}
+        transitionPoint={250}
         StatusBar={() => (
           <StatusBarComponent
             barStyle="dark-content"
             backgroundColor="#f5f5f5"
           />
         )}
-        title="TitleNavigation"
+        title="Title"
         backgroundColor="#f5f5f5"
         borderColor="lightgrey"
         BackButton={({ style }) => (
