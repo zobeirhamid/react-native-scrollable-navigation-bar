@@ -3,3 +3,10 @@ npm-debug.log
 .DS_Store
 example
 demo.gif
+.eslintrc
+.flowconfig
+.babelrc
+.git
+.gitignore
+babel.config
+yarn.lock
