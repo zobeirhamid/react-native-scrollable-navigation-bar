@@ -246,6 +246,7 @@ class ScrollableNavigationBar extends React.Component<ScrollableNavigationBarPro
         afterTransitionPoint={afterTransitionPoint}
         transitionPoint={transitionPoint}
         headerHeight={transitionPoint - snapHeight}
+        snapHeight={snapHeight}
         animatedValue={animatedValue}
         ScrollComponent={ScrollComponent}
         ref={containerRef}

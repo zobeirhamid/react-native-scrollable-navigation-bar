@@ -19,7 +19,8 @@ class Container extends React.Component<ContainerProps, ContainerState> {
     navigationBarHeight: NAVIGATION_BAR_HEIGHT,
     transitionPoint: NAVIGATION_BAR_HEIGHT,
     Header: () => null,
-    StatusBar: () => null
+    StatusBar: () => null,
+    snapHeight: 0
   };
 
   state = {
@@ -93,7 +94,8 @@ class Container extends React.Component<ContainerProps, ContainerState> {
       navigationBarHeight,
       headerHeight,
       transitionPoint,
-      style
+      style,
+      snapHeight
     } = this.props;
     return (
       <Context.Provider
@@ -112,6 +114,10 @@ class Container extends React.Component<ContainerProps, ContainerState> {
         <ScrollComponent
           nestedScrollEnabled
           scrollEventThrottle={1}
+          snapToOffsets={[snapHeight, transitionPoint - navigationBarHeight]}
+          snapToEnd={false}
+          snapToStart
+          decelerationRate={0.994}
           onScroll={Animated.event(
             [{ nativeEvent: { contentOffset: { y: this.animatedValue } } }],
             {

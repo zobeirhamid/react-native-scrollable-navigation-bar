@@ -15,7 +15,8 @@ export type ContainerDefaultProps = {|
   Header: React.AbstractComponent<
     React.Config<HeaderProps, HeaderDefaultProps>
   >,
-  StatusBar: React.ComponentType<StatusBarComponentProps>
+  StatusBar: React.ComponentType<StatusBarComponentProps>,
+  snapHeight: 0
 |};
 
 export type ContainerProps = {|
