@@ -10,11 +10,9 @@ I completely rewrote this package since adding new features was way too troubles
 
 This package provides a set of navigation bars for ScrollViews with different animations.
 
-<div style="display:flex; flex-direction:row; justify-content:space-between;">
-  <img src="https://raw.githubusercontent.com/zobeirhamid/react-native-scrollable-navigation-bar/master/collapsibleRegular.gif" alt="Collapsible Regular Navigation Bar" /><br>
-  <img src="https://raw.githubusercontent.com/zobeirhamid/react-native-scrollable-navigation-bar/master/searchTitle.gif" alt="Search Title Navigation Bar" /><br>
-  <img src="https://raw.githubusercontent.com/zobeirhamid/react-native-scrollable-navigation-bar/master/imageTitle.gif" alt="Image Title NavigationBar" /><br>
-</div>
+![Collapsible Regular Navigation Bar](https://raw.githubusercontent.com/zobeirhamid/react-native-scrollable-navigation-bar/master/collapsibleRegular.gif 'Collapsible Regular Navigation Bar')
+![Search Title Navigation Bar](https://raw.githubusercontent.com/zobeirhamid/react-native-scrollable-navigation-bar/master/searchTitle.gif 'Search Title Navigation Bar')
+![Image Title Navigation Bar](https://raw.githubusercontent.com/zobeirhamid/react-native-scrollable-navigation-bar/master/imageTitle.gif 'Image Title Navigation Bar')
 
 ## Documentation
 
