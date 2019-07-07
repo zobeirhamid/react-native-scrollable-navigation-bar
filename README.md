@@ -17,3 +17,8 @@ This package provides a set of navigation bars for ScrollViews with different an
 ## Documentation
 
 _Coming soon; for now checkout the example folder._
+
+## Roadmap
+
+- [ ] Supporting Tabs
+- [ ] Supporting Section List with Section Header being the new Sticky elements
