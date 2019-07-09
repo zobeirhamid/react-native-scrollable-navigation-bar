@@ -5,3 +5,7 @@ yarn.lock
 collapsibleRegular.mov
 searchTitle.mov
 imageTitle.mov
+
+# Custom
+example/yarn.lock
+example/package-lock.json

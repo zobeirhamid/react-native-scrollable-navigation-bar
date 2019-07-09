@@ -11,7 +11,7 @@
     "react-native": "0.58.6",
     "react-native-elements": "^1.1.0",
     "react-native-gesture-handler": "^1.1.0",
-    "react-native-scrollable-navigation-bar": "^0.0.7",
+    "react-native-scrollable-navigation-bar": "^0.0.9",
     "react-native-vector-icons": "^6.3.0",
     "react-navigation": "^3.3.2"
   },

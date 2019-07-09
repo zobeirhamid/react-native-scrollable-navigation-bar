@@ -265,6 +265,7 @@ class ScrollableNavigationBar extends React.Component<ScrollableNavigationBarPro
             </Sticky>
           </React.Fragment>
         )}
+        {...this.props}
       >
         {children}
       </ContainerComponent>
