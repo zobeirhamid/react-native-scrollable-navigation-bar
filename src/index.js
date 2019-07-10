@@ -24,7 +24,7 @@ const ImageStatusBar = () => (
 export type NavigationBarProps = {
   title?: string,
   titleStyle?: mixed,
-  backgroundColor?: string,
+  headerBackgroundColor?: string,
   borderColor?: string,
   BackButton: React.ComponentType<BackButtonProps>,
   leftIcons?: ?(React.Element<typeof NavigationBarIcon>[]),
@@ -48,7 +48,7 @@ export type ScrollableNavigationBarProps = {
   ...ScrollableNavigationBarDefaultProps,
   title?: string,
   titleStyle?: mixed,
-  backgroundColor?: string,
+  headerBackgroundColor?: string,
   borderColor?: string,
   leftIcons?: ?(React.Element<typeof NavigationBarIcon>[]),
   rightIcons?: ?(React.Element<typeof NavigationBarIcon>[]),
@@ -111,13 +111,14 @@ class ScrollableNavigationBar extends React.Component<ScrollableNavigationBarPro
     }));
   }
 
-  renderNavigationBarContainer() {
+  renderNavigationBarContainer(props) {
     const { collapsible, stayCollapsed } = this.props;
 
     return (
       <NavigationBarContainer
         collapsible={collapsible}
         stayCollapsed={stayCollapsed}
+        {...props}
       >
         {this.renderNavigationBar(this.props)}
       </NavigationBarContainer>
@@ -127,7 +128,7 @@ class ScrollableNavigationBar extends React.Component<ScrollableNavigationBarPro
   renderNavigationBar({
     title,
     titleStyle,
-    backgroundColor,
+    headerBackgroundColor,
     borderColor,
     BackButton,
     leftIcons,
@@ -139,7 +140,7 @@ class ScrollableNavigationBar extends React.Component<ScrollableNavigationBarPro
       <NavigationBar
         title={title}
         titleStyle={titleStyle}
-        backgroundColor={backgroundColor}
+        backgroundColor={headerBackgroundColor}
         borderColor={
           transitionPoint !==
           ScrollableNavigationBar.defaultProps.transitionPoint
@@ -153,13 +154,13 @@ class ScrollableNavigationBar extends React.Component<ScrollableNavigationBarPro
     );
   }
 
-  renderHeader() {
+  renderHeader(props) {
     const {
       title,
       titleStyle,
       headerTitle,
       headertitleStyle,
-      backgroundColor,
+      headerBackgroundColor,
       borderColor,
       collapsible,
       stayCollapsed,
@@ -186,11 +187,12 @@ class ScrollableNavigationBar extends React.Component<ScrollableNavigationBarPro
           collapsible={collapsible}
           title={headerTitle || title}
           titleStyle={headertitleStyle || titleStyle || imageStyle}
-          backgroundColor={backgroundColor}
+          backgroundColor={headerBackgroundColor}
           borderColor={SnapComponent !== undefined ? undefined : borderColor}
           snapHeight={snapHeight}
           parallax={parallax}
           fadeOut={fadeOut}
+          SnapComponent={SnapComponent}
           BackgroundComponent={ImageComponent}
           ForegroundComponent={HeaderForegroundComponent}
           UnscrolledNavigationBar={
@@ -204,10 +206,10 @@ class ScrollableNavigationBar extends React.Component<ScrollableNavigationBarPro
                     leftIcons: bigLeftIcons || leftIcons,
                     rightIcons: bigRightIcons || rightIcons,
                     iconStyle: bigIconStyle || iconStyle || imageStyle,
-                    backgroundColor:
+                    headerBackgroundColor:
                       ImageComponent !== undefined
                         ? 'transparent'
-                        : this.props.backgroundColor
+                        : this.props.headerBackgroundColor
                   })
           }
           ScrolledNavigationBar={
@@ -215,10 +217,8 @@ class ScrollableNavigationBar extends React.Component<ScrollableNavigationBarPro
               ? HeaderScrolledComponent
               : () => this.renderNavigationBar(this.props)
           }
+          {...props}
         />
-        <Snap snapHeight={snapHeight}>
-          {SnapComponent !== undefined && <SnapComponent />}
-        </Snap>
       </React.Fragment>
     );
   }
@@ -251,12 +251,12 @@ class ScrollableNavigationBar extends React.Component<ScrollableNavigationBarPro
         ScrollComponent={ScrollComponent}
         ref={containerRef}
         StatusBar={ImageComponent !== undefined ? ImageStatusBar : StatusBar}
-        Header={() => (
+        Header={props => (
           <React.Fragment>
             {transitionPoint ===
             ScrollableNavigationBar.defaultProps.transitionPoint
-              ? this.renderNavigationBarContainer()
-              : this.renderHeader()}
+              ? this.renderNavigationBarContainer(props)
+              : this.renderHeader(props)}
             <Sticky
               collapsible={stickyCollapsible}
               stayCollapsed={stayCollapsed}

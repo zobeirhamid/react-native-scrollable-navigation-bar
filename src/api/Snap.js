@@ -6,17 +6,39 @@ import type { SnapProps } from '../types';
 
 class Snap extends React.Component<SnapProps> {
   render() {
-    const { snapHeight, children, animatedValue } = this.props;
+    const {
+      snapHeight,
+      children,
+      animatedValue,
+      headerHeight,
+      backgroundColor
+    } = this.props;
     if (snapHeight === 0) return null;
 
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <Animated.View
+        style={{
+          position: 'absolute',
+          top: headerHeight,
+          zIndex: 1,
+          height: snapHeight,
+          transform: [
+            {
+              translateY: animatedValue.interpolate({
+                inputRange: [-1, 0, snapHeight],
+                outputRange: [1, 0, -snapHeight],
+                extrapolateRight: 'clamp'
+              })
+            }
+          ]
+        }}
+      >
         <Animated.View
           style={{
             transform: [
               {
                 scaleY: animatedValue.interpolate({
-                  inputRange: [0, snapHeight],
+                  inputRange: [0, 50],
                   outputRange: [1, 0],
                   extrapolate: 'clamp'
                 })
@@ -26,7 +48,7 @@ class Snap extends React.Component<SnapProps> {
         >
           {children}
         </Animated.View>
-      </View>
+      </Animated.View>
     );
   }
 }

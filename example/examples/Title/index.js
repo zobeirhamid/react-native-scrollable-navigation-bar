@@ -19,7 +19,7 @@ class MainTitleNavigationBar extends React.Component {
           />
         )}
         title="Title"
-        backgroundColor="#f5f5f5"
+        headerBackgroundColor="#f5f5f5"
         borderColor="lightgrey"
         BackButton={({ style }) => (
           <BackButton

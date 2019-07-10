@@ -6,7 +6,7 @@ class SnapTitleNavigationBar extends React.Component {
   render() {
     return (
       <MainTitleNavigationBar
-        snapHeight={50}
+        snapHeight={66}
         SnapComponent={() => (
           <SearchBar platform="ios" lightTheme placeholder="Type Here..." />
         )}

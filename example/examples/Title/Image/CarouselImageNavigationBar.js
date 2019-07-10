@@ -11,7 +11,7 @@ class CarouselImageNavigationBar extends React.Component {
         StatusBar={() => (
           <StatusBarComponent
             barStyle="light-content"
-            backgroundColor="dodgerblue"
+            backgroundColor="transparent"
           />
         )}
         beforeTransitionPoint={() => StatusBar.setBarStyle('light-content')}

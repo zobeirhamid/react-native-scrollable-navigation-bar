@@ -11,7 +11,7 @@ class SearchTitleNavigationBar extends React.Component {
         ref={component => {
           this.searchContainer = component;
         }}
-        snapHeight={50}
+        snapHeight={66}
         SnapComponent={() => (
           <SearchBar
             platform="ios"

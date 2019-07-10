@@ -12,6 +12,7 @@ export type ContainerDefaultProps = {|
   headerHeight: number,
   navigationBarHeight: number,
   transitionPoint: number,
+  OverlayComponent: React.ComponentType<any>,
   Header: React.AbstractComponent<
     React.Config<HeaderProps, HeaderDefaultProps>
   >,
@@ -25,13 +26,17 @@ export type ContainerProps = {|
   animatedValue?: Animated.Value,
   afterTransitionPoint?: () => void,
   beforeTransitionPoint?: () => void,
-  style?: any,
-  scrollEnabled?: boolean
+  style?: mixed,
+  containerStyle?: mixed,
+  contentContainerStyle?: mixed,
+  scrollEnabled?: boolean,
+  ListHeaderComponent?: Function,
+  ListFooterComponent?: Function
 |};
 
 export type ContainerState = {
-  reachedTransitionPoint: boolean,
-  position: number
+  reachedTransitionPoint: boolean
+  // position: number
 };
 
 export type EventHandlerType<T: mixed> = {
@@ -142,7 +147,8 @@ export type HeaderDefaultProps = {|
   ScrolledNavigationBar: React.ComponentType<{}>,
   transitionPoint: number,
   navigationBarHeight: number,
-  headerHeight: number
+  headerHeight: number,
+  SnapComponent: React.ComponentType<any>
 |};
 
 export type HeaderProps = {
@@ -156,7 +162,8 @@ export type HeaderProps = {
   titleStyle?: mixed,
   style?: mixed,
   collapsible?: boolean,
-  stayCollapsed?: boolean
+  stayCollapsed?: boolean,
+  headerStyle?: mixed
 };
 
 export type HeaderNavigationBarDefaultProps = {|

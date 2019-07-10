@@ -7,6 +7,7 @@ import HeaderTitle from '../../components/HeaderTitle';
 import HeaderBackground from './HeaderBackground';
 import HeaderBorder from './HeaderBorder';
 import HeaderForeground from './HeaderForeground';
+import Snap from '../Snap';
 import { ContextConsumer } from '../Context';
 import type { HeaderProps, HeaderDefaultProps } from '../../types';
 
@@ -22,7 +23,8 @@ class Header extends React.Component<HeaderProps> {
     ScrolledNavigationBar: () => null,
     transitionPoint: NAVIGATION_BAR_HEIGHT,
     navigationBarHeight: NAVIGATION_BAR_HEIGHT,
-    headerHeight: 0
+    headerHeight: 0,
+    SnapComponent: () => null
   };
 
   render() {
@@ -45,7 +47,8 @@ class Header extends React.Component<HeaderProps> {
       transitionPoint,
       navigationBarHeight,
       headerHeight,
-      stayCollapsed
+      stayCollapsed,
+      SnapComponent
     } = this.props;
 
     return (
@@ -58,47 +61,61 @@ class Header extends React.Component<HeaderProps> {
           ScrolledNavigationBar={ScrolledNavigationBar}
         />
         <Animated.View
-          style={[
-            {
-              transform: [
-                {
-                  translateY:
-                    snapHeight === 0
-                      ? 0
-                      : animatedValue.interpolate({
-                          inputRange: [0, snapHeight],
-                          outputRange: [0, snapHeight],
-                          extrapolate: 'clamp'
-                        })
-                }
-              ]
-            },
-            style
-          ]}
+          pointerEvents="box-none"
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            transform: [{ translateY: Animated.multiply(animatedValue, -1) }]
+          }}
         >
-          <HeaderBackground
-            parallax={parallax}
-            backgroundColor={backgroundColor}
-            fadeOut={fadeOut}
+          <Animated.View
+            style={[
+              {
+                transform: [
+                  {
+                    translateY:
+                      snapHeight === 0
+                        ? 0
+                        : animatedValue.interpolate({
+                            inputRange: [0, snapHeight],
+                            outputRange: [0, snapHeight],
+                            extrapolate: 'clamp'
+                          })
+                  }
+                ]
+              },
+              style
+            ]}
           >
-            <BackgroundComponent
-              transitionPoint={transitionPoint}
-              animatedValue={animatedValue}
-              navigationBarHeight={navigationBarHeight}
-              headerHeight={headerHeight}
-            />
-          </HeaderBackground>
-          <HeaderForeground>
-            <ForegroundComponent
-              title={title}
-              titleStyle={titleStyle}
-              transitionPoint={transitionPoint}
-              animatedValue={animatedValue}
-              navigationBarHeight={navigationBarHeight}
-              headerHeight={headerHeight}
-            />
-          </HeaderForeground>
+            <HeaderBackground
+              parallax={parallax}
+              backgroundColor={backgroundColor}
+              fadeOut={fadeOut}
+            >
+              <BackgroundComponent
+                transitionPoint={transitionPoint}
+                animatedValue={animatedValue}
+                navigationBarHeight={navigationBarHeight}
+                headerHeight={headerHeight}
+              />
+            </HeaderBackground>
+            <HeaderForeground>
+              <ForegroundComponent
+                title={title}
+                titleStyle={titleStyle}
+                transitionPoint={transitionPoint}
+                animatedValue={animatedValue}
+                navigationBarHeight={navigationBarHeight}
+                headerHeight={headerHeight}
+              />
+            </HeaderForeground>
+          </Animated.View>
         </Animated.View>
+        <Snap snapHeight={snapHeight} backgroundColor={backgroundColor}>
+          <SnapComponent />
+        </Snap>
         <HeaderBorder
           borderColor={borderColor}
           collapsible={collapsible}

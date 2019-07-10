@@ -5,6 +5,7 @@ import NavigationBarContainer from './src/api/NavigationBarContainer';
 import HeaderNavigationBar from './src/api/Header/HeaderNavigationBar';
 import Container from './src/api/Container';
 import SearchContainer from './src/api/SearchContainer';
+import SectionContainer from './src/api/SectionContainer';
 import StatusBarComponent from './src/components/StatusBarComponent';
 import Header from './src/api/Header';
 import Sticky from './src/api/Sticky';
@@ -27,7 +28,8 @@ export {
   Collapsible,
   Snap,
   constants,
-  BackButton
+  BackButton,
+  SectionContainer
 };
 
 export default ScrollableNavigationBar;

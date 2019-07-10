@@ -2,11 +2,8 @@ import React from 'react';
 import { Animated, View, Text, TouchableOpacity } from 'react-native';
 import ScrollableNavigationBar, {
   BackButton,
-  StatusBarComponent,
-  NavigationBar
+  StatusBarComponent
 } from 'react-native-scrollable-navigation-bar';
-
-console.log(ScrollableNavigationBar);
 
 export default class HomeScreen extends React.Component {
   renderLink(screen) {
@@ -68,7 +65,7 @@ export default class HomeScreen extends React.Component {
         transitionPoint={200}
         title={title}
         titleStyle={{ color: 'white' }}
-        backgroundColor="dodgerblue"
+        headerBackgroundColor="dodgerblue"
         HeaderUnscrolledComponent={initialScreen ? () => null : undefined}
         HeaderScrolledComponent={initialScreen ? () => null : undefined}
         HeaderForegroundComponent={

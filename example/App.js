@@ -5,9 +5,11 @@ import { createStackNavigator, createAppContainer } from 'react-navigation';
 import NavigationService from './NavigationService';
 import Screens from './Screens';
 import HomeScreen from './HomeScreen';
+import SectionList from './SectionList';
 
 const AppNavigator = createStackNavigator(
   {
+    SectionList,
     HomeScreen: props => (
       <HomeScreen screens={Screens} initialScreen {...props} title="Home" />
     ),
@@ -25,7 +27,7 @@ const AppNavigator = createStackNavigator(
     ...Screens.Image
   },
   {
-    // initialRouteName: 'RegularNavigationBar',
+    initialRouteName: 'HomeScreen',
     // headerTransitionPreset: 'uikit'
     defaultNavigationOptions: {
       header: null

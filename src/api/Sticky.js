@@ -39,17 +39,20 @@ class Sticky extends React.Component<StickyProps> {
                 right: 0,
                 transform: [
                   {
-                    translateY: animatedValue.interpolate({
-                      inputRange: [
-                        transitionPoint - navigationBarHeight,
-                        transitionPoint - navigationBarHeight + 1
-                      ],
-                      outputRange: [0, 1],
-                      extrapolateLeft:
-                        transitionPoint === navigationBarHeight
-                          ? 'extend'
-                          : 'clamp'
-                    })
+                    translateY:
+                      transitionPoint === navigationBarHeight
+                        ? 0
+                        : animatedValue.interpolate({
+                            inputRange: [
+                              0,
+                              transitionPoint - navigationBarHeight
+                            ],
+                            outputRange: [
+                              0,
+                              -transitionPoint + navigationBarHeight
+                            ],
+                            extrapolateRight: 'clamp'
+                          })
                   }
                 ]
               },

@@ -49,7 +49,7 @@ class NavigationBarContainer extends React.Component<NavigationBarContainerProps
                 height: navigationBarHeight,
                 transform: [
                   {
-                    translateY: animatedValue || 0
+                    translateY: 0
                   }
                 ]
               },
@@ -59,7 +59,6 @@ class NavigationBarContainer extends React.Component<NavigationBarContainerProps
             {children}
           </Animated.View>
         </Collapsible>
-        {!translucent && <View style={{ height: navigationBarHeight }} />}
       </React.Fragment>
     );
   }

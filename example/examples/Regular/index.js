@@ -1,11 +1,11 @@
-import * as React from "react";
+import * as React from 'react';
 import ScrollableNavigationBar, {
   StatusBarComponent,
   NavigationBarIcon,
   BackButton
-} from "react-native-scrollable-navigation-bar";
-import Placeholders from "../Placeholders";
-import NavigationService from "../../NavigationService";
+} from 'react-native-scrollable-navigation-bar';
+import Placeholders from '../Placeholders';
+import NavigationService from '../../NavigationService';
 
 class MainRegularNavigationBar extends React.Component {
   render() {
@@ -18,10 +18,10 @@ class MainRegularNavigationBar extends React.Component {
           />
         )}
         title="RegularNavigationBar"
-        titleStyle={{ color: "white" }}
-        backgroundColor="dodgerblue"
+        titleStyle={{ color: 'white' }}
+        headerBackgroundColor="dodgerblue"
         borderColor="blue"
-        iconStyle={{ color: "darkblue" }}
+        iconStyle={{ color: 'darkblue' }}
         BackButton={({ style }) => (
           <BackButton
             style={style}

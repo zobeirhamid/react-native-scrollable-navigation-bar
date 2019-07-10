@@ -46,6 +46,7 @@ class Collapsible extends React.Component<CollapsibleProps> {
           }),
           0,
           navigationBarHeight - STATUS_BAR_HEIGHT
+          // /navigationBarHeight
         ),
         -1
       );

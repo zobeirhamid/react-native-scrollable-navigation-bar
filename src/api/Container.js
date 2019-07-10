@@ -20,12 +20,13 @@ class Container extends React.Component<ContainerProps, ContainerState> {
     transitionPoint: NAVIGATION_BAR_HEIGHT,
     Header: () => null,
     StatusBar: () => null,
-    snapHeight: 0
+    snapHeight: 0,
+    OverlayComponent: () => null
   };
 
   state = {
-    reachedTransitionPoint: false,
-    position: 0
+    reachedTransitionPoint: false
+    // position: 0
   };
 
   animatedValue: Animated.Value = new Animated.Value(0);
@@ -49,10 +50,12 @@ class Container extends React.Component<ContainerProps, ContainerState> {
     if (beforeTransitionPoint !== undefined) beforeTransitionPoint();
   }
 
+  /*
   getPosition() {
     const { position } = this.state;
     return position;
   }
+  */
 
   getNode() {
     if (this.component && this.component.getNode) {
@@ -88,6 +91,7 @@ class Container extends React.Component<ContainerProps, ContainerState> {
   render() {
     const {
       children,
+      OverlayComponent,
       Header,
       ScrollComponent,
       StatusBar,
@@ -95,49 +99,93 @@ class Container extends React.Component<ContainerProps, ContainerState> {
       headerHeight,
       transitionPoint,
       style,
-      snapHeight
+      snapHeight,
+      containerStyle,
+      contentContainerStyle
     } = this.props;
     return (
-      <Context.Provider
-        value={{
-          transitionPoint,
-          navigationBarHeight,
-          headerHeight:
-            headerHeight === 0 && transitionPoint !== navigationBarHeight
-              ? transitionPoint
-              : headerHeight,
-          animatedValue: this.animatedValue,
-          containerEvents: this.eventHandler
-        }}
-      >
-        <StatusBar />
-        <ScrollComponent
-          nestedScrollEnabled
-          scrollEventThrottle={1}
-          snapToOffsets={[snapHeight, transitionPoint - navigationBarHeight]}
-          snapToEnd={false}
-          snapToStart
-          decelerationRate={0.994}
-          onScroll={Animated.event(
-            [{ nativeEvent: { contentOffset: { y: this.animatedValue } } }],
-            {
-              listener: this.scrollListener.bind(this),
-              useNativeDriver: true
-            }
-          )}
-          ListHeaderComponent={() => (
-            <Header animatedValue={this.animatedValue} />
-          )}
-          ref={component => {
-            this.component = component;
+      <Animated.View style={[{ flex: 1, overflow: 'hidden' }]}>
+        <Context.Provider
+          value={{
+            transitionPoint,
+            navigationBarHeight,
+            headerHeight:
+              headerHeight === 0 && transitionPoint !== navigationBarHeight
+                ? transitionPoint
+                : headerHeight,
+            animatedValue: this.animatedValue,
+            containerEvents: this.eventHandler
           }}
-          style={style}
-          {...this.props}
         >
-          <Header animatedValue={this.animatedValue} />
-          {children}
-        </ScrollComponent>
-      </Context.Provider>
+          <StatusBar />
+          <Animated.View style={[{ flex: 1 }, containerStyle]}>
+            <Header animatedValue={this.animatedValue} />
+            <ScrollComponent
+              nestedScrollEnabled
+              scrollEventThrottle={1}
+              snapToOffsets={[
+                snapHeight,
+                transitionPoint - navigationBarHeight
+              ]}
+              snapToEnd={false}
+              snapToStart
+              decelerationRate={0.994}
+              onScroll={Animated.event(
+                [{ nativeEvent: { contentOffset: { y: this.animatedValue } } }],
+                {
+                  listener: this.scrollListener.bind(this),
+                  useNativeDriver: true
+                }
+              )}
+              ref={component => {
+                this.component = component;
+              }}
+              style={[
+                {
+                  transform: [
+                    {
+                      translateY: this.animatedValue.interpolate({
+                        inputRange: [0, transitionPoint],
+                        outputRange: [transitionPoint, 0],
+                        extrapolate: 'clamp'
+                      })
+                    }
+                  ],
+                  overflow: 'visible'
+                },
+                style
+              ]}
+              ListHeaderComponent={() => (
+                <Animated.View
+                  style={{ height: transitionPoint - navigationBarHeight }}
+                />
+              )}
+              ListFooterComponent={() => (
+                <Animated.View style={{ height: navigationBarHeight }} />
+              )}
+              contentContainerStyle={[
+                {
+                  transform: [
+                    {
+                      translateY: this.animatedValue.interpolate({
+                        inputRange: [0, transitionPoint],
+                        outputRange: [0, transitionPoint],
+                        extrapolate: 'clamp'
+                      })
+                    }
+                  ]
+                },
+                contentContainerStyle
+              ]}
+              {...this.props}
+            >
+              <OverlayComponent />
+              {children}
+              <Animated.View style={{ height: transitionPoint }} />
+            </ScrollComponent>
+          </Animated.View>
+        </Context.Provider>
+      </Animated.View>
     );
   }
 }
