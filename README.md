@@ -21,4 +21,4 @@ _Coming soon; for now checkout the example folder._
 ## Roadmap
 
 - [ ] Supporting Tabs
-- [ ] Supporting Section List with Section Header being the new Sticky elements
+- [x] Supporting Section List with Section Header being the new Sticky elements

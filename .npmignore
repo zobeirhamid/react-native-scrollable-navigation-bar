@@ -8,7 +8,6 @@ demo.gif
 .babelrc
 .git
 .gitignore
-babel.config
 yarn.lock
 collapsibleRegular.mov
 searchTitle.mov
