@@ -76,7 +76,8 @@ import com.android.build.OutputFile
  */
 
 project.ext.react = [
-    entryFile: "index.js"
+    entryFile: "index.js",
+    enableHermes: true
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
@@ -115,7 +116,7 @@ android {
 
 
     defaultConfig {
-        applicationId "com.reactnativescrollablenavigationbarexample"
+        applicationId "com.reactnativescrollablenavigationbar"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -158,8 +159,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation project(':ReactAndroid')
-    // implementation "com.facebook.react:react-native:+"
+    //implementation project(':ReactAndroid')
+    implementation "com.facebook.react:react-native:+"
 
     // JSC from node_modules
     if (useIntlJsc) {
@@ -176,8 +177,10 @@ task copyDownloadableDepsToLibs(type: Copy) {
     into 'libs'
 }
 
+/*
 configurations.all {
     exclude group: 'com.facebook.react', module: 'react-native'
 }
+*/
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)

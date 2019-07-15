@@ -1,4 +1,4 @@
-package com.reactnativescrollablenavigationbarexample;
+package com.reactnativescrollablenavigationbar;
 
 import android.os.Bundle;
 import com.facebook.react.ReactFragmentActivity;
@@ -18,7 +18,7 @@ public class MainActivity extends ReactFragmentActivity {
      */
     @Override
     protected String getMainComponentName() {
-        return "ReactNativeScrollableNavigationBarExample";
+        return "ReactNativeScrollableNavigationBar";
     }
     @Override
     protected ReactActivityDelegate createReactActivityDelegate() {

@@ -1,4 +1,4 @@
-package com.reactnativescrollablenavigationbarexample;
+package com.reactnativescrollablenavigationbar;
 
 import android.app.Application;
 

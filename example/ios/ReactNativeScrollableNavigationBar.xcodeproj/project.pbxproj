@@ -5,39 +5,40 @@
 	};
 	objectVersion = 46;
 	objects = {
+
 /* Begin PBXBuildFile section */
-		00E356F31AD99517003FC87E /* ReactNativeScrollableNavigationBarExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ReactNativeScrollableNavigationBarExampleTests.m */; };
+		00E356F31AD99517003FC87E /* ReactNativeScrollableNavigationBarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ReactNativeScrollableNavigationBarTests.m */; };
+		0BE8DE230C734E1683E3448C /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABF023B9D6354C629CD77DF5 /* FontAwesome5_Brands.ttf */; };
+		129013FDFC88436F855E1BB6 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AEBB7019A6C429DBF056E1A /* Octicons.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		189A52C214B14E14B834C215 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A9BA1B3706F4802B977AF9E /* MaterialCommunityIcons.ttf */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D16E6891FA4F8E400B85C8A /* libReact.a */; };
-		2DCD954D1E0B4F2C00145EB5 /* ReactNativeScrollableNavigationBarExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ReactNativeScrollableNavigationBarExampleTests.m */; };
-		7CE15168A76628467E683683 /* libPods-ReactNativeScrollableNavigationBarExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D21B0E04BB05011A702FE4A /* libPods-ReactNativeScrollableNavigationBarExampleTests.a */; };
-		9E7BF9E11CF07009A0A4C5EC /* libPods-ReactNativeScrollableNavigationBarExample-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35077549B8B8D32D53461D0D /* libPods-ReactNativeScrollableNavigationBarExample-tvOS.a */; };
-		D505ECBA91EE16BFB978566D /* libPods-ReactNativeScrollableNavigationBarExample-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 968FAE521F6A6F1A914FE81A /* libPods-ReactNativeScrollableNavigationBarExample-tvOSTests.a */; };
-		EBBCE55C4EED03AF527717C1 /* libPods-ReactNativeScrollableNavigationBarExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C540657F5E01BD190F620BB0 /* libPods-ReactNativeScrollableNavigationBarExample.a */; };
+		2DCD954D1E0B4F2C00145EB5 /* ReactNativeScrollableNavigationBarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* ReactNativeScrollableNavigationBarTests.m */; };
+		3B1E839C1CF34D87A07C02BF /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B81AC48275904820A1AAB4CB /* FontAwesome5_Solid.ttf */; };
+		3EE779B7F1384AD79A7938E6 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A376DE9F85F6499E82004FB3 /* Ionicons.ttf */; };
+		46E3E09E07C84D1A8F27EB41 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B250A31A9D5046A79FA00FB2 /* AntDesign.ttf */; };
+		5A3C1DA004A344F7AF415865 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 075105715CCF40A0ABDA85FB /* Zocial.ttf */; };
+		68E273D398C846E78628B941 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8FE1025046843BF9216EBE1 /* Entypo.ttf */; };
+		7CE15168A76628467E683683 /* libPods-ReactNativeScrollableNavigationBarTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D21B0E04BB05011A702FE4A /* libPods-ReactNativeScrollableNavigationBarTests.a */; };
+		7D163FA4C44145C8A514BF2E /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 119F1A4E9A8D4A03B2F7331B /* EvilIcons.ttf */; };
+		80C1DA8B1ABD4E8AABEBFAFC /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6BEA2E58E731415F8754D456 /* FontAwesome5_Regular.ttf */; };
+		87A79DF455D840E59A31F48C /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AF9B6A5D982D446893737EE6 /* Foundation.ttf */; };
+		8D292C5E9AA0447AAAE4E34F /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7137529D902A44E89B8F6F28 /* SimpleLineIcons.ttf */; };
+		95A21FB694E641838377A987 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 211554D6B25F491A9BD8B622 /* FontAwesome.ttf */; };
+		9E7BF9E11CF07009A0A4C5EC /* libPods-ReactNativeScrollableNavigationBar-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35077549B8B8D32D53461D0D /* libPods-ReactNativeScrollableNavigationBar-tvOS.a */; };
+		D505ECBA91EE16BFB978566D /* libPods-ReactNativeScrollableNavigationBar-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 968FAE521F6A6F1A914FE81A /* libPods-ReactNativeScrollableNavigationBar-tvOSTests.a */; };
+		D899D50268D948AAB0866761 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 596EFF25F3B94EC1AF13634B /* Feather.ttf */; };
+		DAA77E3CCDD744F3A6E0B026 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752F60FB7ABC44F78FE8E395 /* MaterialIcons.ttf */; };
+		E0320545FF13430497953F24 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57E568D8C41940BAAF217203 /* Fontisto.ttf */; };
+		EBBCE55C4EED03AF527717C1 /* libPods-ReactNativeScrollableNavigationBar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C540657F5E01BD190F620BB0 /* libPods-ReactNativeScrollableNavigationBar.a */; };
 		ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED297162215061F000B7C4FE /* JavaScriptCore.framework */; };
 		ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2971642150620600B7C4FE /* JavaScriptCore.framework */; };
-		46E3E09E07C84D1A8F27EB41 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B250A31A9D5046A79FA00FB2 /* AntDesign.ttf */; };
-		68E273D398C846E78628B941 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E8FE1025046843BF9216EBE1 /* Entypo.ttf */; };
-		7D163FA4C44145C8A514BF2E /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 119F1A4E9A8D4A03B2F7331B /* EvilIcons.ttf */; };
-		D899D50268D948AAB0866761 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 596EFF25F3B94EC1AF13634B /* Feather.ttf */; };
-		95A21FB694E641838377A987 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 211554D6B25F491A9BD8B622 /* FontAwesome.ttf */; };
-		0BE8DE230C734E1683E3448C /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ABF023B9D6354C629CD77DF5 /* FontAwesome5_Brands.ttf */; };
-		80C1DA8B1ABD4E8AABEBFAFC /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6BEA2E58E731415F8754D456 /* FontAwesome5_Regular.ttf */; };
-		3B1E839C1CF34D87A07C02BF /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B81AC48275904820A1AAB4CB /* FontAwesome5_Solid.ttf */; };
-		E0320545FF13430497953F24 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 57E568D8C41940BAAF217203 /* Fontisto.ttf */; };
-		87A79DF455D840E59A31F48C /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AF9B6A5D982D446893737EE6 /* Foundation.ttf */; };
-		3EE779B7F1384AD79A7938E6 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A376DE9F85F6499E82004FB3 /* Ionicons.ttf */; };
-		189A52C214B14E14B834C215 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A9BA1B3706F4802B977AF9E /* MaterialCommunityIcons.ttf */; };
-		DAA77E3CCDD744F3A6E0B026 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 752F60FB7ABC44F78FE8E395 /* MaterialIcons.ttf */; };
-		129013FDFC88436F855E1BB6 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3AEBB7019A6C429DBF056E1A /* Octicons.ttf */; };
-		8D292C5E9AA0447AAAE4E34F /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7137529D902A44E89B8F6F28 /* SimpleLineIcons.ttf */; };
-		5A3C1DA004A344F7AF415865 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 075105715CCF40A0ABDA85FB /* Zocial.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,62 +47,62 @@
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
-			remoteInfo = ReactNativeScrollableNavigationBarExample;
+			remoteInfo = ReactNativeScrollableNavigationBar;
 		};
 		2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 2D02E47A1E0B4A5D006451C7;
-			remoteInfo = "ReactNativeScrollableNavigationBarExample-tvOS";
+			remoteInfo = "ReactNativeScrollableNavigationBar-tvOS";
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
-		00E356EE1AD99517003FC87E /* ReactNativeScrollableNavigationBarExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactNativeScrollableNavigationBarExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* ReactNativeScrollableNavigationBarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ReactNativeScrollableNavigationBarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00E356F21AD99517003FC87E /* ReactNativeScrollableNavigationBarExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReactNativeScrollableNavigationBarExampleTests.m; sourceTree = "<group>"; };
-		13B07F961A680F5B00A75B9A /* ReactNativeScrollableNavigationBarExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactNativeScrollableNavigationBarExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ReactNativeScrollableNavigationBarExample/AppDelegate.h; sourceTree = "<group>"; };
-		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ReactNativeScrollableNavigationBarExample/AppDelegate.m; sourceTree = "<group>"; };
+		00E356F21AD99517003FC87E /* ReactNativeScrollableNavigationBarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ReactNativeScrollableNavigationBarTests.m; sourceTree = "<group>"; };
+		075105715CCF40A0ABDA85FB /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		119F1A4E9A8D4A03B2F7331B /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* ReactNativeScrollableNavigationBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactNativeScrollableNavigationBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ReactNativeScrollableNavigationBar/AppDelegate.h; sourceTree = "<group>"; };
+		13B07FB01A68108700A75B9A /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ReactNativeScrollableNavigationBar/AppDelegate.m; sourceTree = "<group>"; };
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ReactNativeScrollableNavigationBarExample/Images.xcassets; sourceTree = "<group>"; };
-		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ReactNativeScrollableNavigationBarExample/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ReactNativeScrollableNavigationBarExample/main.m; sourceTree = "<group>"; };
-		2D02E47B1E0B4A5D006451C7 /* ReactNativeScrollableNavigationBarExample-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ReactNativeScrollableNavigationBarExample-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D02E4901E0B4A5D006451C7 /* ReactNativeScrollableNavigationBarExample-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ReactNativeScrollableNavigationBarExample-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ReactNativeScrollableNavigationBar/Images.xcassets; sourceTree = "<group>"; };
+		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ReactNativeScrollableNavigationBar/Info.plist; sourceTree = "<group>"; };
+		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ReactNativeScrollableNavigationBar/main.m; sourceTree = "<group>"; };
+		211554D6B25F491A9BD8B622 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		2D02E47B1E0B4A5D006451C7 /* ReactNativeScrollableNavigationBar-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ReactNativeScrollableNavigationBar-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D02E4901E0B4A5D006451C7 /* ReactNativeScrollableNavigationBar-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ReactNativeScrollableNavigationBar-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		35077549B8B8D32D53461D0D /* libPods-ReactNativeScrollableNavigationBarExample-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeScrollableNavigationBarExample-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		402AB8A11C55B3D86C7A05E7 /* Pods-ReactNativeScrollableNavigationBarExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeScrollableNavigationBarExample.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeScrollableNavigationBarExample/Pods-ReactNativeScrollableNavigationBarExample.debug.xcconfig"; sourceTree = "<group>"; };
-		424B7094B05D85D4E36D37EB /* Pods-ReactNativeScrollableNavigationBarExample-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeScrollableNavigationBarExample-tvOS.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeScrollableNavigationBarExample-tvOS/Pods-ReactNativeScrollableNavigationBarExample-tvOS.release.xcconfig"; sourceTree = "<group>"; };
-		6D21B0E04BB05011A702FE4A /* libPods-ReactNativeScrollableNavigationBarExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeScrollableNavigationBarExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		72FAD7D8372817A50E36624E /* Pods-ReactNativeScrollableNavigationBarExample-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeScrollableNavigationBarExample-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeScrollableNavigationBarExample-tvOSTests/Pods-ReactNativeScrollableNavigationBarExample-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		82DC9F1786DD48CE340D1CE8 /* Pods-ReactNativeScrollableNavigationBarExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeScrollableNavigationBarExampleTests.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeScrollableNavigationBarExampleTests/Pods-ReactNativeScrollableNavigationBarExampleTests.release.xcconfig"; sourceTree = "<group>"; };
-		968FAE521F6A6F1A914FE81A /* libPods-ReactNativeScrollableNavigationBarExample-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeScrollableNavigationBarExample-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		ADD45077CC40851FDBFA2EA3 /* Pods-ReactNativeScrollableNavigationBarExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeScrollableNavigationBarExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeScrollableNavigationBarExampleTests/Pods-ReactNativeScrollableNavigationBarExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
-		C4D86862880F7DAFFDF71F16 /* Pods-ReactNativeScrollableNavigationBarExample-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeScrollableNavigationBarExample-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeScrollableNavigationBarExample-tvOSTests/Pods-ReactNativeScrollableNavigationBarExample-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		C540657F5E01BD190F620BB0 /* libPods-ReactNativeScrollableNavigationBarExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeScrollableNavigationBarExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E7FD4835A77B3C5B65678BDA /* Pods-ReactNativeScrollableNavigationBarExample-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeScrollableNavigationBarExample-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeScrollableNavigationBarExample-tvOS/Pods-ReactNativeScrollableNavigationBarExample-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		35077549B8B8D32D53461D0D /* libPods-ReactNativeScrollableNavigationBar-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeScrollableNavigationBar-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AEBB7019A6C429DBF056E1A /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
+		402AB8A11C55B3D86C7A05E7 /* Pods-ReactNativeScrollableNavigationBar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeScrollableNavigationBar.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeScrollableNavigationBar/Pods-ReactNativeScrollableNavigationBar.debug.xcconfig"; sourceTree = "<group>"; };
+		424B7094B05D85D4E36D37EB /* Pods-ReactNativeScrollableNavigationBar-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeScrollableNavigationBar-tvOS.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeScrollableNavigationBar-tvOS/Pods-ReactNativeScrollableNavigationBar-tvOS.release.xcconfig"; sourceTree = "<group>"; };
+		4A9BA1B3706F4802B977AF9E /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
+		57E568D8C41940BAAF217203 /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
+		596EFF25F3B94EC1AF13634B /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
+		6BEA2E58E731415F8754D456 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
+		6D21B0E04BB05011A702FE4A /* libPods-ReactNativeScrollableNavigationBarTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeScrollableNavigationBarTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7137529D902A44E89B8F6F28 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		72FAD7D8372817A50E36624E /* Pods-ReactNativeScrollableNavigationBar-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeScrollableNavigationBar-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeScrollableNavigationBar-tvOSTests/Pods-ReactNativeScrollableNavigationBar-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		752F60FB7ABC44F78FE8E395 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		82DC9F1786DD48CE340D1CE8 /* Pods-ReactNativeScrollableNavigationBarTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeScrollableNavigationBarTests.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeScrollableNavigationBarTests/Pods-ReactNativeScrollableNavigationBarTests.release.xcconfig"; sourceTree = "<group>"; };
+		968FAE521F6A6F1A914FE81A /* libPods-ReactNativeScrollableNavigationBar-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeScrollableNavigationBar-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A376DE9F85F6499E82004FB3 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		ABF023B9D6354C629CD77DF5 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
+		ADD45077CC40851FDBFA2EA3 /* Pods-ReactNativeScrollableNavigationBarTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeScrollableNavigationBarTests.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeScrollableNavigationBarTests/Pods-ReactNativeScrollableNavigationBarTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AF9B6A5D982D446893737EE6 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		B250A31A9D5046A79FA00FB2 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
+		B81AC48275904820A1AAB4CB /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		C4D86862880F7DAFFDF71F16 /* Pods-ReactNativeScrollableNavigationBar-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeScrollableNavigationBar-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeScrollableNavigationBar-tvOSTests/Pods-ReactNativeScrollableNavigationBar-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		C540657F5E01BD190F620BB0 /* libPods-ReactNativeScrollableNavigationBar.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReactNativeScrollableNavigationBar.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7FD4835A77B3C5B65678BDA /* Pods-ReactNativeScrollableNavigationBar-tvOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeScrollableNavigationBar-tvOS.debug.xcconfig"; path = "Target Support Files/Pods-ReactNativeScrollableNavigationBar-tvOS/Pods-ReactNativeScrollableNavigationBar-tvOS.debug.xcconfig"; sourceTree = "<group>"; };
+		E8FE1025046843BF9216EBE1 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		F9A9886EE5F0533C457B0F95 /* Pods-ReactNativeScrollableNavigationBarExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeScrollableNavigationBarExample.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeScrollableNavigationBarExample/Pods-ReactNativeScrollableNavigationBarExample.release.xcconfig"; sourceTree = "<group>"; };
-		B250A31A9D5046A79FA00FB2 /* AntDesign.ttf */ = {isa = PBXFileReference; name = "AntDesign.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		E8FE1025046843BF9216EBE1 /* Entypo.ttf */ = {isa = PBXFileReference; name = "Entypo.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		119F1A4E9A8D4A03B2F7331B /* EvilIcons.ttf */ = {isa = PBXFileReference; name = "EvilIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		596EFF25F3B94EC1AF13634B /* Feather.ttf */ = {isa = PBXFileReference; name = "Feather.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		211554D6B25F491A9BD8B622 /* FontAwesome.ttf */ = {isa = PBXFileReference; name = "FontAwesome.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		ABF023B9D6354C629CD77DF5 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Brands.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		6BEA2E58E731415F8754D456 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Regular.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		B81AC48275904820A1AAB4CB /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; name = "FontAwesome5_Solid.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		57E568D8C41940BAAF217203 /* Fontisto.ttf */ = {isa = PBXFileReference; name = "Fontisto.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		AF9B6A5D982D446893737EE6 /* Foundation.ttf */ = {isa = PBXFileReference; name = "Foundation.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		A376DE9F85F6499E82004FB3 /* Ionicons.ttf */ = {isa = PBXFileReference; name = "Ionicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		4A9BA1B3706F4802B977AF9E /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; name = "MaterialCommunityIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		752F60FB7ABC44F78FE8E395 /* MaterialIcons.ttf */ = {isa = PBXFileReference; name = "MaterialIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		3AEBB7019A6C429DBF056E1A /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		7137529D902A44E89B8F6F28 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		075105715CCF40A0ABDA85FB /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F9A9886EE5F0533C457B0F95 /* Pods-ReactNativeScrollableNavigationBar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactNativeScrollableNavigationBar.release.xcconfig"; path = "Target Support Files/Pods-ReactNativeScrollableNavigationBar/Pods-ReactNativeScrollableNavigationBar.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +110,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7CE15168A76628467E683683 /* libPods-ReactNativeScrollableNavigationBarExampleTests.a in Frameworks */,
+				7CE15168A76628467E683683 /* libPods-ReactNativeScrollableNavigationBarTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,7 +119,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED297163215061F000B7C4FE /* JavaScriptCore.framework in Frameworks */,
-				EBBCE55C4EED03AF527717C1 /* libPods-ReactNativeScrollableNavigationBarExample.a in Frameworks */,
+				EBBCE55C4EED03AF527717C1 /* libPods-ReactNativeScrollableNavigationBar.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,7 +129,7 @@
 			files = (
 				ED2971652150620600B7C4FE /* JavaScriptCore.framework in Frameworks */,
 				2D16E6881FA4F8E400B85C8A /* libReact.a in Frameworks */,
-				9E7BF9E11CF07009A0A4C5EC /* libPods-ReactNativeScrollableNavigationBarExample-tvOS.a in Frameworks */,
+				9E7BF9E11CF07009A0A4C5EC /* libPods-ReactNativeScrollableNavigationBar-tvOS.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,20 +137,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D505ECBA91EE16BFB978566D /* libPods-ReactNativeScrollableNavigationBarExample-tvOSTests.a in Frameworks */,
+				D505ECBA91EE16BFB978566D /* libPods-ReactNativeScrollableNavigationBar-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		00E356EF1AD99517003FC87E /* ReactNativeScrollableNavigationBarExampleTests */ = {
+		00E356EF1AD99517003FC87E /* ReactNativeScrollableNavigationBarTests */ = {
 			isa = PBXGroup;
 			children = (
-				00E356F21AD99517003FC87E /* ReactNativeScrollableNavigationBarExampleTests.m */,
+				00E356F21AD99517003FC87E /* ReactNativeScrollableNavigationBarTests.m */,
 				00E356F01AD99517003FC87E /* Supporting Files */,
 			);
-			path = ReactNativeScrollableNavigationBarExampleTests;
+			path = ReactNativeScrollableNavigationBarTests;
 			sourceTree = "<group>";
 		};
 		00E356F01AD99517003FC87E /* Supporting Files */ = {
@@ -163,19 +164,19 @@
 		11E141F2A277438BB31D33F8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				402AB8A11C55B3D86C7A05E7 /* Pods-ReactNativeScrollableNavigationBarExample.debug.xcconfig */,
-				F9A9886EE5F0533C457B0F95 /* Pods-ReactNativeScrollableNavigationBarExample.release.xcconfig */,
-				E7FD4835A77B3C5B65678BDA /* Pods-ReactNativeScrollableNavigationBarExample-tvOS.debug.xcconfig */,
-				424B7094B05D85D4E36D37EB /* Pods-ReactNativeScrollableNavigationBarExample-tvOS.release.xcconfig */,
-				72FAD7D8372817A50E36624E /* Pods-ReactNativeScrollableNavigationBarExample-tvOSTests.debug.xcconfig */,
-				C4D86862880F7DAFFDF71F16 /* Pods-ReactNativeScrollableNavigationBarExample-tvOSTests.release.xcconfig */,
-				ADD45077CC40851FDBFA2EA3 /* Pods-ReactNativeScrollableNavigationBarExampleTests.debug.xcconfig */,
-				82DC9F1786DD48CE340D1CE8 /* Pods-ReactNativeScrollableNavigationBarExampleTests.release.xcconfig */,
+				402AB8A11C55B3D86C7A05E7 /* Pods-ReactNativeScrollableNavigationBar.debug.xcconfig */,
+				F9A9886EE5F0533C457B0F95 /* Pods-ReactNativeScrollableNavigationBar.release.xcconfig */,
+				E7FD4835A77B3C5B65678BDA /* Pods-ReactNativeScrollableNavigationBar-tvOS.debug.xcconfig */,
+				424B7094B05D85D4E36D37EB /* Pods-ReactNativeScrollableNavigationBar-tvOS.release.xcconfig */,
+				72FAD7D8372817A50E36624E /* Pods-ReactNativeScrollableNavigationBar-tvOSTests.debug.xcconfig */,
+				C4D86862880F7DAFFDF71F16 /* Pods-ReactNativeScrollableNavigationBar-tvOSTests.release.xcconfig */,
+				ADD45077CC40851FDBFA2EA3 /* Pods-ReactNativeScrollableNavigationBarTests.debug.xcconfig */,
+				82DC9F1786DD48CE340D1CE8 /* Pods-ReactNativeScrollableNavigationBarTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* ReactNativeScrollableNavigationBarExample */ = {
+		13B07FAE1A68108700A75B9A /* ReactNativeScrollableNavigationBar */ = {
 			isa = PBXGroup;
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -186,7 +187,7 @@
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = ReactNativeScrollableNavigationBarExample;
+			name = ReactNativeScrollableNavigationBar;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -195,50 +196,16 @@
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
-				C540657F5E01BD190F620BB0 /* libPods-ReactNativeScrollableNavigationBarExample.a */,
-				35077549B8B8D32D53461D0D /* libPods-ReactNativeScrollableNavigationBarExample-tvOS.a */,
-				968FAE521F6A6F1A914FE81A /* libPods-ReactNativeScrollableNavigationBarExample-tvOSTests.a */,
-				6D21B0E04BB05011A702FE4A /* libPods-ReactNativeScrollableNavigationBarExampleTests.a */,
+				C540657F5E01BD190F620BB0 /* libPods-ReactNativeScrollableNavigationBar.a */,
+				35077549B8B8D32D53461D0D /* libPods-ReactNativeScrollableNavigationBar-tvOS.a */,
+				968FAE521F6A6F1A914FE81A /* libPods-ReactNativeScrollableNavigationBar-tvOSTests.a */,
+				6D21B0E04BB05011A702FE4A /* libPods-ReactNativeScrollableNavigationBarTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Libraries;
-			sourceTree = "<group>";
-		};
-		83CBB9F61A601CBA00E9B192 = {
-			isa = PBXGroup;
-			children = (
-				13B07FAE1A68108700A75B9A /* ReactNativeScrollableNavigationBarExample */,
-				832341AE1AAA6A7D00B99B32 /* Libraries */,
-				00E356EF1AD99517003FC87E /* ReactNativeScrollableNavigationBarExampleTests */,
-				83CBBA001A601CBA00E9B192 /* Products */,
-				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				11E141F2A277438BB31D33F8 /* Pods */,
-				53C6393DD3B8454C890EC329 /* Resources */,
-			);
-			indentWidth = 2;
-			sourceTree = "<group>";
-			tabWidth = 2;
-			usesTabs = 0;
-		};
-		83CBBA001A601CBA00E9B192 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				13B07F961A680F5B00A75B9A /* ReactNativeScrollableNavigationBarExample.app */,
-				00E356EE1AD99517003FC87E /* ReactNativeScrollableNavigationBarExampleTests.xctest */,
-				2D02E47B1E0B4A5D006451C7 /* ReactNativeScrollableNavigationBarExample-tvOS.app */,
-				2D02E4901E0B4A5D006451C7 /* ReactNativeScrollableNavigationBarExample-tvOSTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		53C6393DD3B8454C890EC329 /* Resources */ = {
-			isa = "PBXGroup";
+			isa = PBXGroup;
 			children = (
 				B250A31A9D5046A79FA00FB2 /* AntDesign.ttf */,
 				E8FE1025046843BF9216EBE1 /* Entypo.ttf */,
@@ -258,15 +225,49 @@
 				075105715CCF40A0ABDA85FB /* Zocial.ttf */,
 			);
 			name = Resources;
-			sourceTree = "<group>";
 			path = "";
+			sourceTree = "<group>";
+		};
+		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		83CBB9F61A601CBA00E9B192 = {
+			isa = PBXGroup;
+			children = (
+				13B07FAE1A68108700A75B9A /* ReactNativeScrollableNavigationBar */,
+				832341AE1AAA6A7D00B99B32 /* Libraries */,
+				00E356EF1AD99517003FC87E /* ReactNativeScrollableNavigationBarTests */,
+				83CBBA001A601CBA00E9B192 /* Products */,
+				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				11E141F2A277438BB31D33F8 /* Pods */,
+				53C6393DD3B8454C890EC329 /* Resources */,
+			);
+			indentWidth = 2;
+			sourceTree = "<group>";
+			tabWidth = 2;
+			usesTabs = 0;
+		};
+		83CBBA001A601CBA00E9B192 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				13B07F961A680F5B00A75B9A /* ReactNativeScrollableNavigationBar.app */,
+				00E356EE1AD99517003FC87E /* ReactNativeScrollableNavigationBarTests.xctest */,
+				2D02E47B1E0B4A5D006451C7 /* ReactNativeScrollableNavigationBar-tvOS.app */,
+				2D02E4901E0B4A5D006451C7 /* ReactNativeScrollableNavigationBar-tvOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* ReactNativeScrollableNavigationBarExampleTests */ = {
+		00E356ED1AD99517003FC87E /* ReactNativeScrollableNavigationBarTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "ReactNativeScrollableNavigationBarExampleTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "ReactNativeScrollableNavigationBarTests" */;
 			buildPhases = (
 				FDCE80C2DADA42CDE897E7E1 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -278,33 +279,34 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = ReactNativeScrollableNavigationBarExampleTests;
-			productName = ReactNativeScrollableNavigationBarExampleTests;
-			productReference = 00E356EE1AD99517003FC87E /* ReactNativeScrollableNavigationBarExampleTests.xctest */;
+			name = ReactNativeScrollableNavigationBarTests;
+			productName = ReactNativeScrollableNavigationBarTests;
+			productReference = 00E356EE1AD99517003FC87E /* ReactNativeScrollableNavigationBarTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* ReactNativeScrollableNavigationBarExample */ = {
+		13B07F861A680F5B00A75B9A /* ReactNativeScrollableNavigationBar */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ReactNativeScrollableNavigationBarExample" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ReactNativeScrollableNavigationBar" */;
 			buildPhases = (
 				49C03E15245A783D774E63FF /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				691B467EC74777C95E463005 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = ReactNativeScrollableNavigationBarExample;
+			name = ReactNativeScrollableNavigationBar;
 			productName = "Hello World";
-			productReference = 13B07F961A680F5B00A75B9A /* ReactNativeScrollableNavigationBarExample.app */;
+			productReference = 13B07F961A680F5B00A75B9A /* ReactNativeScrollableNavigationBar.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E47A1E0B4A5D006451C7 /* ReactNativeScrollableNavigationBarExample-tvOS */ = {
+		2D02E47A1E0B4A5D006451C7 /* ReactNativeScrollableNavigationBar-tvOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "ReactNativeScrollableNavigationBarExample-tvOS" */;
+			buildConfigurationList = 2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "ReactNativeScrollableNavigationBar-tvOS" */;
 			buildPhases = (
 				4A0CCFF5E75F23624CF01810 /* [CP] Check Pods Manifest.lock */,
 				2D02E4771E0B4A5D006451C7 /* Sources */,
@@ -316,14 +318,14 @@
 			);
 			dependencies = (
 			);
-			name = "ReactNativeScrollableNavigationBarExample-tvOS";
-			productName = "ReactNativeScrollableNavigationBarExample-tvOS";
-			productReference = 2D02E47B1E0B4A5D006451C7 /* ReactNativeScrollableNavigationBarExample-tvOS.app */;
+			name = "ReactNativeScrollableNavigationBar-tvOS";
+			productName = "ReactNativeScrollableNavigationBar-tvOS";
+			productReference = 2D02E47B1E0B4A5D006451C7 /* ReactNativeScrollableNavigationBar-tvOS.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2D02E48F1E0B4A5D006451C7 /* ReactNativeScrollableNavigationBarExample-tvOSTests */ = {
+		2D02E48F1E0B4A5D006451C7 /* ReactNativeScrollableNavigationBar-tvOSTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "ReactNativeScrollableNavigationBarExample-tvOSTests" */;
+			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "ReactNativeScrollableNavigationBar-tvOSTests" */;
 			buildPhases = (
 				2F0C24AA65BF3510EF6C2987 /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
@@ -335,9 +337,9 @@
 			dependencies = (
 				2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */,
 			);
-			name = "ReactNativeScrollableNavigationBarExample-tvOSTests";
-			productName = "ReactNativeScrollableNavigationBarExample-tvOSTests";
-			productReference = 2D02E4901E0B4A5D006451C7 /* ReactNativeScrollableNavigationBarExample-tvOSTests.xctest */;
+			name = "ReactNativeScrollableNavigationBar-tvOSTests";
+			productName = "ReactNativeScrollableNavigationBar-tvOSTests";
+			productReference = 2D02E4901E0B4A5D006451C7 /* ReactNativeScrollableNavigationBar-tvOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -364,7 +366,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "ReactNativeScrollableNavigationBarExample" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "ReactNativeScrollableNavigationBar" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -377,10 +379,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* ReactNativeScrollableNavigationBarExample */,
-				00E356ED1AD99517003FC87E /* ReactNativeScrollableNavigationBarExampleTests */,
-				2D02E47A1E0B4A5D006451C7 /* ReactNativeScrollableNavigationBarExample-tvOS */,
-				2D02E48F1E0B4A5D006451C7 /* ReactNativeScrollableNavigationBarExample-tvOSTests */,
+				13B07F861A680F5B00A75B9A /* ReactNativeScrollableNavigationBar */,
+				00E356ED1AD99517003FC87E /* ReactNativeScrollableNavigationBarTests */,
+				2D02E47A1E0B4A5D006451C7 /* ReactNativeScrollableNavigationBar-tvOS */,
+				2D02E48F1E0B4A5D006451C7 /* ReactNativeScrollableNavigationBar-tvOSTests */,
 			);
 		};
 /* End PBXProject section */
@@ -479,7 +481,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ReactNativeScrollableNavigationBarExample-tvOSTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ReactNativeScrollableNavigationBar-tvOSTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -501,7 +503,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ReactNativeScrollableNavigationBarExample-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ReactNativeScrollableNavigationBar-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -523,11 +525,59 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ReactNativeScrollableNavigationBarExample-tvOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ReactNativeScrollableNavigationBar-tvOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		691B467EC74777C95E463005 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-ReactNativeScrollableNavigationBar/Pods-ReactNativeScrollableNavigationBar-resources.sh",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Entypo.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Feather.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Foundation.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Octicons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf",
+				"${PODS_ROOT}/../../node_modules/react-native-vector-icons/Fonts/Zocial.ttf",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AntDesign.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Entypo.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EvilIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Feather.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Brands.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Regular.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FontAwesome5_Solid.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Fontisto.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Foundation.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Ionicons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialCommunityIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MaterialIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Octicons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SimpleLineIcons.ttf",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Zocial.ttf",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-ReactNativeScrollableNavigationBar/Pods-ReactNativeScrollableNavigationBar-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FDCE80C2DADA42CDE897E7E1 /* [CP] Check Pods Manifest.lock */ = {
@@ -545,7 +595,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ReactNativeScrollableNavigationBarExampleTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ReactNativeScrollableNavigationBarTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -559,7 +609,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00E356F31AD99517003FC87E /* ReactNativeScrollableNavigationBarExampleTests.m in Sources */,
+				00E356F31AD99517003FC87E /* ReactNativeScrollableNavigationBarTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -585,7 +635,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DCD954D1E0B4F2C00145EB5 /* ReactNativeScrollableNavigationBarExampleTests.m in Sources */,
+				2DCD954D1E0B4F2C00145EB5 /* ReactNativeScrollableNavigationBarTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -594,12 +644,12 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* ReactNativeScrollableNavigationBarExample */;
+			target = 13B07F861A680F5B00A75B9A /* ReactNativeScrollableNavigationBar */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 		2D02E4921E0B4A5D006451C7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 2D02E47A1E0B4A5D006451C7 /* ReactNativeScrollableNavigationBarExample-tvOS */;
+			target = 2D02E47A1E0B4A5D006451C7 /* ReactNativeScrollableNavigationBar-tvOS */;
 			targetProxy = 2D02E4911E0B4A5D006451C7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -611,7 +661,7 @@
 				13B07FB21A68108700A75B9A /* Base */,
 			);
 			name = LaunchScreen.xib;
-			path = ReactNativeScrollableNavigationBarExample;
+			path = ReactNativeScrollableNavigationBar;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -619,14 +669,14 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ADD45077CC40851FDBFA2EA3 /* Pods-ReactNativeScrollableNavigationBarExampleTests.debug.xcconfig */;
+			baseConfigurationReference = ADD45077CC40851FDBFA2EA3 /* Pods-ReactNativeScrollableNavigationBarTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = ReactNativeScrollableNavigationBarExampleTests/Info.plist;
+				INFOPLIST_FILE = ReactNativeScrollableNavigationBarTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -635,17 +685,17 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReactNativeScrollableNavigationBarExample.app/ReactNativeScrollableNavigationBarExample";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReactNativeScrollableNavigationBar.app/ReactNativeScrollableNavigationBar";
 			};
 			name = Debug;
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 82DC9F1786DD48CE340D1CE8 /* Pods-ReactNativeScrollableNavigationBarExampleTests.release.xcconfig */;
+			baseConfigurationReference = 82DC9F1786DD48CE340D1CE8 /* Pods-ReactNativeScrollableNavigationBarTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
-				INFOPLIST_FILE = ReactNativeScrollableNavigationBarExampleTests/Info.plist;
+				INFOPLIST_FILE = ReactNativeScrollableNavigationBarTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -654,18 +704,18 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReactNativeScrollableNavigationBarExample.app/ReactNativeScrollableNavigationBarExample";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReactNativeScrollableNavigationBar.app/ReactNativeScrollableNavigationBar";
 			};
 			name = Release;
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 402AB8A11C55B3D86C7A05E7 /* Pods-ReactNativeScrollableNavigationBarExample.debug.xcconfig */;
+			baseConfigurationReference = 402AB8A11C55B3D86C7A05E7 /* Pods-ReactNativeScrollableNavigationBar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				INFOPLIST_FILE = ReactNativeScrollableNavigationBarExample/Info.plist;
+				INFOPLIST_FILE = ReactNativeScrollableNavigationBar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -673,18 +723,18 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = ReactNativeScrollableNavigationBarExample;
+				PRODUCT_NAME = ReactNativeScrollableNavigationBar;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F9A9886EE5F0533C457B0F95 /* Pods-ReactNativeScrollableNavigationBarExample.release.xcconfig */;
+			baseConfigurationReference = F9A9886EE5F0533C457B0F95 /* Pods-ReactNativeScrollableNavigationBar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
-				INFOPLIST_FILE = ReactNativeScrollableNavigationBarExample/Info.plist;
+				INFOPLIST_FILE = ReactNativeScrollableNavigationBar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"$(inherited)",
@@ -692,14 +742,14 @@
 					"-lc++",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
-				PRODUCT_NAME = ReactNativeScrollableNavigationBarExample;
+				PRODUCT_NAME = ReactNativeScrollableNavigationBar;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
 		2D02E4971E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E7FD4835A77B3C5B65678BDA /* Pods-ReactNativeScrollableNavigationBarExample-tvOS.debug.xcconfig */;
+			baseConfigurationReference = E7FD4835A77B3C5B65678BDA /* Pods-ReactNativeScrollableNavigationBar-tvOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -710,13 +760,13 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "ReactNativeScrollableNavigationBarExample-tvOS/Info.plist";
+				INFOPLIST_FILE = "ReactNativeScrollableNavigationBar-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.ReactNativeScrollableNavigationBarExample-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.ReactNativeScrollableNavigationBar-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -726,7 +776,7 @@
 		};
 		2D02E4981E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 424B7094B05D85D4E36D37EB /* Pods-ReactNativeScrollableNavigationBarExample-tvOS.release.xcconfig */;
+			baseConfigurationReference = 424B7094B05D85D4E36D37EB /* Pods-ReactNativeScrollableNavigationBar-tvOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -737,13 +787,13 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "ReactNativeScrollableNavigationBarExample-tvOS/Info.plist";
+				INFOPLIST_FILE = "ReactNativeScrollableNavigationBar-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.ReactNativeScrollableNavigationBarExample-tvOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.ReactNativeScrollableNavigationBar-tvOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
 				TARGETED_DEVICE_FAMILY = 3;
@@ -753,7 +803,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 72FAD7D8372817A50E36624E /* Pods-ReactNativeScrollableNavigationBarExample-tvOSTests.debug.xcconfig */;
+			baseConfigurationReference = 72FAD7D8372817A50E36624E /* Pods-ReactNativeScrollableNavigationBar-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -763,23 +813,23 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_TESTABILITY = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "ReactNativeScrollableNavigationBarExample-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "ReactNativeScrollableNavigationBar-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.ReactNativeScrollableNavigationBarExample-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.ReactNativeScrollableNavigationBar-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReactNativeScrollableNavigationBarExample-tvOS.app/ReactNativeScrollableNavigationBarExample-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReactNativeScrollableNavigationBar-tvOS.app/ReactNativeScrollableNavigationBar-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Debug;
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C4D86862880F7DAFFDF71F16 /* Pods-ReactNativeScrollableNavigationBarExample-tvOSTests.release.xcconfig */;
+			baseConfigurationReference = C4D86862880F7DAFFDF71F16 /* Pods-ReactNativeScrollableNavigationBar-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -789,16 +839,16 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_NO_COMMON_BLOCKS = YES;
-				INFOPLIST_FILE = "ReactNativeScrollableNavigationBarExample-tvOSTests/Info.plist";
+				INFOPLIST_FILE = "ReactNativeScrollableNavigationBar-tvOSTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.ReactNativeScrollableNavigationBarExample-tvOSTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.ReactNativeScrollableNavigationBar-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = appletvos;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReactNativeScrollableNavigationBarExample-tvOS.app/ReactNativeScrollableNavigationBarExample-tvOS";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ReactNativeScrollableNavigationBar-tvOS.app/ReactNativeScrollableNavigationBar-tvOS";
 				TVOS_DEPLOYMENT_TARGET = 10.1;
 			};
 			name = Release;
@@ -905,7 +955,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "ReactNativeScrollableNavigationBarExampleTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "ReactNativeScrollableNavigationBarTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -914,7 +964,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ReactNativeScrollableNavigationBarExample" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "ReactNativeScrollableNavigationBar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -923,7 +973,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "ReactNativeScrollableNavigationBarExample-tvOS" */ = {
+		2D02E4BA1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "ReactNativeScrollableNavigationBar-tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4971E0B4A5E006451C7 /* Debug */,
@@ -932,7 +982,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "ReactNativeScrollableNavigationBarExample-tvOSTests" */ = {
+		2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "ReactNativeScrollableNavigationBar-tvOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				2D02E4991E0B4A5E006451C7 /* Debug */,
@@ -941,7 +991,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "ReactNativeScrollableNavigationBarExample" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "ReactNativeScrollableNavigationBar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

@@ -1,3 +1,4 @@
+/*
 module.exports = {
   dependencies: {
     'react-native-gesture-handler': {
@@ -20,3 +21,4 @@ module.exports = {
     }
   }
 };
+*/

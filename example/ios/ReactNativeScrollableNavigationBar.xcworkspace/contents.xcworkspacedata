@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:ReactNativeScrollableNavigationBarExample.xcodeproj">
+      location = "group:ReactNativeScrollableNavigationBar.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
