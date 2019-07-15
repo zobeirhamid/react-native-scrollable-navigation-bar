@@ -150,8 +150,8 @@ class Container extends React.Component<ContainerProps, ContainerState> {
                         extrapolate: 'clamp'
                       })
                     }
-                  ],
-                  overflow: 'visible'
+                  ]
+                  // overflow: 'visible'
                 },
                 style
               ]}
