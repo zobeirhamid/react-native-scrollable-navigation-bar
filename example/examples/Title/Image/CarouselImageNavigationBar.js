@@ -18,7 +18,7 @@ class CarouselImageNavigationBar extends React.Component {
         afterTransitionPoint={() => StatusBar.setBarStyle('dark-content')}
         fadeOut
         parallax={0.5}
-        ImageComponent={() => (
+        HeaderBackgroundComponent={() => (
           <ScrollView pagingEnabled horizontal bounces={false}>
             <ImagePlaceholder />
             <ImagePlaceholder />

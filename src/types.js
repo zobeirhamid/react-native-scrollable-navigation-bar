@@ -9,10 +9,8 @@ export type StatusBarComponentProps = {
 
 export type ContainerDefaultProps = {|
   ScrollComponent: React.ComponentType<Animated.ScrollView>,
-  headerHeight: number,
   navigationBarHeight: number,
   transitionPoint: number,
-  OverlayComponent: React.ComponentType<any>,
   Header: React.AbstractComponent<
     React.Config<HeaderProps, HeaderDefaultProps>
   >,
@@ -26,17 +24,15 @@ export type ContainerProps = {|
   animatedValue?: Animated.Value,
   afterTransitionPoint?: () => void,
   beforeTransitionPoint?: () => void,
-  style?: mixed,
-  containerStyle?: mixed,
+  style?: any,
   contentContainerStyle?: mixed,
   scrollEnabled?: boolean,
-  ListHeaderComponent?: Function,
-  ListFooterComponent?: Function
+  headerHeight?: number
 |};
 
 export type ContainerState = {
-  reachedTransitionPoint: boolean
-  // position: number
+  reachedTransitionPoint: boolean,
+  position: number
 };
 
 export type EventHandlerType<T: mixed> = {
@@ -46,7 +42,8 @@ export type EventHandlerType<T: mixed> = {
 
 export type HeaderTitleProps = {
   children?: string,
-  style?: mixed
+  style?: mixed,
+  containerStyle?: mixed
 };
 
 export type NavigationBarTitleProps = {
@@ -88,6 +85,7 @@ export type StickyProps = {
   animatedValue: Animated.Value,
   transitionPoint: number,
   navigationBarHeight: number,
+  height: number,
   collapsible?: boolean,
   stayCollapsed?: boolean,
   children?: React.Node,
@@ -110,7 +108,7 @@ export type NavigationBarContainerProps = {
   children?: React.Node,
   collapsible?: boolean,
   stayCollapsed?: boolean,
-  navigationBarHeight?: number,
+  navigationBarHeight: number,
   translucent?: boolean,
   animatedValue: Animated.Value,
   pointerEvents?: string
@@ -118,6 +116,7 @@ export type NavigationBarContainerProps = {
 
 export type CollapsibleProps = {
   navigationBarHeight: number,
+  height: number,
   transitionPoint: number,
   animatedValue: Animated.Value,
   children?: React.Node,
@@ -147,8 +146,7 @@ export type HeaderDefaultProps = {|
   ScrolledNavigationBar: React.ComponentType<{}>,
   transitionPoint: number,
   navigationBarHeight: number,
-  headerHeight: number,
-  SnapComponent: React.ComponentType<any>
+  headerHeight: number
 |};
 
 export type HeaderProps = {
@@ -156,14 +154,14 @@ export type HeaderProps = {
   animatedValue: Animated.Value,
   backgroundColor?: string,
   borderColor?: string,
+  headerBorderColor?: string,
   fadeOut?: boolean,
   parallax?: number,
   title?: string,
   titleStyle?: mixed,
   style?: mixed,
   collapsible?: boolean,
-  stayCollapsed?: boolean,
-  headerStyle?: mixed
+  stayCollapsed?: boolean
 };
 
 export type HeaderNavigationBarDefaultProps = {|
@@ -192,7 +190,9 @@ export type HeaderForegroundProps = {
 };
 
 export type HeaderBorderProps = {
+  navigationBarHeight: number,
   borderColor?: string,
+  headerBorderColor?: string,
   collapsible?: boolean,
   stayCollapsed?: boolean
 };

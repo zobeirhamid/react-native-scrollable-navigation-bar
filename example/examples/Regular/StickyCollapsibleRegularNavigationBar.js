@@ -7,6 +7,7 @@ class StickyCollapsibleRegularNavigationBar extends React.Component {
     return (
       <MainRegularNavigationBar
         stickyCollapsible
+        stickyHeight={50}
         StickyComponent={() => (
           <View style={{ backgroundColor: 'red', height: 50 }} />
         )}

@@ -1,15 +1,14 @@
 import React from 'react';
 import { YellowBox } from 'react-native';
-import { createStackNavigator, createAppContainer } from 'react-navigation';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
 import NavigationService from './NavigationService';
 import Screens from './Screens';
 import HomeScreen from './HomeScreen';
-import SectionList from './SectionList';
 
 const AppNavigator = createStackNavigator(
   {
-    SectionList,
     HomeScreen: props => (
       <HomeScreen screens={Screens} initialScreen {...props} title="Home" />
     ),

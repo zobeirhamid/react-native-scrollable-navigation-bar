@@ -17,7 +17,7 @@ class FadeOutImageNavigationBar extends React.Component {
         afterTransitionPoint={() => StatusBar.setBarStyle('dark-content')}
         beforeTransitionPoint={() => StatusBar.setBarStyle('light-content')}
         fadeOut
-        ImageComponent={() => <ImagePlaceholder />}
+        HeaderBackgroundComponent={() => <ImagePlaceholder />}
       />
     );
   }

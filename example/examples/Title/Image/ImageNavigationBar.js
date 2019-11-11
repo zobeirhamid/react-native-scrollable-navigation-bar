@@ -16,7 +16,7 @@ class ImageNavigationBar extends React.Component {
         )}
         afterTransitionPoint={() => StatusBar.setBarStyle('dark-content')}
         beforeTransitionPoint={() => StatusBar.setBarStyle('light-content')}
-        ImageComponent={() => <ImagePlaceholder />}
+        HeaderBackgroundComponent={() => <ImagePlaceholder />}
       />
     );
   }

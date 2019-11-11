@@ -8,8 +8,8 @@ export function scaleable(Node, animatedValue) {
         transform: [
           {
             scale: animatedValue.interpolate({
-              inputRange: [-0, 50],
-              outputRange: [1.5, 1],
+              inputRange: [-10, 0],
+              outputRange: [1.3, 1],
               extrapolateRight: 'clamp'
             })
           }

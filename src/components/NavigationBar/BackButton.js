@@ -9,11 +9,11 @@ export default class BackButton extends React.Component<BackButtonProps> {
   };
 
   render() {
-    const { onPress, style, visible } = this.props;
+    const { onPress, style, visible, modal } = this.props;
     if (!visible) return null;
     return (
       <NavigationBarIcon
-        name="ios-arrow-back"
+        name={modal ? 'ios-arrow-down' : 'ios-arrow-back'}
         style={style}
         onPress={onPress}
       />

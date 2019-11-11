@@ -3,7 +3,7 @@ import * as React from 'react';
 import { Animated, View } from 'react-native';
 import Collapsible from './Collapsible';
 import { ContextConsumer } from './Context';
-import { NAVIGATION_BAR_HEIGHT } from '../constants';
+import { NAVIGATION_BAR_HEIGHT, STATUS_BAR_HEIGHT } from '../constants';
 import type { NavigationBarContainerProps } from '../types';
 
 class NavigationBarContainer extends React.Component<NavigationBarContainerProps> {
@@ -35,6 +35,7 @@ class NavigationBarContainer extends React.Component<NavigationBarContainerProps
           active={collapsible}
           stayCollapsed={stayCollapsed}
           style={{ zIndex: 10 }}
+          height={navigationBarHeight - STATUS_BAR_HEIGHT}
         >
           <Animated.View
             pointerEvents={pointerEvents}
@@ -49,7 +50,7 @@ class NavigationBarContainer extends React.Component<NavigationBarContainerProps
                 height: navigationBarHeight,
                 transform: [
                   {
-                    translateY: 0
+                    translateY: animatedValue || 0
                   }
                 ]
               },
@@ -59,6 +60,7 @@ class NavigationBarContainer extends React.Component<NavigationBarContainerProps
             {children}
           </Animated.View>
         </Collapsible>
+        {!translucent && <View style={{ height: navigationBarHeight }} />}
       </React.Fragment>
     );
   }

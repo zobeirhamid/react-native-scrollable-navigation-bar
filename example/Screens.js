@@ -4,7 +4,6 @@ import CollapsibleRegularNavigationBar from './examples/Regular/CollapsibleRegul
 import StickyRegularNavigationBar from './examples/Regular/StickyRegularNavigationBar';
 import StickyCollapsibleRegularNavigationBar from './examples/Regular/StickyCollapsibleRegularNavigationBar';
 import CollapsibleStickyRegularNavigationBar from './examples/Regular/CollapsibleStickyRegularNavigationBar';
-import StickyStayCollapsibleRegularNavigationBar from './examples/Regular/StickyStayCollapsibleRegularNavigationBar';
 import SearchRegularNavigationBar from './examples/Regular/SearchRegularNavigationBar';
 
 // TitleNavigationBar
@@ -15,7 +14,6 @@ import SnapTitleNavigationBar from './examples/Title/SnapTitleNavigationBar';
 import SearchTitleNavigationBar from './examples/Title/SearchTitleNavigationBar';
 import StickyCollapsibleTitleNavigationBar from './examples/Title/StickyCollapsibleTitleNavigationBar';
 import CollapsibleStickyTitleNavigationBar from './examples/Title/CollapsibleStickyTitleNavigationBar';
-import StickyStayCollapsibleTitleNavigationBar from './examples/Title/StickyStayCollapsibleTitleNavigationBar';
 
 // ImageTitleNavigationBar
 import ImageNavigationBar from './examples/Title/Image/ImageNavigationBar';
@@ -30,7 +28,6 @@ const Screens = {
     StickyRegularNavigationBar,
     StickyCollapsibleRegularNavigationBar,
     CollapsibleStickyRegularNavigationBar,
-    StickyStayCollapsibleRegularNavigationBar,
     SearchRegularNavigationBar
   },
   Title: {
@@ -41,7 +38,6 @@ const Screens = {
     SearchTitleNavigationBar,
     StickyCollapsibleTitleNavigationBar,
     CollapsibleStickyTitleNavigationBar,
-    StickyStayCollapsibleTitleNavigationBar
   },
   Image: {
     ImageNavigationBar,

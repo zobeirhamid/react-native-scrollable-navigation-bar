@@ -1,6 +1,6 @@
 {
   "name": "react-native-scrollable-navigation-bar",
-  "version": "0.10.0",
+  "version": "1.0.0",
   "description": "Scrollable Navigation Bar for React Native",
   "main": "index.js",
   "scripts": {
@@ -17,15 +17,6 @@
     "react-native-vector-icons": "*"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.5",
-    "@babel/plugin-proposal-decorators": "^7.2.3",
-    "@babel/runtime": "^7.4.5",
-    "babel-cli": "^6.26.0",
-    "babel-eslint": "^10.0.1",
-    "babel-jest": "^24.8.0",
-    "babel-plugin-module-resolver": "^3.1.1",
-    "babel-preset-flow": "^6.23.0",
-    "babel-preset-react-native": "^4.0.1",
     "eslint": "^5.9.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-prettier": "^3.3.0",
@@ -34,11 +25,8 @@
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-react-native": "^3.5.0",
     "flow-bin": "^0.86.0",
-    "metro-react-native-babel-preset": "^0.54.1",
-    "react-native-vector-icons": "^6.5.0",
     "prettier": "^1.15.2",
-    "prettier-eslint": "^8.8.2",
-    "react-native": "~0.60.0"
+    "prettier-eslint": "^8.8.2"
   },
   "keywords": [
     "react-native",

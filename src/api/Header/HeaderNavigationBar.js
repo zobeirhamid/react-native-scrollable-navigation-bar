@@ -1,15 +1,15 @@
 // @flow
-import * as React from 'react';
-import { Animated, View } from 'react-native';
-import { appear } from '../hoc';
-import NavigationBarContainer from '../NavigationBarContainer';
-import { ContextConsumer } from '../Context';
-import { NAVIGATION_BAR_HEIGHT } from '../../constants';
+import * as React from "react";
+import { Animated, View } from "react-native";
+import { appear } from "../hoc";
+import NavigationBarContainer from "../NavigationBarContainer";
+import { ContextConsumer } from "../Context";
+import { NAVIGATION_BAR_HEIGHT } from "../../constants";
 import type {
   HeaderNavigationBarProps,
   HeaderNavigationBarDefaultProps,
   ContainerState
-} from '../../types';
+} from "../../types";
 
 class HeaderNavigationBar extends React.Component<
   HeaderNavigationBarProps,
@@ -47,7 +47,7 @@ class HeaderNavigationBar extends React.Component<
       <View
         pointerEvents="box-none"
         style={{
-          position: 'absolute',
+          position: "absolute",
           top: 0,
           left: 0,
           right: 0,
@@ -70,7 +70,7 @@ class HeaderNavigationBar extends React.Component<
             collapsible={collapsible}
             stayCollapsed={stayCollapsed}
             pointerEvents={
-              reachedTransitionPoint === true ? 'box-none' : 'none'
+              reachedTransitionPoint === true ? "box-none" : "none"
             }
           >
             <ScrolledNavigationBar backgroundColor={backgroundColor} />

@@ -5,10 +5,13 @@ import type { HeaderTitleProps } from '../types';
 
 class HeaderTitle extends React.Component<HeaderTitleProps> {
   render() {
-    const { children, style } = this.props;
+    const { children, style, containerStyle } = this.props;
     return (
       <View
-        style={{ flex: 1, justifyContent: 'flex-end', padding: 15 }}
+        style={[
+          { flex: 1, justifyContent: 'flex-end', padding: 15 },
+          containerStyle
+        ]}
         pointerEvents="box-none"
       >
         <Animated.Text

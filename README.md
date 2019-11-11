@@ -1,5 +1,9 @@
 # react-native-scrollable-navigation-bar
 
+## Update - 11/11/2019
+
+Since the past versions were kinda buggy and not really production ready, here is a version which should be production ready.
+
 ## Update - 07/06/2019
 
 I completely rewrote this package since adding new features was way too troublesome. With the rewrite the package got a new, very easy to use, API. When I have some more time I will document everything, but for now you will have to rely on the provided examples.
@@ -17,8 +21,3 @@ This package provides a set of navigation bars for ScrollViews with different an
 ## Documentation
 
 _Coming soon; for now checkout the example folder._
-
-## Roadmap
-
-- [ ] Supporting Tabs
-- [x] Supporting Section List with Section Header being the new Sticky elements

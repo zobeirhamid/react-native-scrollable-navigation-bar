@@ -17,7 +17,7 @@ class ParallaxImageNavigationBar extends React.Component {
         afterTransitionPoint={() => StatusBar.setBarStyle('dark-content')}
         beforeTransitionPoint={() => StatusBar.setBarStyle('light-content')}
         parallax={0.5}
-        ImageComponent={() => <ImagePlaceholder />}
+        HeaderBackgroundComponent={() => <ImagePlaceholder />}
       />
     );
   }

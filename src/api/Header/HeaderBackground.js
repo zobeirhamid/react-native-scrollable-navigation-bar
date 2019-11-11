@@ -30,7 +30,6 @@ class HeaderBackground extends React.Component<HeaderBackgroundProps> {
     return (
       <View style={{ backgroundColor }}>
         <Animated.View
-          pointerEvents="box-none"
           style={{
             transform: [
               {

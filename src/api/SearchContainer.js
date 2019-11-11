@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { Animated } from 'react-native';
+import { Animated, View } from 'react-native';
 import Container from './Container';
 import { STATUS_BAR_HEIGHT, NAVIGATION_BAR_HEIGHT } from '../constants';
 import type {
@@ -34,7 +34,7 @@ class SearchContainer extends React.Component<
   }
 
   onBlur(): void {
-    // this.setState({ searchActive: false });
+    //   this.setState({ searchActive: false });
     Animated.timing(this.searchAnimatedValue, {
       toValue: 0,
       useNativeDriver: true
@@ -42,51 +42,43 @@ class SearchContainer extends React.Component<
   }
 
   render() {
-    const {
-      style,
-      headerHeight,
-      transitionPoint,
-      navigationBarHeight
-    } = this.props;
+    const { children, style, headerHeight, contentContainerStyle } = this.props;
     const { searchActive } = this.state;
+    const translateStyle = {
+      transform: [
+        {
+          translateY: Animated.multiply(
+            STATUS_BAR_HEIGHT - headerHeight,
+            this.searchAnimatedValue
+          )
+        }
+      ]
+    };
+
+    const customStyle =
+      Platform.OS === 'ios'
+        ? { style: [translateStyle, style] }
+        : { contentContainerStyle: [translateStyle, contentContainerStyle] };
 
     return (
-      <React.Fragment>
-        <Container
-          {...this.props}
-          scrollEnabled={!searchActive}
-          containerStyle={[
-            {
-              transform: [
-                {
-                  translateY: Animated.multiply(
-                    STATUS_BAR_HEIGHT - headerHeight,
-                    this.searchAnimatedValue
-                  )
-                }
-              ],
-              overflow: 'visible'
-            },
-            style
-          ]}
-          OverlayComponent={() => (
-            <Animated.View
-              pointerEvents="none"
-              style={{
-                flex: 1,
-                zIndex: 9999,
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                opacity: Animated.multiply(this.searchAnimatedValue, 0.5),
-                backgroundColor: 'black'
-              }}
-            />
-          )}
-        />
-      </React.Fragment>
+      <Container {...this.props} scrollEnabled={!searchActive} {...customStyle}>
+        <View>
+          <Animated.View
+            pointerEvents="none"
+            style={{
+              zIndex: 1,
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              right: 0,
+              bottom: 0,
+              opacity: Animated.multiply(this.searchAnimatedValue, 0.5),
+              backgroundColor: 'black'
+            }}
+          />
+          {children}
+        </View>
+      </Container>
     );
   }
 }

@@ -11,11 +11,15 @@ class NavigationBarIcon extends React.Component<NavigationBarIconProps> {
   };
 
   render() {
-    const { name, style, size, onPress, IconProvider } = this.props;
+    const { name, style, size, onPress, IconProvider, children } = this.props;
     return (
       <TouchableOpacity onPress={onPress}>
         <View style={{ marginHorizontal: 10 }}>
-          <IconProvider name={name} size={size} style={style} />
+          {children !== undefined ? (
+            React.cloneElement(children, { size })
+          ) : (
+            <IconProvider name={name} size={size} style={style} />
+          )}
         </View>
       </TouchableOpacity>
     );
