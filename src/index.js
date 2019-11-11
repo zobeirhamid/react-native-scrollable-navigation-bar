@@ -15,7 +15,7 @@ import type {
   ContainerDefaultProps,
   BackButtonProps
 } from './types';
-import { NAVIGATION_BAR_HEIGHT } from './constants';
+import { NAVIGATION_BAR_HEIGHT, STATUS_BAR_HEIGHT } from './constants';
 
 const ImageStatusBar = () => (
   <StatusBar.Component barStyle="light-content" backgroundColor="transparent" />
@@ -263,7 +263,8 @@ class ScrollableNavigationBar extends React.Component<ScrollableNavigationBarPro
       HeaderBackgroundComponent,
       ScrollComponent,
       animatedValue,
-      stickyHeight
+      stickyHeight,
+      collapsible
     } = this.props;
     return (
       <ContainerComponent
@@ -286,7 +287,11 @@ class ScrollableNavigationBar extends React.Component<ScrollableNavigationBarPro
             <Sticky
               collapsible={stickyCollapsible}
               stayCollapsed={stayCollapsed}
-              height={stickyHeight}
+              height={
+                stickyCollapsible && collapsible && !stayCollapsed
+                  ? NAVIGATION_BAR_HEIGHT - STATUS_BAR_HEIGHT
+                  : stickyHeight
+              }
             >
               {StickyComponent !== undefined && <StickyComponent />}
             </Sticky>

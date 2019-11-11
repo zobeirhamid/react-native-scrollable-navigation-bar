@@ -1,9 +1,9 @@
 // @flow
-import * as React from "react";
-import { Animated } from "react-native";
-import { ContextConsumer } from "./Context";
-import { STATUS_BAR_HEIGHT } from "../constants";
-import type { CollapsibleProps } from "../types";
+import * as React from 'react';
+import { Animated } from 'react-native';
+import { ContextConsumer } from './Context';
+import { STATUS_BAR_HEIGHT } from '../constants';
+import type { CollapsibleProps } from '../types';
 
 class Collapsible extends React.Component<CollapsibleProps> {
   static defaultProps = {
@@ -33,7 +33,7 @@ class Collapsible extends React.Component<CollapsibleProps> {
           transitionPoint - STATUS_BAR_HEIGHT
         ],
         outputRange: [0, -navigationBarHeight + STATUS_BAR_HEIGHT],
-        extrapolate: "clamp"
+        extrapolate: 'clamp'
       });
     } else if (active) {
       translateY = Animated.multiply(
@@ -44,7 +44,7 @@ class Collapsible extends React.Component<CollapsibleProps> {
               transitionPoint - navigationBarHeight + 1
             ],
             outputRange: [0, 1],
-            extrapolateLeft: "clamp"
+            extrapolateLeft: 'clamp'
           }),
           0,
           height
@@ -60,7 +60,7 @@ class Collapsible extends React.Component<CollapsibleProps> {
         style={[
           {
             zIndex: 1,
-            position: "absolute",
+            position: 'absolute',
             top: 0,
             right: 0,
             left: 0,
