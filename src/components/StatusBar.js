@@ -21,7 +21,7 @@ function StatusBar() {
   }
 
   function lastBarStyle(statusBarStack) {
-    return statusBarStack[statusBarStack.length - 1];
+    return statusBarStack && statusBarStack[statusBarStack.length - 1];
   }
 
   function currentBarStyle() {

@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { Animated, View } from 'react-native';
+import { Animated, View, Platform } from 'react-native';
 import Container from './Container';
 import { STATUS_BAR_HEIGHT, NAVIGATION_BAR_HEIGHT } from '../constants';
 import type {

@@ -1,7 +1,9 @@
 // @flow
 import { Platform, StatusBar, Dimensions } from 'react-native';
 
-StatusBar.setTranslucent(true);
+if(Platform.OS === 'android') {
+  StatusBar.setTranslucent(true);
+}
 
 function isIphoneX() {
   const { width, height } = Dimensions.get('window');
