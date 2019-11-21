@@ -7,13 +7,22 @@ function EventHandler<T>(): EventHandlerType<T> {
     listeners.push(listener);
   }
 
+  function removeListener(listener: T => void) {
+    for (let i = 0; i < listeners.length; i++) {
+      if (listeners[i] === listener) {
+        listeners.splice(i, 1)
+        break;
+      }
+    }
+  }
+
   function fire(value: T) {
     listeners.forEach((listener: T => void) => {
       listener(value);
     });
   }
 
-  return { listen, fire };
+  return { listen, removeListener, fire };
 }
 
 export default EventHandler;
