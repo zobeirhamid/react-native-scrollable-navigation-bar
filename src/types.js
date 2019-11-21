@@ -37,6 +37,7 @@ export type ContainerState = {
 
 export type EventHandlerType<T: mixed> = {
   listen: ((T) => void) => void,
+  removeListener: ((T) => void) => void,
   fire: T => void
 };
 
