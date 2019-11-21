@@ -85,7 +85,7 @@ class Container extends React.Component<ContainerProps, ContainerState> {
       y + 1 >= transitionPoint - navigationBarHeight
     ) {
       this.setState({ reachedTransitionPoint: true }, () => {
-        this.eventHandler.fire(this.state);
+        typeof this.eventHandler === "function" && this.eventHandler.fire(this.state);
       });
       if (afterTransitionPoint !== undefined) afterTransitionPoint();
     }
@@ -94,7 +94,7 @@ class Container extends React.Component<ContainerProps, ContainerState> {
       y + 1 < transitionPoint - navigationBarHeight
     ) {
       this.setState({ reachedTransitionPoint: false }, () => {
-        this.eventHandler.fire(this.state);
+        typeof this.eventHandler === "function" && this.eventHandler.fire(this.state);
       });
       if (beforeTransitionPoint !== undefined) beforeTransitionPoint();
     }
