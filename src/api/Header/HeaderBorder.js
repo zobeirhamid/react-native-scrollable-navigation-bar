@@ -12,9 +12,15 @@ class HeaderBorder extends React.Component<HeaderBorderProps> {
 
   componentDidMount() {
     const { containerEvents } = this.props;
-    containerEvents.listen(({ reachedTransitionPoint }) => {
-      this.setState({ reachedTransitionPoint });
-    });
+    this.listener = ({ reachedTransitionPoint }) => {
+        this.setState({ reachedTransitionPoint });
+    };
+    containerEvents.listen(this.listener);
+  }
+
+  componentWillUnmount() {
+    const { containerEvents } = this.props;
+    containerEvents.removeListener(this.listener);
   }
 
   render() {
