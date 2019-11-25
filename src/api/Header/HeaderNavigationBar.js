@@ -27,7 +27,7 @@ class HeaderNavigationBar extends React.Component<
 
   componentDidMount() {
     const { containerEvents } = this.props;
-    if (containerEvents !== undefined){
+    if (containerEvents){
         this.listener = containerState => this.setState(containerState);
         containerEvents.listen(this.listener);
     }
@@ -35,7 +35,7 @@ class HeaderNavigationBar extends React.Component<
 
   componentWillUnmount() {
     const { containerEvents } = this.props;
-    if (containerEvents !== undefined){
+    if (containerEvents){
       containerEvents.removeListener(this.listener);
     }
   }

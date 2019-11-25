@@ -2,18 +2,13 @@
 import type { EventHandlerType } from './types';
 
 function EventHandler<T>(): EventHandlerType<T> {
-  const listeners = [];
+  let listeners = [];
   function listen(listener: T => void) {
     listeners.push(listener);
   }
 
   function removeListener(listener: T => void) {
-    for (let i = 0; i < listeners.length; i++) {
-      if (listeners[i] === listener) {
-        listeners.splice(i, 1)
-        break;
-      }
-    }
+    listeners = listeners.filter(element => element !== listener)
   }
 
   function fire(value: T) {
