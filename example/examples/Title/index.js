@@ -2,7 +2,7 @@ import * as React from 'react';
 import ScrollableNavigationBar, {
   StatusBarComponent,
   NavigationBarIcon,
-  BackButton
+  BackButton,
 } from 'react-native-scrollable-navigation-bar';
 import Placeholders from '../Placeholders';
 import NavigationService from '../../NavigationService';
@@ -19,9 +19,10 @@ class MainTitleNavigationBar extends React.Component {
           />
         )}
         title="Title"
+        headerTitle="HeaderTitle"
         headerBackgroundColor="#f5f5f5"
         borderColor="lightgrey"
-        BackButton={({ style }) => (
+        BackButton={({style}) => (
           <BackButton
             style={style}
             onPress={() => NavigationService.goBack()}
@@ -29,8 +30,7 @@ class MainTitleNavigationBar extends React.Component {
         )}
         leftIcons={[<NavigationBarIcon name="ios-heart" />]}
         rightIcons={[<NavigationBarIcon name="ios-rocket" />]}
-        {...this.props}
-      >
+        {...this.props}>
         <Placeholders number={10} />
       </ScrollableNavigationBar>
     );
