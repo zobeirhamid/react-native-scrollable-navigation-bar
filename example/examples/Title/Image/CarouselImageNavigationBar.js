@@ -1,8 +1,16 @@
 import * as React from 'react';
-import { StatusBar, ScrollView } from 'react-native';
-import { StatusBarComponent } from 'react-native-scrollable-navigation-bar';
+import {StatusBar, ScrollView} from 'react-native';
+import {StatusBarComponent} from 'react-native-scrollable-navigation-bar';
 import MainTitleNavigationBar from '..';
 import ImagePlaceholder from './ImagePlaceholder';
+
+const HeaderBackgroundComponent = () => (
+  <ScrollView pagingEnabled horizontal bounces={false}>
+    <ImagePlaceholder />
+    <ImagePlaceholder />
+    <ImagePlaceholder />
+  </ScrollView>
+);
 
 class CarouselImageNavigationBar extends React.Component {
   render() {
@@ -18,13 +26,7 @@ class CarouselImageNavigationBar extends React.Component {
         afterTransitionPoint={() => StatusBar.setBarStyle('dark-content')}
         fadeOut
         parallax={0.5}
-        HeaderBackgroundComponent={() => (
-          <ScrollView pagingEnabled horizontal bounces={false}>
-            <ImagePlaceholder />
-            <ImagePlaceholder />
-            <ImagePlaceholder />
-          </ScrollView>
-        )}
+        HeaderBackgroundComponent={HeaderBackgroundComponent}
       />
     );
   }

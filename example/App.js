@@ -1,7 +1,8 @@
+import 'react-native-gesture-handler';
 import React from 'react';
-import { YellowBox } from 'react-native';
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
+import {YellowBox} from 'react-native';
+import {createAppContainer} from 'react-navigation';
+import {createStackNavigator} from 'react-navigation-stack';
 
 import NavigationService from './NavigationService';
 import Screens from './Screens';
@@ -23,15 +24,15 @@ const AppNavigator = createStackNavigator(
     ),
     ...Screens.Regular,
     ...Screens.Title,
-    ...Screens.Image
+    ...Screens.Image,
   },
   {
     initialRouteName: 'HomeScreen',
     // headerTransitionPreset: 'uikit'
     defaultNavigationOptions: {
-      header: null
-    }
-  }
+      header: null,
+    },
+  },
 );
 const AppContainer = createAppContainer(AppNavigator);
 

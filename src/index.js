@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { Animated } from 'react-native';
+import { Animated, View } from 'react-native';
 import Sticky from './api/Sticky';
 import NavigationBarContainer from './api/NavigationBarContainer';
 import Header from './api/Header';
@@ -75,7 +75,8 @@ export type ScrollableNavigationBarProps = {
   animatedValue?: Animated.Value,
   HeaderForegroundComponent?: mixed => mixed,
   HeaderScrolledComponent?: mixed => mixed,
-  HeaderUnscrolledComponent?: mixed => mixed
+  HeaderUnscrolledComponent?: mixed => mixed,
+  backgroundColor?: string
 };
 
 class ScrollableNavigationBar extends React.Component<ScrollableNavigationBarProps> {
@@ -94,6 +95,11 @@ class ScrollableNavigationBar extends React.Component<ScrollableNavigationBarPro
     transitionPoint: NAVIGATION_BAR_HEIGHT,
     stickyHeight: 0
   };
+
+  constructor(props) {
+    super(props);
+    this.renderHeaderContainer = this.renderHeaderContainer.bind(this);
+  }
 
   getContainerNode() {
     return this.container;
@@ -247,6 +253,47 @@ class ScrollableNavigationBar extends React.Component<ScrollableNavigationBarPro
     );
   }
 
+  renderHeaderContainer() {
+    const {
+      StatusBar,
+      children,
+      StickyComponent,
+      stickyCollapsible,
+      ContainerComponent,
+      containerRef,
+      stayCollapsed,
+      transitionPoint,
+      snapHeight,
+      beforeTransitionPoint,
+      afterTransitionPoint,
+      HeaderBackgroundComponent,
+      ScrollComponent,
+      animatedValue,
+      stickyHeight,
+      collapsible,
+      backgroundColor
+    } = this.props;
+    return (
+      <React.Fragment>
+        {transitionPoint ===
+        ScrollableNavigationBar.defaultProps.transitionPoint
+          ? this.renderNavigationBarContainer()
+          : this.renderHeader()}
+        <Sticky
+          collapsible={stickyCollapsible}
+          stayCollapsed={stayCollapsed}
+          height={
+            stickyCollapsible && collapsible && !stayCollapsed
+              ? NAVIGATION_BAR_HEIGHT - STATUS_BAR_HEIGHT
+              : stickyHeight
+          }
+        >
+          {StickyComponent !== undefined && <StickyComponent />}
+        </Sticky>
+      </React.Fragment>
+    );
+  }
+
   render() {
     const {
       StatusBar,
@@ -264,7 +311,9 @@ class ScrollableNavigationBar extends React.Component<ScrollableNavigationBarPro
       ScrollComponent,
       animatedValue,
       stickyHeight,
-      collapsible
+      collapsible,
+      backgroundColor,
+      scrollListener
     } = this.props;
     return (
       <ContainerComponent
@@ -278,28 +327,11 @@ class ScrollableNavigationBar extends React.Component<ScrollableNavigationBarPro
         StatusBar={
           HeaderBackgroundComponent !== undefined ? ImageStatusBar : StatusBar
         }
-        Header={() => (
-          <React.Fragment>
-            {transitionPoint ===
-            ScrollableNavigationBar.defaultProps.transitionPoint
-              ? this.renderNavigationBarContainer()
-              : this.renderHeader()}
-            <Sticky
-              collapsible={stickyCollapsible}
-              stayCollapsed={stayCollapsed}
-              height={
-                stickyCollapsible && collapsible && !stayCollapsed
-                  ? NAVIGATION_BAR_HEIGHT - STATUS_BAR_HEIGHT
-                  : stickyHeight
-              }
-            >
-              {StickyComponent !== undefined && <StickyComponent />}
-            </Sticky>
-          </React.Fragment>
-        )}
+        Header={this.renderHeaderContainer}
+        scrollListener={scrollListener}
         {...this.props}
       >
-        {children}
+        <View style={{ backgroundColor }}>{children}</View>
       </ContainerComponent>
     );
   }

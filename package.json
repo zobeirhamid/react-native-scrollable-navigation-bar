@@ -1,6 +1,6 @@
 {
   "name": "react-native-scrollable-navigation-bar",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "Scrollable Navigation Bar for React Native",
   "main": "index.js",
   "scripts": {
@@ -17,17 +17,15 @@
     "react-native-vector-icons": "*"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.9.0",
-    "eslint-config-airbnb": "^17.1.0",
-    "eslint-config-prettier": "^3.3.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.11.1",
-    "eslint-plugin-react-native": "^3.5.0",
-    "flow-bin": "^0.86.0",
+    "@react-native-community/eslint-config": "^1.0.0",
+    "@types/jest": "^25.2.1",
+    "@types/react": "^16.9.34",
+    "@types/react-native": "^0.62.2",
+    "@types/react-test-renderer": "^16.9.2",
+    "eslint": "^6.8.0",
     "prettier": "^1.15.2",
-    "prettier-eslint": "^8.8.2"
+    "prettier-eslint": "^8.8.2",
+    "typescript": "^3.8.3"
   },
   "keywords": [
     "react-native",
@@ -41,5 +39,11 @@
   "bugs": {
     "url": "https://github.com/zobeirhamid/react-native-scrollable-navigation-bar/issues"
   },
-  "homepage": "https://github.com/zobeirhamid/react-native-scrollable-navgation-bar"
+  "homepage": "https://github.com/zobeirhamid/react-native-scrollable-navgation-bar",
+  "dependencies": {
+    "@types/react-native-vector-icons": "^6.4.5",
+    "react": "^16.13.1",
+    "react-native": "^0.62.2",
+    "react-native-vector-icons": "^6.6.0"
+  }
 }

@@ -25,6 +25,10 @@ class Header extends React.Component<HeaderProps> {
     headerHeight: 0
   };
 
+  shouldComponentUpdate() {
+    return false;
+  }
+
   render() {
     const {
       snapHeight,

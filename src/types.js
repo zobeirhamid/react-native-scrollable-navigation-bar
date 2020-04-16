@@ -27,7 +27,8 @@ export type ContainerProps = {|
   style?: any,
   contentContainerStyle?: mixed,
   scrollEnabled?: boolean,
-  headerHeight?: number
+  headerHeight?: number,
+  backgroundColor?: string
 |};
 
 export type ContainerState = {

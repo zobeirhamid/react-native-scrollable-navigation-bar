@@ -1,6 +1,6 @@
 // @flow
 import * as React from 'react';
-import { Animated } from 'react-native';
+import { Animated, View } from 'react-native';
 import { type ScrollEvent } from 'react-native/Libraries/Types/CoreEventTypes';
 import { NAVIGATION_BAR_HEIGHT, STATUS_BAR_HEIGHT } from '../constants';
 import Context from './Context';
@@ -85,7 +85,8 @@ class Container extends React.Component<ContainerProps, ContainerState> {
       y + 1 >= transitionPoint - navigationBarHeight
     ) {
       this.setState({ reachedTransitionPoint: true }, () => {
-        typeof this.eventHandler === "function" && this.eventHandler.fire(this.state);
+        typeof this.eventHandler === 'function' &&
+          this.eventHandler.fire(this.state);
       });
       if (afterTransitionPoint !== undefined) afterTransitionPoint();
     }
@@ -94,7 +95,8 @@ class Container extends React.Component<ContainerProps, ContainerState> {
       y + 1 < transitionPoint - navigationBarHeight
     ) {
       this.setState({ reachedTransitionPoint: false }, () => {
-        typeof this.eventHandler === "function" && this.eventHandler.fire(this.state);
+        typeof this.eventHandler === 'function' &&
+          this.eventHandler.fire(this.state);
       });
       if (beforeTransitionPoint !== undefined) beforeTransitionPoint();
     }
@@ -111,7 +113,9 @@ class Container extends React.Component<ContainerProps, ContainerState> {
       transitionPoint,
       style,
       snapHeight,
-      contentContainerStyle
+      contentContainerStyle,
+      backgroundColor,
+      scrollListener
     } = this.props;
     const { scrollEnabled } = this.state;
     return (
@@ -140,12 +144,14 @@ class Container extends React.Component<ContainerProps, ContainerState> {
           onScroll={Animated.event(
             [{ nativeEvent: { contentOffset: { y: this.animatedValue } } }],
             {
-              listener: this.scrollListener.bind(this),
+              listener: event => {
+                this.scrollListener(event);
+                if (scrollListener) {
+                  scrollListener(event);
+                }
+              },
               useNativeDriver: true
             }
-          )}
-          ListHeaderComponent={() => (
-            <Header animatedValue={this.animatedValue} />
           )}
           ref={component => {
             this.component = component;
@@ -155,7 +161,7 @@ class Container extends React.Component<ContainerProps, ContainerState> {
           {...this.props}
         >
           <Header animatedValue={this.animatedValue} />
-          {children}
+          <View style={{ backgroundColor }}>{children}</View>
         </ScrollComponent>
       </Context.Provider>
     );

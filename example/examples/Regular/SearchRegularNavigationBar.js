@@ -1,9 +1,11 @@
 import * as React from 'react';
-import { SearchContainer } from 'react-native-scrollable-navigation-bar';
-import { SearchBar } from 'react-native-elements';
+import {SearchContainer} from 'react-native-scrollable-navigation-bar';
+import {SearchBar} from 'react-native-elements';
 import MainRegularNavigationBar from '.';
 
 class SearchRegularNavigationBar extends React.Component {
+  searchContainer = React.createRef();
+
   render() {
     return (
       <MainRegularNavigationBar
@@ -14,17 +16,17 @@ class SearchRegularNavigationBar extends React.Component {
             lightTheme
             placeholder="Type Here..."
             onFocus={() => {
-              if (this.searchContainer) this.searchContainer.onFocus();
+              if (this.searchContainer.current)
+                this.searchContainer.current.onFocus();
             }}
             onBlur={() => {
-              if (this.searchContainer) this.searchContainer.onBlur();
+              if (this.searchContainer.current)
+                this.searchContainer.current.onBlur();
             }}
           />
         )}
-        ContainerComponent={SearchContainer}
-        ref={component => {
-          this.searchContainer = component;
-        }}
+        ScrollViewComponent={SearchContainer}
+        ref={this.searchContainer}
       />
     );
   }
