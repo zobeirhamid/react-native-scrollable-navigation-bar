@@ -7,6 +7,7 @@ type CollapsibleProps = {
   stayCollapsed?: boolean;
   style?: object;
   children?: React.ReactNode;
+  zIndex?: number;
 } & typeof defaultProps;
 
 const defaultProps = {
@@ -20,6 +21,7 @@ const Collapsible = ({
   height,
   style,
   children,
+  zIndex = 1,
 }: CollapsibleProps) => {
   const {animatedValue, navigationBarHeight, transitionPoint} = useContext(
     Context,
@@ -56,7 +58,7 @@ const Collapsible = ({
       pointerEvents="box-none"
       style={[
         {
-          zIndex: 1,
+          zIndex,
           position: 'absolute',
           top: 0,
           right: 0,

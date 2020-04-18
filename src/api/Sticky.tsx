@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Animated, View } from 'react-native';
+import {Animated, View} from 'react-native';
 import Collapsible from './Collapsible';
 import Context from './Context';
 
@@ -8,7 +8,8 @@ export type StickyProps = {
   style?: object;
   collapsible?: boolean;
   stayCollapsed?: boolean;
-  height?: number;
+  collapseHeight?: number;
+  zIndex?: number;
 };
 
 const Sticky: React.FC<StickyProps> = ({
@@ -16,9 +17,12 @@ const Sticky: React.FC<StickyProps> = ({
   style,
   collapsible,
   stayCollapsed,
-  height,
+  collapseHeight,
+  zIndex = 1,
 }) => {
   const {
+    componentHeight,
+    headerHeight,
     transitionPoint,
     animatedValue,
     navigationBarHeight,
@@ -26,32 +30,30 @@ const Sticky: React.FC<StickyProps> = ({
   return (
     <React.Fragment>
       <Collapsible
+        zIndex={zIndex}
         active={collapsible}
         stayCollapsed={stayCollapsed}
-        height={height}>
+        height={collapseHeight}>
         <Animated.View
           pointerEvents="box-none"
           style={[
             {
-              zIndex: 100,
+              zIndex,
               position: 'absolute',
-              top: transitionPoint,
+              top: 0,
               bottom: 0,
               left: 0,
               right: 0,
               transform: [
                 {
-                  translateY: animatedValue.interpolate({
-                    inputRange: [
-                      transitionPoint - navigationBarHeight,
-                      transitionPoint - navigationBarHeight + 1,
-                    ],
-                    outputRange: [0, 1],
-                    extrapolateLeft:
-                      transitionPoint === navigationBarHeight
-                        ? 'extend'
-                        : 'clamp',
-                  }),
+                  translateY:
+                    headerHeight !== navigationBarHeight
+                      ? animatedValue.interpolate({
+                          inputRange: [0, headerHeight - navigationBarHeight],
+                          outputRange: [headerHeight, navigationBarHeight],
+                          extrapolateRight: 'clamp',
+                        })
+                      : headerHeight,
                 },
               ],
             },
@@ -60,9 +62,6 @@ const Sticky: React.FC<StickyProps> = ({
           {children}
         </Animated.View>
       </Collapsible>
-      <View style={{ opacity: 0 }} pointerEvents="none">
-        {children}
-      </View>
     </React.Fragment>
   );
 };

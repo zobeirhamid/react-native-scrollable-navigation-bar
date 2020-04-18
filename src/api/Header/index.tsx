@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {Animated, StyleSheet} from 'react-native';
 import HeaderBackground from './HeaderBackground';
 import HeaderBorder from './HeaderBorder';
@@ -56,6 +56,7 @@ const Header = ({
     transitionPoint,
     headerHeight,
     navigationBarHeight,
+    componentHeight,
   } = React.useContext(Context);
 
   return (
@@ -70,15 +71,20 @@ const Header = ({
       <Animated.View
         style={[
           {
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            top: 0,
+            height: headerHeight,
             transform: [
               {
+                // translateY: Animated.multiply(animatedValue, -1),
                 translateY: snapHeight
                   ? animatedValue.interpolate({
-                      inputRange: [0, snapHeight],
-                      outputRange: [0, snapHeight],
-                      extrapolate: 'clamp',
+                      inputRange: [-1, 0, snapHeight, snapHeight + 1],
+                      outputRange: [1, 0, 0, -1],
                     })
-                  : 0,
+                  : Animated.multiply(animatedValue, -1),
               },
             ],
           },
@@ -94,6 +100,7 @@ const Header = ({
               animatedValue={animatedValue}
               navigationBarHeight={navigationBarHeight}
               headerHeight={headerHeight}
+              componentHeight={componentHeight}
             />
           )}
         </HeaderBackground>
@@ -106,6 +113,7 @@ const Header = ({
               animatedValue={animatedValue}
               navigationBarHeight={navigationBarHeight}
               headerHeight={headerHeight}
+              componentHeight={componentHeight}
             />
           )}
         </HeaderForeground>

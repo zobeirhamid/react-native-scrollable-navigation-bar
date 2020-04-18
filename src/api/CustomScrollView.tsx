@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 import {
   Animated,
   View,
@@ -6,9 +6,9 @@ import {
   NativeSyntheticEvent,
   ScrollView,
   ScrollViewProperties,
-} from "react-native";
-import Context, { ReachedTransitionPointContext } from "./Context";
-import EventHandler from "../EventHandler";
+} from 'react-native';
+import Context, {ReachedTransitionPointContext} from './Context';
+import EventHandler from '../EventHandler';
 
 export type CustomScrollViewProps = {
   children?: React.ReactNode;
@@ -18,8 +18,9 @@ export type CustomScrollViewProps = {
   style?: object;
   snapHeight?: number;
   contentContainerStyle?: object;
+  containerStyle?: object;
   backgroundColor?: string;
-  Header?: React.FC;
+  Header?: React.FC<{style?: object}>;
   onScroll?: (event: NativeSyntheticEvent<NativeScrollEvent>) => void;
 } & ScrollViewProperties;
 
@@ -30,6 +31,7 @@ const CustomScrollView: React.FC<CustomScrollViewProps> = React.forwardRef(
       Header,
       StatusBar,
       contentContainerStyle,
+      containerStyle,
       backgroundColor,
       afterTransitionPoint,
       beforeTransitionPoint,
@@ -41,6 +43,7 @@ const CustomScrollView: React.FC<CustomScrollViewProps> = React.forwardRef(
       transitionPoint,
       headerHeight,
       navigationBarHeight,
+      componentHeight,
     } = React.useContext(Context);
 
     const [
@@ -51,7 +54,7 @@ const CustomScrollView: React.FC<CustomScrollViewProps> = React.forwardRef(
     const eventHandler = React.useRef(EventHandler<boolean>()).current;
 
     const scrollListener = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
-      const { y } = event.nativeEvent.contentOffset;
+      const {y} = event.nativeEvent.contentOffset;
       const reachedTransitionPoint =
         y + 1 >= transitionPoint - navigationBarHeight;
 
@@ -74,32 +77,22 @@ const CustomScrollView: React.FC<CustomScrollViewProps> = React.forwardRef(
 
     const onScroll = React.useMemo(
       () =>
-        Animated.event(
-          [{ nativeEvent: { contentOffset: { y: animatedValue } } }],
-          {
-            listener: (event: NativeSyntheticEvent<NativeScrollEvent>) => {
-              scrollListener(event);
-              if (props.onScroll !== undefined) props.onScroll(event);
-            },
-            useNativeDriver: true,
-          }
-        ),
-      [animatedValue, hasReachedTransitionPoint]
+        Animated.event([{nativeEvent: {contentOffset: {y: animatedValue}}}], {
+          listener: (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+            scrollListener(event);
+            if (props.onScroll !== undefined) props.onScroll(event);
+          },
+          useNativeDriver: true,
+        }),
+      [animatedValue, hasReachedTransitionPoint],
     );
 
     return (
-      <Context.Provider
-        value={{
-          transitionPoint,
-          navigationBarHeight,
-          headerHeight,
-          animatedValue,
-        }}
-      >
-        <ReachedTransitionPointContext.Provider
-          value={{ hasReachedTransitionPoint, containerEvents: eventHandler }}
-        >
-          {StatusBar !== undefined && <StatusBar />}
+      <ReachedTransitionPointContext.Provider
+        value={{hasReachedTransitionPoint, containerEvents: eventHandler}}>
+        {StatusBar !== undefined && <StatusBar />}
+        <Animated.View style={containerStyle}>
+          {Header !== undefined && <Header />}
           <Animated.ScrollView
             contentInsetAdjustmentBehavior="never"
             nestedScrollEnabled
@@ -107,19 +100,17 @@ const CustomScrollView: React.FC<CustomScrollViewProps> = React.forwardRef(
             style={style}
             {...props}
             onScroll={onScroll}
-            contentContainerStyle={undefined}
             // @ts-ignore
-            ref={ref}
-          >
-            <Animated.View style={contentContainerStyle}>
-              {Header !== undefined && <Header />}
-              <View style={{ backgroundColor }}>{children}</View>
-            </Animated.View>
+            ref={ref}>
+            <View style={{height: componentHeight}} />
+            <View style={{backgroundColor, overflow: 'visible'}}>
+              {children}
+            </View>
           </Animated.ScrollView>
-        </ReachedTransitionPointContext.Provider>
-      </Context.Provider>
+        </Animated.View>
+      </ReachedTransitionPointContext.Provider>
     );
-  }
+  },
 );
 
 export default CustomScrollView;

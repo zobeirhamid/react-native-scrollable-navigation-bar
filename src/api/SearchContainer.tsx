@@ -1,8 +1,10 @@
 import * as React from 'react';
-import {Animated, View, Platform} from 'react-native';
+import {Animated, View, Platform, Dimensions} from 'react-native';
 import CustomScrollView, {CustomScrollViewProps} from './CustomScrollView';
 import {STATUS_BAR_HEIGHT, NAVIGATION_BAR_HEIGHT} from '../constants';
 import Context from './Context';
+
+const {height} = Dimensions.get('window');
 
 type SearchContainerProps = {
   children?: React.ReactNode;
@@ -57,11 +59,8 @@ class SearchContainer extends React.Component<
     };
 
     const customStyle = {
-      contentContainerStyle: [
-        {overflow: 'visible'},
-        translateStyle,
-        contentContainerStyle,
-      ],
+      containerStyle: [translateStyle, {height}],
+      style: Platform.OS === 'ios' ? {overflow: 'visible'} : {},
     };
 
     return (
@@ -70,7 +69,7 @@ class SearchContainer extends React.Component<
         {...this.props}
         scrollEnabled={!active}
         {...customStyle}>
-        <View>
+        <React.Fragment>
           <Animated.View
             pointerEvents="none"
             style={{
@@ -85,7 +84,7 @@ class SearchContainer extends React.Component<
             }}
           />
           {children}
-        </View>
+        </React.Fragment>
       </CustomScrollView>
     );
   }

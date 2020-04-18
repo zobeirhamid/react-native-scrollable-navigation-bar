@@ -1,6 +1,6 @@
 {
   "name": "react-native-scrollable-navigation-bar",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Scrollable Navigation Bar for React Native",
   "main": "index.js",
   "scripts": {
@@ -39,11 +39,5 @@
   "bugs": {
     "url": "https://github.com/zobeirhamid/react-native-scrollable-navigation-bar/issues"
   },
-  "homepage": "https://github.com/zobeirhamid/react-native-scrollable-navgation-bar",
-  "dependencies": {
-    "@types/react-native-vector-icons": "^6.4.5",
-    "react": "^16.13.1",
-    "react-native": "^0.62.2",
-    "react-native-vector-icons": "^6.6.0"
-  }
+  "homepage": "https://github.com/zobeirhamid/react-native-scrollable-navgation-bar"
 }

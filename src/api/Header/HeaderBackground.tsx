@@ -1,6 +1,6 @@
 import React from 'react';
-import { Animated, View } from 'react-native';
-import { scaleable, disappear } from '../hoc';
+import {Animated, View} from 'react-native';
+import {scaleable, disappear} from '../hoc';
 import Context from '../Context';
 
 type HeaderBackgroundProps = {
@@ -14,13 +14,13 @@ const defaultProps = {
 };
 
 const HeaderBackground = (props: HeaderBackgroundProps) => {
-  const { backgroundColor, children, fadeOut, parallax } = props;
-  const { headerHeight, navigationBarHeight, animatedValue } = React.useContext(
+  const {backgroundColor, children, fadeOut, parallax} = props;
+  const {headerHeight, navigationBarHeight, animatedValue} = React.useContext(
     Context,
   );
 
   return (
-    <View style={{ backgroundColor }}>
+    <View style={{backgroundColor}}>
       <Animated.View
         style={{
           transform: [
