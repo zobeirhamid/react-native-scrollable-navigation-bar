@@ -52,7 +52,7 @@ const WhatsAppTab = ({
   children?: React.ReactNode;
   active?: boolean;
   width: number;
-  onPress: () => {};
+  onPress: () => void;
 }) => {
   return (
     <TouchableOpacity onPress={onPress}>
@@ -224,13 +224,7 @@ const WhatsAppHeader = ({
   );
 };
 
-const Scene = ({
-  backgroundColor,
-  animatedValue,
-}: {
-  backgroundColor: string;
-  animatedValue: NativeAnimated.Value;
-}) => {
+const Scene = ({backgroundColor}: {backgroundColor: string}) => {
   return (
     <CustomScrollView
       bounces={false}
@@ -261,24 +255,17 @@ const App = () => {
   ]);
 
   const renderScene = SceneMap({
-    first: () => <Scene backgroundColor={'red'} animatedValue={scrollValue} />,
-    second: () => (
-      <Scene backgroundColor={'blue'} animatedValue={scrollValue} />
-    ),
-    third: () => (
-      <Scene backgroundColor={'green'} animatedValue={scrollValue} />
-    ),
-    fourth: () => (
-      <Scene backgroundColor={'yellow'} animatedValue={scrollValue} />
-    ),
+    first: () => <Scene backgroundColor={'red'} />,
+    second: () => <Scene backgroundColor={'blue'} />,
+    third: () => <Scene backgroundColor={'green'} />,
+    fourth: () => <Scene backgroundColor={'yellow'} />,
   });
 
   const changeTab = (newIndex: number) => {
     setIndex(newIndex);
     InteractionManager.runAfterInteractions(() => {
       NativeAnimated.timing(scrollValue, {
-        //@ts-ignore
-        toValue: scrollValue.__getValue() - 50,
+        toValue: 0,
         duration: 500,
         useNativeDriver: true,
       }).start();
