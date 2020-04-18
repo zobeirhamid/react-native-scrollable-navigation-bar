@@ -26,13 +26,13 @@ const HeaderBorder: React.FC<HeaderBorderProps> = ({
     <Sticky
       collapsible={collapsible}
       stayCollapsed={stayCollapsed}
-      height={navigationBarHeight}>
+      collapseHeight={navigationBarHeight}>
       <View
         style={{
           height: 1,
           backgroundColor: hasReachedTransitionPoint
             ? borderColor
-            : headerBorderColor,
+            : headerBorderColor || borderColor,
         }}
       />
     </Sticky>

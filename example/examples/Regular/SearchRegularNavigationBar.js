@@ -10,6 +10,7 @@ class SearchRegularNavigationBar extends React.Component {
     return (
       <MainRegularNavigationBar
         stickyCollapsible
+        stickyHeight={65}
         StickyComponent={() => (
           <SearchBar
             platform="ios"

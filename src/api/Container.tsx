@@ -10,6 +10,7 @@ export type ContainerProps = {
   transitionPoint?: number;
   animatedValue?: Animated.Value;
   snapHeight?: number;
+  stickyHeight?: number;
 };
 
 const defaultProps = {
@@ -18,16 +19,23 @@ const defaultProps = {
   transitionPoint: NAVIGATION_BAR_HEIGHT,
   headerHeight: 0,
   snapHeight: 0,
+  stickyHeight: 0,
 };
 
 const Container = (props: ContainerProps & typeof defaultProps) => {
-  const {children, navigationBarHeight, transitionPoint, snapHeight} = props;
+  const {
+    children,
+    navigationBarHeight,
+    transitionPoint,
+    snapHeight,
+    stickyHeight,
+  } = props;
 
   let {animatedValue, headerHeight} = props;
 
   headerHeight =
     (transitionPoint !== navigationBarHeight && headerHeight) ||
-    transitionPoint - snapHeight;
+    transitionPoint;
 
   if (animatedValue === undefined) {
     animatedValue = React.useRef(new Animated.Value(0)).current;
@@ -40,6 +48,7 @@ const Container = (props: ContainerProps & typeof defaultProps) => {
         navigationBarHeight,
         headerHeight,
         animatedValue,
+        componentHeight: headerHeight + stickyHeight + snapHeight,
       }}>
       {children}
     </Context.Provider>

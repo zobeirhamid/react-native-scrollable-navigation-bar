@@ -1,17 +1,17 @@
-import * as React from "react";
+import * as React from 'react';
 import {
   StatusBar as ReactNativeStatusBar,
   Animated,
   StatusBarStyle,
   StatusBarProperties,
-} from "react-native";
-import { STATUS_BAR_HEIGHT } from "../constants";
+} from 'react-native';
+import {STATUS_BAR_HEIGHT} from '../constants';
 
 function StatusBarManager() {
   const stack: Array<Array<StatusBarStyle>> = [];
 
   function setBarStyle(barStyle: StatusBarStyle) {
-    if (barStyle === "dark-content" || barStyle === "light-content") {
+    if (barStyle === 'dark-content' || barStyle === 'light-content') {
       const temp = currentBarStyle();
       lastStatusBarStack().push(barStyle);
       const current = currentBarStyle();
@@ -48,11 +48,10 @@ function StatusBarManager() {
   }
 
   const Component = React.memo((props: StatusBarProperties) => {
-    console.log("StatusBar Rerender");
-    const { backgroundColor = "transparent" } = props;
+    const {backgroundColor = 'transparent'} = props;
 
     React.useEffect(() => {
-      const { barStyle } = props;
+      const {barStyle} = props;
       if (barStyle !== undefined) {
         StatusBarInstance.newStatusBarComponent(barStyle);
         return StatusBarInstance.removeStatusBarComponent;
@@ -64,7 +63,7 @@ function StatusBarManager() {
         <Animated.View
           style={{
             zIndex: 9999,
-            position: "absolute",
+            position: 'absolute',
             top: 0,
             left: 0,
             right: 0,
