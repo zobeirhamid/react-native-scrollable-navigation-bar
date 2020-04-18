@@ -2,6 +2,7 @@ import NavigationBar from "./src/components/NavigationBar";
 import NavigationBarIcon from "./src/components/NavigationBar/NavigationBarIcon";
 import NavigationBarContainer from "./src/api/NavigationBarContainer";
 import HeaderNavigationBar from "./src/api/Header/HeaderNavigationBar";
+import CustomScrollView from './src/api/CustomScrollView';
 import Container from "./src/api/Container";
 import SearchContainer from "./src/api/SearchContainer";
 import StatusBarManager from "./src/components/StatusBarManager";
@@ -22,6 +23,7 @@ export {
   NavigationBarContainer,
   NavigationBarIcon,
   HeaderNavigationBar,
+  CustomScrollView,
   Container,
   SearchContainer,
   StatusBarManager as StatusBar,

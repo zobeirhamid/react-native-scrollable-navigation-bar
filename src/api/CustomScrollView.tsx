@@ -99,13 +99,16 @@ const CustomScrollView: React.FC<CustomScrollViewProps> = React.forwardRef(
             scrollEventThrottle={1}
             style={style}
             {...props}
+            contentContainerStyle={undefined}
             onScroll={onScroll}
             // @ts-ignore
             ref={ref}>
-            <View style={{height: componentHeight}} />
-            <View style={{backgroundColor, overflow: 'visible'}}>
-              {children}
-            </View>
+            <Animated.View style={contentContainerStyle}>
+              <View style={{height: componentHeight}} />
+              <View style={{backgroundColor, overflow: 'visible'}}>
+                {children}
+              </View>
+            </Animated.View>
           </Animated.ScrollView>
         </Animated.View>
       </ReachedTransitionPointContext.Provider>
