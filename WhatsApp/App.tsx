@@ -244,7 +244,7 @@ const Scene = ({backgroundColor}: {backgroundColor: string}) => {
 
 const App = () => {
   const value = useRef(new Animated.Value(0)).current;
-  const scrollValue = useRef(new NativeAnimated.Value(10)).current;
+  const scrollValue = useRef(new NativeAnimated.Value(0)).current;
 
   const [index, setIndex] = React.useState(1);
   const [routes] = React.useState([
