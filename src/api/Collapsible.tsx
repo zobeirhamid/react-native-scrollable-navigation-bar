@@ -1,5 +1,18 @@
-import React, {useContext} from 'react';
-import {Animated} from 'react-native';
+import React, {useContext, useMemo} from 'react';
+import Animated, {
+  Extrapolate,
+  interpolate,
+  useCode,
+  set,
+  min,
+  max,
+  add,
+  cond,
+  defined,
+  diff,
+  multiply,
+  block,
+} from 'react-native-reanimated';
 import Context from './Context';
 import {STATUS_BAR_HEIGHT} from '../constants';
 
@@ -15,6 +28,14 @@ const defaultProps = {
   height: 0,
 };
 
+// @ts-ignore
+function diffClamp(a, minVal, maxVal, value) {
+  return set(
+    value,
+    min(max(add(cond(defined(value), value, a), diff(a)), minVal), maxVal),
+  );
+}
+
 const Collapsible = ({
   active,
   stayCollapsed,
@@ -27,30 +48,53 @@ const Collapsible = ({
     Context,
   );
 
-  let translateY = Animated.multiply(
-    Animated.diffClamp(
-      animatedValue.interpolate({
+  let translateY = new Animated.Value(0);
+  const diff = new Animated.Value(0);
+
+  if (active) {
+    if (stayCollapsed) {
+      // @ts-ignore
+      translateY = interpolate(animatedValue, {
         inputRange: [
           transitionPoint - navigationBarHeight,
-          transitionPoint - navigationBarHeight + 1,
+          transitionPoint - STATUS_BAR_HEIGHT,
         ],
-        outputRange: [0, 1],
-        extrapolateLeft: 'clamp',
-      }),
-      0,
-      height,
-    ),
-    -1,
-  );
-  if (stayCollapsed) {
+        outputRange: [0, -navigationBarHeight + STATUS_BAR_HEIGHT],
+        extrapolate: Extrapolate.CLAMP,
+      });
+    } else {
+      useCode(
+        () =>
+          block([
+            diffClamp(
+              animatedValue.interpolate({
+                inputRange: [
+                  transitionPoint - navigationBarHeight,
+                  transitionPoint - navigationBarHeight + 1,
+                ],
+                outputRange: [0, 1],
+                extrapolateLeft: Extrapolate.CLAMP,
+              }),
+              0,
+              height,
+              diff,
+            ),
+            set(translateY, multiply(diff, -1)),
+          ]),
+        [animatedValue, translateY],
+      );
+    }
+    /*
     translateY = animatedValue.interpolate({
       inputRange: [
         transitionPoint - navigationBarHeight,
-        transitionPoint - STATUS_BAR_HEIGHT,
+        transitionPoint - navigationBarHeight + 1,
       ],
-      outputRange: [0, -navigationBarHeight + STATUS_BAR_HEIGHT],
-      extrapolate: 'clamp',
+      outputRange: [0, 1],
+      extrapolateLeft: Extrapolate.CLAMP,
     });
+    */
+    // translateY = Animated.multiply(translateY, -1);
   }
 
   return (

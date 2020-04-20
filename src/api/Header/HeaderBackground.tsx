@@ -1,5 +1,6 @@
 import React from 'react';
-import {Animated, View} from 'react-native';
+import {View} from 'react-native';
+import Animated from 'react-native-reanimated';
 import {scaleable, disappear} from '../hoc';
 import Context from '../Context';
 

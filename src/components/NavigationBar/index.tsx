@@ -1,13 +1,14 @@
-import * as React from "react";
-import { Animated, View } from "react-native";
-import NavigationBarTitle from "./NavigationBarTitle";
-import { STATUS_BAR_HEIGHT, NAVIGATION_BAR_HEIGHT } from "../../constants";
+import * as React from 'react';
+import {View} from 'react-native';
+import Animated from 'react-native-reanimated';
+import NavigationBarTitle from './NavigationBarTitle';
+import {STATUS_BAR_HEIGHT, NAVIGATION_BAR_HEIGHT} from '../../constants';
 
 type NavigationBarProps = {
   title?: string;
   titleStyle?: object;
   backgroundColor?: string;
-  style?: string;
+  style?: object;
   BackButton?: () => JSX.Element | null;
   leftIcons?: Array<React.ReactElement>;
   rightIcons?: Array<React.ReactElement>;
@@ -42,25 +43,23 @@ const NavigationBar = (props: NavigationBarProps & typeof defaultProps) => {
           flex: 1,
         },
         style,
-      ]}
-    >
+      ]}>
       <View
         style={{
           paddingTop: STATUS_BAR_HEIGHT,
           flex: 1,
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "space-between",
+          flexDirection: 'row',
+          alignItems: 'center',
+          justifyContent: 'space-between',
           // paddingHorizontal: 10,
           paddingHorizontal: 15,
           borderBottomWidth: borderColor !== undefined ? 1 : 0,
           borderColor,
-        }}
-      >
-        <View style={{ flexDirection: "row" }}>
+        }}>
+        <View style={{flexDirection: 'row'}}>
           {BackButton !== undefined && <BackButton />}
           {leftIcons !== undefined &&
-            React.Children.map(leftIcons, (element) => ({
+            React.Children.map(leftIcons, element => ({
               ...element,
               props: {
                 ...element.props,
@@ -68,9 +67,9 @@ const NavigationBar = (props: NavigationBarProps & typeof defaultProps) => {
               },
             }))}
         </View>
-        <View style={{ flexDirection: "row", justifyContent: "flex-end" }}>
+        <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
           {rightIcons !== undefined &&
-            React.Children.map(rightIcons, (element) => ({
+            React.Children.map(rightIcons, element => ({
               ...element,
               props: {
                 ...element.props,

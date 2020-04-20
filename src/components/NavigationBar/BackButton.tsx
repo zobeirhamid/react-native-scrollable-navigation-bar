@@ -15,7 +15,7 @@ const BackButton = ({
   style,
   visible,
   modal,
-}: BackButtonProps & defaultProps) => {
+}: BackButtonProps & typeof defaultProps) => {
   if (!visible) return null;
   return (
     // @ts-ignore

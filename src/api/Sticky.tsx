@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Animated, View} from 'react-native';
+import Animated, {Extrapolate} from 'react-native-reanimated';
 import Collapsible from './Collapsible';
 import Context from './Context';
 
@@ -20,13 +20,10 @@ const Sticky: React.FC<StickyProps> = ({
   collapseHeight,
   zIndex = 1,
 }) => {
-  const {
-    componentHeight,
-    headerHeight,
-    transitionPoint,
-    animatedValue,
-    navigationBarHeight,
-  } = React.useContext(Context);
+  const {headerHeight, animatedValue, navigationBarHeight} = React.useContext(
+    Context,
+  );
+
   return (
     <React.Fragment>
       <Collapsible
@@ -51,7 +48,7 @@ const Sticky: React.FC<StickyProps> = ({
                       ? animatedValue.interpolate({
                           inputRange: [0, headerHeight - navigationBarHeight],
                           outputRange: [headerHeight, navigationBarHeight],
-                          extrapolateRight: 'clamp',
+                          extrapolateRight: Extrapolate.CLAMP,
                         })
                       : headerHeight,
                 },

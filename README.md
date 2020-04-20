@@ -1,8 +1,8 @@
 # react-native-scrollable-navigation-bar
 
-## Update - 04/16/2020
+## Update - 04/19/2020
 
-Rewrote whole Library using React Hooks and TypeScript. Tried using react-native-reanimated, but the performance on Android was too bad.
+Library now uses react-native-reanimated and TypeScript.
 
 ## Description
 

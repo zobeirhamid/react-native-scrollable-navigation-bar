@@ -1,19 +1,20 @@
 import * as React from 'react';
-import { Animated } from 'react-native';
+import Animated, {Extrapolate} from 'react-native-reanimated';
 
 export function scaleable(
   Node: React.ReactNode,
-  animatedValue: Animated.Value,
+  animatedValue: Animated.Value<number>,
 ) {
   return (
     <Animated.View
+      // @ts-ignore
       style={{
         transform: [
           {
             scale: animatedValue.interpolate({
               inputRange: [-10, 0],
               outputRange: [1.3, 1],
-              extrapolateRight: 'clamp',
+              extrapolateRight: Extrapolate.CLAMP,
             }),
           },
         ],
@@ -25,7 +26,7 @@ export function scaleable(
 
 export function disappear(
   Node: React.ReactNode,
-  animatedValue: Animated.Value,
+  animatedValue: Animated.Value<number>,
   start: number,
   end: number,
   shouldDisappear = true,
@@ -37,7 +38,7 @@ export function disappear(
         opacity: animatedValue.interpolate({
           inputRange: [start, end],
           outputRange: [1, 0],
-          extrapolate: 'clamp',
+          extrapolate: Extrapolate.CLAMP,
         }),
       }}>
       {Node}
@@ -47,7 +48,7 @@ export function disappear(
 
 export function appear(
   Node: React.ReactNode,
-  animatedValue: Animated.Value,
+  animatedValue: Animated.Value<number>,
   start: number,
   end: number,
   shouldAppear = true,
@@ -61,7 +62,7 @@ export function appear(
         opacity: animatedValue.interpolate({
           inputRange: [start, end],
           outputRange: [0, 1],
-          extrapolate: 'clamp',
+          extrapolate: Extrapolate.CLAMP,
         }),
       }}>
       {Node}

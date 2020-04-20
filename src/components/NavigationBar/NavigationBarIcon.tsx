@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {Animated, View, TouchableOpacity} from 'react-native';
+import {View, TouchableOpacity} from 'react-native';
+import Animated from 'react-native-reanimated';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export type NavigationBarIconProps = {

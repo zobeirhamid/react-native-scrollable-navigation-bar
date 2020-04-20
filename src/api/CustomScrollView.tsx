@@ -1,12 +1,12 @@
 import * as React from 'react';
 import {
-  Animated,
   View,
   NativeScrollEvent,
   NativeSyntheticEvent,
   ScrollView,
   ScrollViewProperties,
 } from 'react-native';
+import Animated from 'react-native-reanimated';
 import Context, {ReachedTransitionPointContext} from './Context';
 import EventHandler from '../EventHandler';
 
@@ -15,17 +15,16 @@ export type CustomScrollViewProps = {
   StatusBar?: React.FC;
   beforeTransitionPoint?: () => void;
   afterTransitionPoint?: () => void;
-  style?: object;
   snapHeight?: number;
   contentContainerStyle?: object;
   containerStyle?: object;
   backgroundColor?: string;
   Header?: React.FC<{style?: object}>;
   onScroll?: (event: NativeSyntheticEvent<NativeScrollEvent>) => void;
-} & ScrollViewProperties;
+} & Animated.ScrollView;
 
 const CustomScrollView: React.FC<CustomScrollViewProps> = React.forwardRef(
-  (props, ref?: React.Ref<ScrollView>) => {
+  (props, ref?: React.Ref<Animated.ScrollView>) => {
     const {
       children,
       Header,
@@ -35,13 +34,11 @@ const CustomScrollView: React.FC<CustomScrollViewProps> = React.forwardRef(
       backgroundColor,
       afterTransitionPoint,
       beforeTransitionPoint,
-      style,
     } = props;
 
     const {
       animatedValue,
       transitionPoint,
-      headerHeight,
       navigationBarHeight,
       componentHeight,
     } = React.useContext(Context);
@@ -82,7 +79,6 @@ const CustomScrollView: React.FC<CustomScrollViewProps> = React.forwardRef(
             scrollListener(event);
             if (props.onScroll !== undefined) props.onScroll(event);
           },
-          useNativeDriver: true,
         }),
       [animatedValue, hasReachedTransitionPoint],
     );
@@ -97,11 +93,9 @@ const CustomScrollView: React.FC<CustomScrollViewProps> = React.forwardRef(
             contentInsetAdjustmentBehavior="never"
             nestedScrollEnabled
             scrollEventThrottle={1}
-            style={style}
             {...props}
             contentContainerStyle={undefined}
             onScroll={onScroll}
-            // @ts-ignore
             ref={ref}>
             <Animated.View style={contentContainerStyle}>
               <View style={{height: componentHeight}} />

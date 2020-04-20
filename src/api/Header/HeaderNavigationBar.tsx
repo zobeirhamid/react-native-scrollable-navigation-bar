@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { View } from 'react-native';
-import { appear } from '../hoc';
+import {View} from 'react-native';
+import {appear} from '../hoc';
 import NavigationBarContainer from '../NavigationBarContainer';
-import Context, { ReachedTransitionPointContext } from '../Context';
+import Context, {ReachedTransitionPointContext} from '../Context';
 
 type HeaderNavigationBarProps = {
   backgroundColor?: string;
   UnscrolledNavigationBar?: React.FC;
-  ScrolledNavigationBar?: React.FC<{ backgroundColor?: string }>;
+  ScrolledNavigationBar?: React.FC<{backgroundColor?: string}>;
   collapsible?: boolean;
   stayCollapsed?: boolean;
 };
@@ -25,7 +25,7 @@ const HeaderNavigationBar: React.FC<HeaderNavigationBarProps> = ({
     navigationBarHeight,
   } = React.useContext(Context);
 
-  const { hasReachedTransitionPoint } = React.useContext(
+  const {hasReachedTransitionPoint} = React.useContext(
     ReachedTransitionPointContext,
   );
 
@@ -42,7 +42,7 @@ const HeaderNavigationBar: React.FC<HeaderNavigationBarProps> = ({
       }}>
       <NavigationBarContainer
         translucent
-        style={{ zIndex: 1 }}
+        style={{zIndex: 1}}
         collapsible={collapsible}
         stayCollapsed={stayCollapsed}>
         {UnscrolledNavigationBar !== undefined && <UnscrolledNavigationBar />}
@@ -50,7 +50,7 @@ const HeaderNavigationBar: React.FC<HeaderNavigationBarProps> = ({
       {appear(
         <NavigationBarContainer
           translucent
-          style={{ zIndex: 2 }}
+          style={{zIndex: 2}}
           collapsible={collapsible}
           stayCollapsed={stayCollapsed}
           pointerEvents={

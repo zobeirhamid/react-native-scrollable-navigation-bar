@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {Animated, View, Platform, Dimensions} from 'react-native';
+import {Platform, Dimensions} from 'react-native';
+import Animated, {Easing} from 'react-native-reanimated';
 import CustomScrollView, {CustomScrollViewProps} from './CustomScrollView';
 import {STATUS_BAR_HEIGHT, NAVIGATION_BAR_HEIGHT} from '../constants';
 import Context from './Context';
@@ -30,7 +31,8 @@ class SearchContainer extends React.Component<
     this.setState({active: true});
     Animated.timing(this.animatedValue, {
       toValue: 1,
-      useNativeDriver: true,
+      duration: 100,
+      easing: Easing.linear,
     }).start();
   }
 
@@ -38,12 +40,13 @@ class SearchContainer extends React.Component<
     this.setState({active: false});
     Animated.timing(this.animatedValue, {
       toValue: 0,
-      useNativeDriver: true,
+      duration: 100,
+      easing: Easing.linear,
     }).start();
   }
 
   render() {
-    const {children, style, contentContainerStyle} = this.props;
+    const {children, contentContainerStyle} = this.props;
     const {active} = this.state;
     const {headerHeight} = this.context;
 
@@ -67,6 +70,7 @@ class SearchContainer extends React.Component<
       // @ts-ignore
       <CustomScrollView
         {...this.props}
+        // @ts-ignore
         scrollEnabled={!active}
         {...customStyle}>
         <React.Fragment>

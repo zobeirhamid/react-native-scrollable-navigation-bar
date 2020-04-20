@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Animated} from 'react-native';
+import Animated from 'react-native-reanimated';
 import {NAVIGATION_BAR_HEIGHT} from '../constants';
 import Context from './Context';
 
@@ -8,7 +8,7 @@ export type ContainerProps = {
   headerHeight?: number;
   navigationBarHeight?: number;
   transitionPoint?: number;
-  animatedValue?: Animated.Value;
+  animatedValue?: Animated.Value<number>;
   snapHeight?: number;
   stickyHeight?: number;
 };

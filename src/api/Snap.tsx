@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {Animated, View} from 'react-native';
+import {View} from 'react-native';
+import Animated, {Extrapolate} from 'react-native-reanimated';
 import Context from './Context';
 import Sticky from './Sticky';
 
@@ -20,14 +21,14 @@ const Snap: React.FC<SnapProps> = ({snapHeight, backgroundColor, children}) => {
             opacity: animatedValue.interpolate({
               inputRange: [0, snapHeight],
               outputRange: [1, 0],
-              extrapolate: 'clamp',
+              extrapolate: Extrapolate.CLAMP,
             }),
             transform: [
               {
                 scaleY: animatedValue.interpolate({
                   inputRange: [0, snapHeight],
                   outputRange: [1, 0],
-                  extrapolate: 'clamp',
+                  extrapolate: Extrapolate.CLAMP,
                 }),
               },
             ],

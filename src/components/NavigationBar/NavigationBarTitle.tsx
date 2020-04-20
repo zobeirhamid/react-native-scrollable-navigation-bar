@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { Animated, View } from 'react-native';
-import { STATUS_BAR_HEIGHT } from '../../constants';
+import {View} from 'react-native';
+import Animated from 'react-native-reanimated';
+import {STATUS_BAR_HEIGHT} from '../../constants';
 
 type NavigationBarTitleProps = {
   children?: React.ReactNode;
@@ -8,7 +9,7 @@ type NavigationBarTitleProps = {
 };
 
 const NavigationBarTitle: React.FC<NavigationBarTitleProps> = props => {
-  const { children, titleStyle } = props;
+  const {children, titleStyle} = props;
   return (
     <View
       pointerEvents="box-none"
@@ -21,7 +22,7 @@ const NavigationBarTitle: React.FC<NavigationBarTitleProps> = props => {
         alignItems: 'center',
         justifyContent: 'center',
       }}>
-      <Animated.Text style={[{ fontSize: 18, fontWeight: '600' }, titleStyle]}>
+      <Animated.Text style={[{fontSize: 18, fontWeight: '600'}, titleStyle]}>
         {children}
       </Animated.Text>
     </View>

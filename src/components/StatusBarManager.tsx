@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {
   StatusBar as ReactNativeStatusBar,
-  Animated,
   StatusBarStyle,
   StatusBarProperties,
 } from 'react-native';
+import Animated from 'react-native-reanimated';
 import {STATUS_BAR_HEIGHT} from '../constants';
 
 function StatusBarManager() {

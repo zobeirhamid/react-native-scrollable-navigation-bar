@@ -1,5 +1,6 @@
 import * as React from 'react';
-import {Animated, View} from 'react-native';
+import {View} from 'react-native';
+import Animated from 'react-native-reanimated';
 
 type HeaderTitleProps = {
   title?: string;

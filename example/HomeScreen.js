@@ -1,5 +1,6 @@
 import React from 'react';
-import {Animated, View, Text, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
+import Animated from 'react-native-reanimated';
 import ScrollableNavigationBar, {
   BackButton,
   StatusBarComponent,

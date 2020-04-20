@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Animated, StyleSheet} from 'react-native';
+import React from 'react';
+import Animated from 'react-native-reanimated';
 import HeaderBackground from './HeaderBackground';
 import HeaderBorder from './HeaderBorder';
 import HeaderForeground from './HeaderForeground';

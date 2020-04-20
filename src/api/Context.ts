@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Animated} from 'react-native';
+import Animated from 'react-native-reanimated';
 import {NAVIGATION_BAR_HEIGHT} from '../constants';
 import EventHandler, {EventHandlerType} from '../EventHandler';
 
@@ -8,7 +8,7 @@ export type ScrollableNavigationBarContextType = {
   navigationBarHeight: number;
   headerHeight: number;
   componentHeight: number;
-  animatedValue: Animated.Value;
+  animatedValue: Animated.Value<number>;
 };
 
 export const ScrollableNavigationBarContext = React.createContext<
