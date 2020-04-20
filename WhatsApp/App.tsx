@@ -26,8 +26,9 @@ import Animated, {
   block,
   set,
   onChange,
-  diffClamp,
 } from 'react-native-reanimated';
+//@ts-ignore
+import {diffClampImPure as diffClamp} from 'react-native-reanimated/src/derived/diffClamp';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const {width, height} = Dimensions.get('window');
