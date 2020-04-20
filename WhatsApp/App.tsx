@@ -8,15 +8,8 @@
  * @format
  */
 
-import React, {useRef} from 'react';
-import {
-  Animated as NativeAnimated,
-  View,
-  Text,
-  Image,
-  Dimensions,
-  InteractionManager,
-} from 'react-native';
+import React, {useRef, useMemo} from 'react';
+import {View, Text, Image, Dimensions, InteractionManager} from 'react-native';
 import {TabView, SceneMap} from 'react-native-tab-view';
 
 import {
@@ -27,7 +20,14 @@ import {
   StatusBarComponent,
 } from 'react-native-scrollable-navigation-bar';
 
-import Animated, {Extrapolate} from 'react-native-reanimated';
+import Animated, {
+  Extrapolate,
+  useCode,
+  block,
+  set,
+  onChange,
+  diffClamp,
+} from 'react-native-reanimated';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
 const {width, height} = Dimensions.get('window');
@@ -35,6 +35,7 @@ const {width, height} = Dimensions.get('window');
 declare const global: {HermesInternal: null | {}};
 
 const primaryColor = 'rgb(14, 94, 84)';
+
 const primaryColorDark = 'rgb(8, 65, 52)';
 const iconWidth = (628 / 481) * 16 + 30;
 const indicatorWidth = (width - iconWidth) / 3;
@@ -207,7 +208,7 @@ const WhatsAppHeader = ({
 }: {
   value: Animated.Value<number>;
   index: number;
-  scrollValue: NativeAnimated.Value;
+  scrollValue: Animated.Value<number>;
   changeTab: (index: number) => void;
 }) => {
   return (
@@ -244,7 +245,8 @@ const Scene = ({backgroundColor}: {backgroundColor: string}) => {
 
 const App = () => {
   const value = useRef(new Animated.Value(0)).current;
-  const scrollValue = useRef(new NativeAnimated.Value(0)).current;
+  const scrollValue = useRef(new Animated.Value(0)).current;
+  const headerScrollValue = useRef(new Animated.Value(0)).current;
 
   const [index, setIndex] = React.useState(1);
   const [routes] = React.useState([
@@ -254,23 +256,23 @@ const App = () => {
     {key: 'fourth', title: 'fourth'},
   ]);
 
-  const renderScene = SceneMap({
-    first: () => <Scene backgroundColor={'red'} />,
-    second: () => <Scene backgroundColor={'blue'} />,
-    third: () => <Scene backgroundColor={'green'} />,
-    fourth: () => <Scene backgroundColor={'yellow'} />,
-  });
+  const renderScene = useMemo(
+    () =>
+      SceneMap({
+        first: () => <Scene backgroundColor={'red'} />,
+        second: () => <Scene backgroundColor={'blue'} />,
+        third: () => <Scene backgroundColor={'green'} />,
+        fourth: () => <Scene backgroundColor={'yellow'} />,
+      }),
+    [],
+  );
 
-  const changeTab = (newIndex: number) => {
-    setIndex(newIndex);
-    InteractionManager.runAfterInteractions(() => {
-      NativeAnimated.timing(scrollValue, {
-        toValue: 0,
-        duration: 500,
-        useNativeDriver: true,
-      }).start();
-    });
-  };
+  useCode(() => {
+    return block([
+      onChange(scrollValue, diffClamp(scrollValue, 0, 60, headerScrollValue)),
+      onChange(value, set(headerScrollValue, 0)),
+    ]);
+  }, [scrollValue, headerScrollValue, value]);
 
   return (
     <>
@@ -285,15 +287,15 @@ const App = () => {
         <WhatsAppHeader
           value={value}
           index={index}
-          changeTab={changeTab}
-          scrollValue={scrollValue}
+          changeTab={setIndex}
+          scrollValue={headerScrollValue}
         />
         <TabView
           position={value}
           renderTabBar={() => null}
           navigationState={{index, routes}}
           renderScene={renderScene}
-          onIndexChange={changeTab}
+          onIndexChange={setIndex}
           initialLayout={{width}}
         />
       </Container>
