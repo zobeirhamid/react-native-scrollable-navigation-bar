@@ -8,8 +8,8 @@
  * @format
  */
 
-import React, {useRef, useMemo} from 'react';
-import {View, Text, Image, Dimensions, InteractionManager} from 'react-native';
+import React, {useRef, useMemo, useState} from 'react';
+import {View, Dimensions} from 'react-native';
 import {TabView, SceneMap} from 'react-native-tab-view';
 
 import {
@@ -21,214 +21,57 @@ import {
 } from 'react-native-scrollable-navigation-bar';
 
 import Animated, {
-  Extrapolate,
   useCode,
   block,
-  set,
   onChange,
+  Easing,
 } from 'react-native-reanimated';
 //@ts-ignore
 import {diffClampImPure as diffClamp} from 'react-native-reanimated/src/derived/diffClamp';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import WhatsAppTabBar from './src/components/TabBar';
+import WhatsAppIndicator from './src/components/Indicator';
+import WhatsAppNavigationBar from './src/components/NavigationBar';
 
 const {width, height} = Dimensions.get('window');
 
 declare const global: {HermesInternal: null | {}};
 
-const primaryColor = 'rgb(14, 94, 84)';
-
-const primaryColorDark = 'rgb(8, 65, 52)';
-const iconWidth = (628 / 481) * 16 + 30;
-const indicatorWidth = (width - iconWidth) / 3;
-
-const WhatsAppTabText = ({children}: {children?: React.ReactNode}) => {
-  return <Text style={{color: 'white', fontWeight: '600'}}>{children}</Text>;
-};
-
-const WhatsAppTab = ({
-  children,
-  active = false,
-  width,
-  onPress,
-}: {
-  children?: React.ReactNode;
-  active?: boolean;
-  width: number;
-  onPress: () => void;
-}) => {
-  return (
-    <TouchableOpacity onPress={onPress}>
-      <View
-        style={{
-          width,
-          alignItems: 'center',
-          justifyContent: 'center',
-          opacity: active ? 1 : 0.5,
-          height: 50,
-        }}>
-        {children}
-      </View>
-    </TouchableOpacity>
-  );
-};
-
-const WhatsAppTabBar = ({
-  index,
-  changeTab,
-}: {
-  index: number;
-  changeTab: (index: number) => void;
-}) => {
-  return (
-    <View
-      style={{
-        height: 50,
-        flexDirection: 'row',
-        alignItems: 'center',
-        backgroundColor: primaryColor,
-      }}>
-      <WhatsAppTab
-        width={iconWidth}
-        active={index === 0}
-        onPress={() => changeTab(0)}>
-        <Image
-          source={require('./camera.png')}
-          style={{
-            tintColor: 'white',
-            height: 16,
-            margin: 15,
-            width: iconWidth - 30,
-          }}
-        />
-      </WhatsAppTab>
-      <WhatsAppTab
-        width={indicatorWidth}
-        active={index === 1}
-        onPress={() => changeTab(1)}>
-        <WhatsAppTabText>CHATS</WhatsAppTabText>
-      </WhatsAppTab>
-      <WhatsAppTab
-        width={indicatorWidth}
-        active={index === 2}
-        onPress={() => changeTab(2)}>
-        <WhatsAppTabText>STATUS</WhatsAppTabText>
-      </WhatsAppTab>
-      <WhatsAppTab
-        width={indicatorWidth}
-        active={index === 3}
-        onPress={() => changeTab(3)}>
-        <WhatsAppTabText>CALLS</WhatsAppTabText>
-      </WhatsAppTab>
-    </View>
-  );
-};
-
-const WhatsAppIndicator = ({value}: {value: Animated.Value<number>}) => {
-  const animatedWidth = value.interpolate({
-    inputRange: [0, 1],
-    outputRange: [iconWidth, indicatorWidth],
-    extrapolate: Extrapolate.CLAMP,
-  });
-  return (
-    <View style={{height: 5, backgroundColor: primaryColor}}>
-      <Animated.View
-        style={{
-          height: 5,
-          width: animatedWidth,
-          backgroundColor: 'white',
-          transform: [
-            {
-              translateX: value.interpolate({
-                inputRange: [0, 1, 2, 3],
-                outputRange: [
-                  0,
-                  iconWidth,
-                  iconWidth + indicatorWidth,
-                  iconWidth + 2 * indicatorWidth,
-                ],
-                extrapolate: Extrapolate.CLAMP,
-              }),
-            },
-          ],
-        }}
-      />
-    </View>
-  );
-};
-
-const WhatsAppNavigationBar = () => {
-  return (
-    <React.Fragment>
-      <View style={{height: 20}} />
-      <View
-        style={{
-          height: 60,
-          flexDirection: 'row',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          padding: 15,
-          backgroundColor: primaryColor,
-        }}>
-        <Text
-          style={{
-            color: 'white',
-            fontWeight: '600',
-            fontSize: 18,
-            textShadowColor: 'rgba(0,0,0, 0.1)',
-            textShadowRadius: 10,
-          }}>
-          WhatsApp
-        </Text>
-      </View>
-    </React.Fragment>
-  );
-};
-
-const WhatsAppSticky = ({
-  value,
-  index,
-  changeTab,
-}: {
-  value: Animated.Value<number>;
-  index: number;
-  changeTab: (index: number) => void;
-}) => {
-  return (
-    <>
-      <WhatsAppTabBar index={index} changeTab={changeTab} />
-      <WhatsAppIndicator value={value} />
-    </>
-  );
-};
-
 const WhatsAppHeader = ({
   value,
   index,
-  scrollValue,
   changeTab,
+  animatedValue,
 }: {
   value: Animated.Value<number>;
   index: number;
-  scrollValue: Animated.Value<number>;
   changeTab: (index: number) => void;
+  animatedValue: Animated.Value<number>;
 }) => {
   return (
     <React.Fragment>
-      <Container animatedValue={scrollValue}>
-        <NavigationBarContainer collapsible>
-          <WhatsAppNavigationBar />
-        </NavigationBarContainer>
-        <Sticky collapsible collapseHeight={60}>
-          <WhatsAppSticky index={index} value={value} changeTab={changeTab} />
-        </Sticky>
-      </Container>
+      <NavigationBarContainer collapsible animatedValue={animatedValue}>
+        <WhatsAppNavigationBar />
+      </NavigationBarContainer>
+      <Sticky collapsible collapseHeight={60} animatedValue={animatedValue}>
+        <WhatsAppTabBar index={index} changeTab={changeTab} />
+        <WhatsAppIndicator value={value} />
+      </Sticky>
     </React.Fragment>
   );
 };
 
-const Scene = ({backgroundColor}: {backgroundColor: string}) => {
+const Scene = ({
+  backgroundColor,
+  sceneHeight = height,
+  animatedValue,
+}: {
+  backgroundColor: string;
+  sceneHeight?: number;
+  animatedValue: Animated.Value<number>;
+}) => {
   return (
     <CustomScrollView
+      animatedValue={animatedValue}
       bounces={false}
       contentContainerStyle={{
         transform: [
@@ -237,17 +80,19 @@ const Scene = ({backgroundColor}: {backgroundColor: string}) => {
           },
         ],
       }}>
-      <View style={{width, height, backgroundColor}} />
+      <View style={{width, height: sceneHeight, backgroundColor}} />
       <View style={{height: 10}} />
-      <View style={{width, height, backgroundColor}} />
+      <View style={{width, height: sceneHeight, backgroundColor}} />
     </CustomScrollView>
   );
 };
 
 const App = () => {
   const value = useRef(new Animated.Value(0)).current;
-  const scrollValue = useRef(new Animated.Value(0)).current;
   const headerScrollValue = useRef(new Animated.Value(0)).current;
+  const scrollValues = useRef(new Array(4).fill(new Animated.Value())).current;
+
+  const [activeScrollValue, setActiveScrollValue] = useState(scrollValues[1]);
 
   const [index, setIndex] = React.useState(1);
   const [routes] = React.useState([
@@ -260,43 +105,60 @@ const App = () => {
   const renderScene = useMemo(
     () =>
       SceneMap({
-        first: () => <Scene backgroundColor={'red'} />,
-        second: () => <Scene backgroundColor={'blue'} />,
-        third: () => <Scene backgroundColor={'green'} />,
-        fourth: () => <Scene backgroundColor={'yellow'} />,
+        first: () => (
+          <Scene backgroundColor={'red'} animatedValue={scrollValues[0]} />
+        ),
+        second: () => (
+          <Scene backgroundColor={'blue'} animatedValue={scrollValues[1]} />
+        ),
+        third: () => (
+          <Scene backgroundColor={'green'} animatedValue={scrollValues[2]} />
+        ),
+        fourth: () => (
+          <Scene backgroundColor={'yellow'} animatedValue={scrollValues[3]} />
+        ),
       }),
-    [],
+    [scrollValues],
   );
+
+  const changeTab = (newIndex: number) => {
+    setIndex(newIndex);
+    setActiveScrollValue(scrollValues[newIndex]);
+    Animated.timing(headerScrollValue, {
+      toValue: 0,
+      duration: 200,
+      easing: Easing.linear,
+    }).start();
+  };
 
   useCode(() => {
     return block([
-      onChange(scrollValue, diffClamp(scrollValue, 0, 60, headerScrollValue)),
-      onChange(value, set(headerScrollValue, 0)),
+      onChange(
+        activeScrollValue,
+        diffClamp(activeScrollValue, 0, 60, headerScrollValue),
+      ),
     ]);
-  }, [scrollValue, headerScrollValue, value]);
+  }, [activeScrollValue]);
 
   return (
     <>
-      <Container
-        animatedValue={scrollValue}
-        navigationBarHeight={80}
-        stickyHeight={55}>
+      <Container navigationBarHeight={80} stickyHeight={55}>
         <StatusBarComponent
           barStyle="light-content"
-          backgroundColor={primaryColorDark}
+          backgroundColor={'rgb(8, 65, 52)'}
         />
         <WhatsAppHeader
           value={value}
           index={index}
-          changeTab={setIndex}
-          scrollValue={headerScrollValue}
+          changeTab={changeTab}
+          animatedValue={headerScrollValue}
         />
         <TabView
           position={value}
           renderTabBar={() => null}
           navigationState={{index, routes}}
           renderScene={renderScene}
-          onIndexChange={setIndex}
+          onIndexChange={changeTab}
           initialLayout={{width}}
         />
       </Container>
