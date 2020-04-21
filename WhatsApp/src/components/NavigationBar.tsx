@@ -6,7 +6,6 @@ const primaryColor = 'rgb(14, 94, 84)';
 const NavigationBar = () => {
   return (
     <React.Fragment>
-      <View style={{height: 20}} />
       <View
         style={{
           height: 60,

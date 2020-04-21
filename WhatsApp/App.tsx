@@ -18,6 +18,7 @@ import {
   Sticky,
   CustomScrollView,
   StatusBarComponent,
+  constants,
 } from 'react-native-scrollable-navigation-bar';
 
 import Animated, {
@@ -50,9 +51,14 @@ const WhatsAppHeader = ({
   return (
     <React.Fragment>
       <NavigationBarContainer collapsible animatedValue={animatedValue}>
+        <View style={{height: constants.STATUS_BAR_HEIGHT}} />
         <WhatsAppNavigationBar />
       </NavigationBarContainer>
-      <Sticky collapsible collapseHeight={60} animatedValue={animatedValue}>
+      <Sticky
+        collapsible
+        collapseHeight={60}
+        animatedValue={animatedValue}
+        height={80}>
         <WhatsAppTabBar index={index} changeTab={changeTab} />
         <WhatsAppIndicator value={value} />
       </Sticky>
@@ -142,16 +148,10 @@ const App = () => {
 
   return (
     <>
-      <Container navigationBarHeight={80} stickyHeight={55}>
+      <Container stickyHeight={55}>
         <StatusBarComponent
           barStyle="light-content"
           backgroundColor={'rgb(8, 65, 52)'}
-        />
-        <WhatsAppHeader
-          value={value}
-          index={index}
-          changeTab={changeTab}
-          animatedValue={headerScrollValue}
         />
         <TabView
           position={value}
@@ -160,6 +160,12 @@ const App = () => {
           renderScene={renderScene}
           onIndexChange={changeTab}
           initialLayout={{width}}
+        />
+        <WhatsAppHeader
+          value={value}
+          index={index}
+          changeTab={changeTab}
+          animatedValue={headerScrollValue}
         />
       </Container>
     </>
