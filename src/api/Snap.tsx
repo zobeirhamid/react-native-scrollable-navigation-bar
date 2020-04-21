@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {View} from 'react-native';
 import Animated, {Extrapolate} from 'react-native-reanimated';
-import Context from './Context';
+import {useContainer} from './Context';
 import Sticky from './Sticky';
 
 type SnapProps = {
@@ -10,13 +10,15 @@ type SnapProps = {
   backgroundColor?: string;
 };
 
-const Snap: React.FC<SnapProps> = ({snapHeight, backgroundColor, children}) => {
+const Snap: React.FC<SnapProps> = (props) => {
+  const {snapHeight, backgroundColor, children} = props;
   if (!snapHeight) return null;
-  const {animatedValue, headerHeight} = React.useContext(Context);
+  const {animatedValue, headerHeight} = useContainer(props);
   return (
     <React.Fragment>
       <Sticky>
         <Animated.View
+          //@ts-ignore
           style={{
             opacity: animatedValue.interpolate({
               inputRange: [0, snapHeight],

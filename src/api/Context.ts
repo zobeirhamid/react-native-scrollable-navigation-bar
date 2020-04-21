@@ -21,6 +21,20 @@ export const ScrollableNavigationBarContext = React.createContext<
   animatedValue: new Animated.Value(0),
 });
 
+export function useContainer(
+  props: object,
+): ScrollableNavigationBarContextType {
+  const contextValues = React.useContext(ScrollableNavigationBarContext);
+
+  Object.keys(contextValues).forEach((property: string) => {
+    if (props.hasOwnProperty(property)) {
+      //@ts-ignore
+      contextValues[property] = props[property];
+    }
+  });
+  return contextValues;
+}
+
 export type ReachedTransitionPointContextType = {
   hasReachedTransitionPoint: boolean;
   containerEvents: EventHandlerType<any>;

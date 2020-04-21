@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Animated, {Extrapolate} from 'react-native-reanimated';
 import Collapsible from './Collapsible';
-import Context from './Context';
+import {useContainer} from './Context';
 
 export type StickyProps = {
   children?: React.ReactNode;
@@ -12,16 +12,18 @@ export type StickyProps = {
   zIndex?: number;
 };
 
-const Sticky: React.FC<StickyProps> = ({
-  children,
-  style,
-  collapsible,
-  stayCollapsed,
-  collapseHeight,
-  zIndex = 1,
-}) => {
-  const {headerHeight, animatedValue, navigationBarHeight} = React.useContext(
-    Context,
+const Sticky: React.FC<StickyProps> = (props) => {
+  const {
+    children,
+    style,
+    collapsible,
+    stayCollapsed,
+    collapseHeight,
+    zIndex = 1,
+  } = props;
+
+  const {headerHeight, animatedValue, navigationBarHeight} = useContainer(
+    props,
   );
 
   return (

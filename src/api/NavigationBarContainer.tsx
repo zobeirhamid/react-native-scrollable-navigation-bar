@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {View, ViewProperties} from 'react-native';
 import Collapsible from './Collapsible';
-import Context from './Context';
+import {useContainer} from './Context';
 import {STATUS_BAR_HEIGHT} from '../constants';
 
 export type NavigationBarContainerProps = {
@@ -21,7 +21,7 @@ const NavigationBarContainer = (
   props: NavigationBarContainerProps & typeof defaultProps & ViewProperties,
 ) => {
   const {backgroundColor, style, children, collapsible, stayCollapsed} = props;
-  const {navigationBarHeight, animatedValue} = React.useContext(Context);
+  const {navigationBarHeight, animatedValue} = useContainer(props);
   return (
     <React.Fragment>
       <Collapsible

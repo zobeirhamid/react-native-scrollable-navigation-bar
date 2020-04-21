@@ -1,13 +1,7 @@
 import * as React from 'react';
-import {
-  View,
-  NativeScrollEvent,
-  NativeSyntheticEvent,
-  ScrollView,
-  ScrollViewProperties,
-} from 'react-native';
+import {View, NativeScrollEvent, NativeSyntheticEvent} from 'react-native';
 import Animated from 'react-native-reanimated';
-import Context, {ReachedTransitionPointContext} from './Context';
+import {ReachedTransitionPointContext, useContainer} from './Context';
 import EventHandler from '../EventHandler';
 
 export type CustomScrollViewProps = {
@@ -41,7 +35,7 @@ const CustomScrollView: React.FC<CustomScrollViewProps> = React.forwardRef(
       transitionPoint,
       navigationBarHeight,
       componentHeight,
-    } = React.useContext(Context);
+    } = useContainer(props);
 
     const [
       hasReachedTransitionPoint,

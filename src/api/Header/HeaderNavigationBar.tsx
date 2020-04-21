@@ -2,7 +2,7 @@ import * as React from 'react';
 import {View} from 'react-native';
 import {appear} from '../hoc';
 import NavigationBarContainer from '../NavigationBarContainer';
-import Context, {ReachedTransitionPointContext} from '../Context';
+import {ReachedTransitionPointContext, useContainer} from '../Context';
 
 type HeaderNavigationBarProps = {
   backgroundColor?: string;
@@ -12,18 +12,17 @@ type HeaderNavigationBarProps = {
   stayCollapsed?: boolean;
 };
 
-const HeaderNavigationBar: React.FC<HeaderNavigationBarProps> = ({
-  backgroundColor,
-  UnscrolledNavigationBar,
-  ScrolledNavigationBar,
-  collapsible,
-  stayCollapsed,
-}) => {
+const HeaderNavigationBar: React.FC<HeaderNavigationBarProps> = (props) => {
   const {
-    transitionPoint,
-    animatedValue,
-    navigationBarHeight,
-  } = React.useContext(Context);
+    backgroundColor,
+    UnscrolledNavigationBar,
+    ScrolledNavigationBar,
+    collapsible,
+    stayCollapsed,
+  } = props;
+  const {transitionPoint, animatedValue, navigationBarHeight} = useContainer(
+    props,
+  );
 
   const {hasReachedTransitionPoint} = React.useContext(
     ReachedTransitionPointContext,

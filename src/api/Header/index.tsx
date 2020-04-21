@@ -4,7 +4,7 @@ import HeaderBackground from './HeaderBackground';
 import HeaderBorder from './HeaderBorder';
 import HeaderForeground from './HeaderForeground';
 import HeaderNavigationBar from './HeaderNavigationBar';
-import Context, {ScrollableNavigationBarContextType} from '../Context';
+import {ScrollableNavigationBarContextType, useContainer} from '../Context';
 
 type ForegroundComponentProps = {
   title?: string;
@@ -33,31 +33,32 @@ const defaultProps = {
   NavigationBarComponent: HeaderNavigationBar,
 };
 
-const Header = ({
-  snapHeight,
-  backgroundColor,
-  borderColor,
-  headerBorderColor,
-  fadeOut,
-  parallax,
-  title,
-  titleStyle,
-  style,
-  NavigationBarComponent,
-  UnscrolledNavigationBar,
-  ScrolledNavigationBar,
-  BackgroundComponent,
-  ForegroundComponent,
-  collapsible,
-  stayCollapsed,
-}: HeaderProps & typeof defaultProps) => {
+const Header = (props: HeaderProps & typeof defaultProps) => {
+  const {
+    snapHeight,
+    backgroundColor,
+    borderColor,
+    headerBorderColor,
+    fadeOut,
+    parallax,
+    title,
+    titleStyle,
+    style,
+    NavigationBarComponent,
+    UnscrolledNavigationBar,
+    ScrolledNavigationBar,
+    BackgroundComponent,
+    ForegroundComponent,
+    collapsible,
+    stayCollapsed,
+  } = props;
   const {
     animatedValue,
     transitionPoint,
     headerHeight,
     navigationBarHeight,
     componentHeight,
-  } = React.useContext(Context);
+  } = useContainer(props);
 
   return (
     <React.Fragment>

@@ -2,7 +2,7 @@ import React from 'react';
 import {View} from 'react-native';
 import Animated from 'react-native-reanimated';
 import {scaleable, disappear} from '../hoc';
-import Context from '../Context';
+import {useContainer} from '../Context';
 
 type HeaderBackgroundProps = {
   backgroundColor?: string;
@@ -16,13 +16,14 @@ const defaultProps = {
 
 const HeaderBackground = (props: HeaderBackgroundProps) => {
   const {backgroundColor, children, fadeOut, parallax} = props;
-  const {headerHeight, navigationBarHeight, animatedValue} = React.useContext(
-    Context,
+  const {headerHeight, navigationBarHeight, animatedValue} = useContainer(
+    props,
   );
 
   return (
     <View style={{backgroundColor}}>
       <Animated.View
+        //@ts-ignore
         style={{
           transform: [
             {

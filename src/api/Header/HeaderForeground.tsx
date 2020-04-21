@@ -1,13 +1,14 @@
 import * as React from 'react';
 import Animated from 'react-native-reanimated';
-import Context from '../Context';
+import {useContainer} from '../Context';
 
 type HeaderForegroundProps = {
   children?: React.ReactNode;
 };
 
-const HeaderForeground: React.FC<HeaderForegroundProps> = ({children}) => {
-  const {headerHeight} = React.useContext(Context);
+const HeaderForeground: React.FC<HeaderForegroundProps> = (props) => {
+  const {children} = props;
+  const {headerHeight} = useContainer(props);
 
   return (
     <Animated.View

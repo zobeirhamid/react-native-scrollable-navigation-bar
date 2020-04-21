@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {View} from 'react-native';
 import Sticky from '../Sticky';
-import Context, {ReachedTransitionPointContext} from '../Context';
+import {ReachedTransitionPointContext, useContainer} from '../Context';
 
 type HeaderBorderProps = {
   borderColor?: string;
@@ -10,13 +10,9 @@ type HeaderBorderProps = {
   stayCollapsed?: boolean;
 };
 
-const HeaderBorder: React.FC<HeaderBorderProps> = ({
-  borderColor,
-  headerBorderColor,
-  collapsible,
-  stayCollapsed,
-}) => {
-  const {navigationBarHeight} = React.useContext(Context);
+const HeaderBorder: React.FC<HeaderBorderProps> = (props) => {
+  const {borderColor, headerBorderColor, collapsible, stayCollapsed} = props;
+  const {navigationBarHeight} = useContainer(props);
   const {hasReachedTransitionPoint} = React.useContext(
     ReachedTransitionPointContext,
   );

@@ -1,4 +1,4 @@
-import React, { useContext, useMemo } from "react";
+import React from 'react';
 import Animated, {
   Extrapolate,
   interpolate,
@@ -6,11 +6,11 @@ import Animated, {
   set,
   multiply,
   block,
-} from "react-native-reanimated";
+} from 'react-native-reanimated';
 // @ts-ignore
-import { diffClampImPure as diffClamp } from "react-native-reanimated/src/derived/diffClamp";
-import Context from "./Context";
-import { STATUS_BAR_HEIGHT } from "../constants";
+import {diffClampImPure as diffClamp} from 'react-native-reanimated/src/derived/diffClamp';
+import {useContainer} from './Context';
+import {STATUS_BAR_HEIGHT} from '../constants';
 
 type CollapsibleProps = {
   stayCollapsed?: boolean;
@@ -34,16 +34,10 @@ function diffClamp(a, minVal, maxVal, value) {
 }
 */
 
-const Collapsible = ({
-  active,
-  stayCollapsed,
-  height,
-  style,
-  children,
-  zIndex = 1,
-}: CollapsibleProps) => {
-  const { animatedValue, navigationBarHeight, transitionPoint } = useContext(
-    Context
+const Collapsible = (props: CollapsibleProps) => {
+  const {active, stayCollapsed, height, style, children, zIndex = 1} = props;
+  const {animatedValue, navigationBarHeight, transitionPoint} = useContainer(
+    props,
   );
 
   let translateY = new Animated.Value(0);
@@ -75,11 +69,11 @@ const Collapsible = ({
               }),
               0,
               height,
-              diff
+              diff,
             ),
             set(translateY, multiply(diff, -1)),
           ]),
-        [animatedValue, translateY]
+        [animatedValue, translateY],
       );
     }
     /*
@@ -101,7 +95,7 @@ const Collapsible = ({
       style={[
         {
           zIndex,
-          position: "absolute",
+          position: 'absolute',
           top: 0,
           right: 0,
           left: 0,
@@ -113,8 +107,7 @@ const Collapsible = ({
           ],
         },
         style,
-      ]}
-    >
+      ]}>
       {children}
     </Animated.View>
   );

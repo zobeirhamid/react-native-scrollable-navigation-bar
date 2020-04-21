@@ -11,6 +11,7 @@ type SearchContainerProps = {
   children?: React.ReactNode;
   style?: object;
   contentContainerStyle?: object;
+  headerHeight?: number;
 };
 
 type SearchContainerState = {
@@ -18,7 +19,7 @@ type SearchContainerState = {
 };
 
 class SearchContainer extends React.Component<
-  CustomScrollViewProps,
+  SearchContainerProps,
   SearchContainerState
 > {
   static contextType = Context;
@@ -46,9 +47,14 @@ class SearchContainer extends React.Component<
   }
 
   render() {
-    const {children, contentContainerStyle} = this.props;
+    const {children} = this.props;
     const {active} = this.state;
-    const {headerHeight} = this.context;
+
+    let {headerHeight} = this.context;
+
+    if (this.props.headerHeight !== undefined) {
+      headerHeight = this.props.headerHeight;
+    }
 
     const translateStyle = {
       transform: [
