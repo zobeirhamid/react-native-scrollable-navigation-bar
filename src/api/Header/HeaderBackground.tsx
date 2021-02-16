@@ -2,6 +2,7 @@ import React from "react";
 import { Animated, View } from "react-native";
 import { scaleable, disappear } from "../hoc";
 import Context from "../Context";
+import parseErrorStack from "react-native/Libraries/Core/Devtools/parseErrorStack";
 
 type HeaderBackgroundProps = {
   backgroundColor?: string;
@@ -28,8 +29,8 @@ const HeaderBackground = (props: HeaderBackgroundProps) => {
           transform: [
             {
               translateY: animatedValue.interpolate({
-                inputRange: [0, offset, offset + 1],
-                outputRange: [0, 0, parallax],
+                inputRange: offset !== 0 ? [0, offset, offset + 1] : [0, 1],
+                outputRange: offset !== 0 ? [0, 0, parallax] : [0, parallax],
               }),
             },
           ],

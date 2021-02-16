@@ -1,6 +1,6 @@
 {
   "name": "react-native-scrollable-navigation-bar",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "Scrollable Navigation Bar for React Native",
   "main": "index.js",
   "scripts": {

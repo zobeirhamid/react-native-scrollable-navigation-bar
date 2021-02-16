@@ -95,8 +95,9 @@ const Header = ({
                       outputRange: [1, 0, 0, -1],
                     })
                   : animatedValue.interpolate({
-                      inputRange: [-1, 0, offset, offset + 1],
-                      outputRange: [1, 0, 0, -1],
+                      inputRange:
+                        offset !== 0 ? [-1, 0, offset, offset + 1] : [-1, 0, 1],
+                      outputRange: offset !== 0 ? [1, 0, 0, -1] : [1, 0, -1],
                     }),
               },
             ],
@@ -109,6 +110,7 @@ const Header = ({
           scale={scale}
           backgroundColor={backgroundColor}
           fadeOut={fadeOut}
+          offset={offset}
         >
           {BackgroundComponent !== undefined && (
             <BackgroundComponent
