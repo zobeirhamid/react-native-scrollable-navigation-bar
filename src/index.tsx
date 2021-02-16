@@ -257,7 +257,9 @@ const ScrolledNavigationBar = React.forwardRef(
     } = props;
 
     // useTraceUpdate(props);
-    const CustomHeader = () => <HeaderComponent {...props} />;
+    const CustomHeader = React.useMemo(() => {
+      return () => <HeaderComponent {...props} />;
+    }, [HeaderBackgroundComponent]);
 
     const {
       navigationBarHeight,
