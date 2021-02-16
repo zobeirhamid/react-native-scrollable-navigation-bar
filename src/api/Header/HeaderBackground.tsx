@@ -1,7 +1,7 @@
-import React from 'react';
-import {Animated, View} from 'react-native';
-import {scaleable, disappear} from '../hoc';
-import Context from '../Context';
+import React from "react";
+import { Animated, View } from "react-native";
+import { scaleable, disappear } from "../hoc";
+import Context from "../Context";
 
 type HeaderBackgroundProps = {
   backgroundColor?: string;
@@ -11,16 +11,17 @@ type HeaderBackgroundProps = {
 const defaultProps = {
   fadeOut: false,
   parallax: 0,
+  scale: 1.3,
 };
 
 const HeaderBackground = (props: HeaderBackgroundProps) => {
-  const {backgroundColor, children, fadeOut, parallax} = props;
-  const {headerHeight, navigationBarHeight, animatedValue} = React.useContext(
-    Context,
+  const { backgroundColor, children, fadeOut, parallax, scale } = props;
+  const { headerHeight, navigationBarHeight, animatedValue } = React.useContext(
+    Context
   );
 
   return (
-    <View style={{backgroundColor}}>
+    <View style={{ backgroundColor }}>
       <Animated.View
         style={{
           transform: [
@@ -31,22 +32,25 @@ const HeaderBackground = (props: HeaderBackgroundProps) => {
               }),
             },
           ],
-        }}>
+        }}
+      >
         {disappear(
           scaleable(
+            scale,
             <Animated.View
               style={{
                 height: headerHeight,
                 backgroundColor,
-              }}>
+              }}
+            >
               {children}
             </Animated.View>,
-            animatedValue,
+            animatedValue
           ),
           animatedValue,
           0,
           headerHeight - (navigationBarHeight + 30),
-          fadeOut,
+          fadeOut
         )}
       </Animated.View>
     </View>

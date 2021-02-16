@@ -1,14 +1,14 @@
-import * as React from 'react';
-import Sticky from './api/Sticky';
-import NavigationBarContainer from './api/NavigationBarContainer';
-import Header, {HeaderProps} from './api/Header';
-import NavigationBar from './components/NavigationBar';
-import Container, {ContainerProps} from './api/Container';
-import CustomScrollView from './api/CustomScrollView';
-import StatusBarManager from './components/StatusBarManager';
-import Snap from './api/Snap';
-import {NAVIGATION_BAR_HEIGHT, STATUS_BAR_HEIGHT} from './constants';
-import HeaderTitle from './components/HeaderTitle';
+import * as React from "react";
+import Sticky from "./api/Sticky";
+import NavigationBarContainer from "./api/NavigationBarContainer";
+import Header, { HeaderProps } from "./api/Header";
+import NavigationBar from "./components/NavigationBar";
+import Container, { ContainerProps } from "./api/Container";
+import CustomScrollView from "./api/CustomScrollView";
+import StatusBarManager from "./components/StatusBarManager";
+import Snap from "./api/Snap";
+import { NAVIGATION_BAR_HEIGHT, STATUS_BAR_HEIGHT } from "./constants";
+import HeaderTitle from "./components/HeaderTitle";
 
 type NavigationBarComponentProps = {
   title?: string;
@@ -82,7 +82,7 @@ type BigHeaderComponentProps = {
 } & HeaderProps &
   NavigationBarComponentProps;
 
-const BigHeaderComponent: React.FC<BigHeaderComponentProps> = props => {
+const BigHeaderComponent: React.FC<BigHeaderComponentProps> = (props) => {
   const {
     HeaderBackgroundComponent,
     HeaderForegroundComponent = HeaderTitle,
@@ -98,6 +98,7 @@ const BigHeaderComponent: React.FC<BigHeaderComponentProps> = props => {
     SnapComponent,
     snapHeight,
     parallax,
+    scale,
     fadeOut,
     collapsible,
     stayCollapsed,
@@ -109,7 +110,7 @@ const BigHeaderComponent: React.FC<BigHeaderComponentProps> = props => {
     iconStyle,
   } = props;
   const imageStyle =
-    HeaderBackgroundComponent !== undefined ? {color: 'white'} : {};
+    HeaderBackgroundComponent !== undefined ? { color: "white" } : {};
   return (
     <React.Fragment>
       <Header
@@ -124,6 +125,7 @@ const BigHeaderComponent: React.FC<BigHeaderComponentProps> = props => {
         borderColor={SnapComponent !== undefined ? undefined : borderColor}
         snapHeight={snapHeight}
         parallax={parallax}
+        scale={scale}
         fadeOut={fadeOut}
         BackgroundComponent={HeaderBackgroundComponent}
         ForegroundComponent={HeaderForegroundComponent}
@@ -140,7 +142,7 @@ const BigHeaderComponent: React.FC<BigHeaderComponentProps> = props => {
                   iconStyle={bigIconStyle || iconStyle || imageStyle}
                   headerBackgroundColor={
                     HeaderBackgroundComponent !== undefined
-                      ? 'transparent'
+                      ? "transparent"
                       : headerBackgroundColor
                   }
                 />
@@ -191,7 +193,7 @@ type HeaderComponentProps = {
   stickyCollapseHeight?: number;
 } & BigHeaderComponentProps;
 
-const HeaderComponent: React.FC<HeaderComponentProps> = props => {
+const HeaderComponent: React.FC<HeaderComponentProps> = (props) => {
   const {
     collapsible,
     stayCollapsed,
@@ -206,7 +208,8 @@ const HeaderComponent: React.FC<HeaderComponentProps> = props => {
       {transitionPoint == undefined ? (
         <NavigationBarContainer
           collapsible={collapsible}
-          stayCollapsed={stayCollapsed}>
+          stayCollapsed={stayCollapsed}
+        >
           <NavigationBarComponent {...props} />
         </NavigationBarContainer>
       ) : (
@@ -216,7 +219,8 @@ const HeaderComponent: React.FC<HeaderComponentProps> = props => {
         <Sticky
           collapsible={stickyCollapsible}
           stayCollapsed={stayCollapsed}
-          collapseHeight={stickyCollapseHeight || stickyHeight}>
+          collapseHeight={stickyCollapseHeight || stickyHeight}
+        >
           <StickyComponent />
         </Sticky>
       )}
@@ -269,7 +273,8 @@ const ScrolledNavigationBar = React.forwardRef(
         transitionPoint={transitionPoint}
         snapHeight={snapHeight}
         stickyHeight={stickyHeight}
-        animatedValue={animatedValue}>
+        animatedValue={animatedValue}
+      >
         <ScrollViewComponent
           StatusBar={
             HeaderBackgroundComponent !== undefined ? ImageStatusBar : StatusBar
@@ -281,7 +286,7 @@ const ScrolledNavigationBar = React.forwardRef(
         />
       </Container>
     );
-  },
+  }
 );
 
 ScrolledNavigationBar.defaultProps = defaultProps;

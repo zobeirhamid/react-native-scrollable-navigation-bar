@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import {Animated, StyleSheet} from 'react-native';
-import HeaderBackground from './HeaderBackground';
-import HeaderBorder from './HeaderBorder';
-import HeaderForeground from './HeaderForeground';
-import HeaderNavigationBar from './HeaderNavigationBar';
-import Context, {ScrollableNavigationBarContextType} from '../Context';
+import React, { Component } from "react";
+import { Animated, StyleSheet } from "react-native";
+import HeaderBackground from "./HeaderBackground";
+import HeaderBorder from "./HeaderBorder";
+import HeaderForeground from "./HeaderForeground";
+import HeaderNavigationBar from "./HeaderNavigationBar";
+import Context, { ScrollableNavigationBarContextType } from "../Context";
 
 type ForegroundComponentProps = {
   title?: string;
@@ -18,6 +18,7 @@ export type HeaderProps = {
   headerBorderColor?: string;
   fadeOut?: boolean;
   parallax?: number;
+  scale?: number;
   title?: string;
   titleStyle?: object;
   style?: object;
@@ -40,6 +41,7 @@ const Header = ({
   headerBorderColor,
   fadeOut,
   parallax,
+  scale,
   title,
   titleStyle,
   style,
@@ -71,7 +73,7 @@ const Header = ({
       <Animated.View
         style={[
           {
-            position: 'absolute',
+            position: "absolute",
             left: 0,
             right: 0,
             top: 0,
@@ -89,11 +91,14 @@ const Header = ({
             ],
           },
           style,
-        ]}>
+        ]}
+      >
         <HeaderBackground
           parallax={parallax}
+          scale={scale}
           backgroundColor={backgroundColor}
-          fadeOut={fadeOut}>
+          fadeOut={fadeOut}
+        >
           {BackgroundComponent !== undefined && (
             <BackgroundComponent
               transitionPoint={transitionPoint}
