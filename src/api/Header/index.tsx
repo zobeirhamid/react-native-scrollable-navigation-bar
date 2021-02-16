@@ -19,6 +19,7 @@ export type HeaderProps = {
   fadeOut?: boolean;
   parallax?: number;
   scale?: number;
+  offset?: number;
   title?: string;
   titleStyle?: object;
   style?: object;
@@ -32,6 +33,7 @@ export type HeaderProps = {
 
 const defaultProps = {
   NavigationBarComponent: HeaderNavigationBar,
+  offset: 0,
 };
 
 const Header = ({
@@ -42,6 +44,7 @@ const Header = ({
   fadeOut,
   parallax,
   scale,
+  offset,
   title,
   titleStyle,
   style,
@@ -83,10 +86,18 @@ const Header = ({
                 // translateY: Animated.multiply(animatedValue, -1),
                 translateY: snapHeight
                   ? animatedValue.interpolate({
-                      inputRange: [-1, 0, snapHeight, snapHeight + 1],
+                      inputRange: [
+                        -1,
+                        0,
+                        offset + snapHeight,
+                        offset + snapHeight + 1,
+                      ],
                       outputRange: [1, 0, 0, -1],
                     })
-                  : Animated.multiply(animatedValue, -1),
+                  : animatedValue.interpolate({
+                      inputRange: [-1, 0, offset, offset + 1],
+                      outputRange: [1, 0, 0, -1],
+                    }),
               },
             ],
           },

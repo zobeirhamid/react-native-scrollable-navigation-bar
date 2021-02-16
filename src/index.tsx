@@ -98,6 +98,7 @@ const BigHeaderComponent: React.FC<BigHeaderComponentProps> = (props) => {
     SnapComponent,
     snapHeight,
     parallax,
+    offset,
     scale,
     fadeOut,
     collapsible,
@@ -125,6 +126,7 @@ const BigHeaderComponent: React.FC<BigHeaderComponentProps> = (props) => {
         borderColor={SnapComponent !== undefined ? undefined : borderColor}
         snapHeight={snapHeight}
         parallax={parallax}
+        offset={offset}
         scale={scale}
         fadeOut={fadeOut}
         BackgroundComponent={HeaderBackgroundComponent}

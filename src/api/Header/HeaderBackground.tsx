@@ -12,10 +12,11 @@ const defaultProps = {
   fadeOut: false,
   parallax: 0,
   scale: 1.3,
+  offset: 0,
 };
 
 const HeaderBackground = (props: HeaderBackgroundProps) => {
-  const { backgroundColor, children, fadeOut, parallax, scale } = props;
+  const { backgroundColor, children, fadeOut, parallax, scale, offset } = props;
   const { headerHeight, navigationBarHeight, animatedValue } = React.useContext(
     Context
   );
@@ -27,8 +28,8 @@ const HeaderBackground = (props: HeaderBackgroundProps) => {
           transform: [
             {
               translateY: animatedValue.interpolate({
-                inputRange: [0, 1],
-                outputRange: [0, parallax],
+                inputRange: [0, offset, offset + 1],
+                outputRange: [0, 0, parallax],
               }),
             },
           ],
