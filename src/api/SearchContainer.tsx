@@ -1,6 +1,8 @@
 import * as React from 'react';
 import {Animated, View, Platform, Dimensions} from 'react-native';
-import CustomScrollView, {CustomScrollViewProps} from './CustomScrollView';
+import RegularScrollComponent, {
+  RegularScrollComponentProps,
+} from './ScrollComponents/RegularScrollComponent';
 import {STATUS_BAR_HEIGHT, NAVIGATION_BAR_HEIGHT} from '../constants';
 import Context from './Context';
 
@@ -17,7 +19,7 @@ type SearchContainerState = {
 };
 
 class SearchContainer extends React.Component<
-  CustomScrollViewProps,
+  RegularScrollComponentProps,
   SearchContainerState
 > {
   static contextType = Context;
@@ -65,7 +67,7 @@ class SearchContainer extends React.Component<
 
     return (
       // @ts-ignore
-      <CustomScrollView
+      <RegularScrollComponent
         {...this.props}
         scrollEnabled={!active}
         {...customStyle}>
@@ -85,7 +87,7 @@ class SearchContainer extends React.Component<
           />
           {children}
         </React.Fragment>
-      </CustomScrollView>
+      </RegularScrollComponent>
     );
   }
 }

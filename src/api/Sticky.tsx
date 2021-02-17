@@ -26,6 +26,7 @@ const Sticky: React.FC<StickyProps> = ({
     transitionPoint,
     animatedValue,
     navigationBarHeight,
+    offset,
   } = React.useContext(Context);
   return (
     <React.Fragment>
@@ -49,8 +50,18 @@ const Sticky: React.FC<StickyProps> = ({
                   translateY:
                     headerHeight !== navigationBarHeight
                       ? animatedValue.interpolate({
-                          inputRange: [0, headerHeight - navigationBarHeight],
-                          outputRange: [headerHeight, navigationBarHeight],
+                          inputRange:
+                            offset !== 0
+                              ? [
+                                  0,
+                                  offset,
+                                  offset + headerHeight - navigationBarHeight,
+                                ]
+                              : [0, headerHeight - navigationBarHeight],
+                          outputRange:
+                            offset !== 0
+                              ? [0, headerHeight, navigationBarHeight]
+                              : [headerHeight, navigationBarHeight],
                           extrapolateRight: 'clamp',
                         })
                       : headerHeight,

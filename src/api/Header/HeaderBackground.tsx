@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Animated, View } from "react-native";
 import { scaleable, disappear } from "../hoc";
 import Context from "../Context";
-import parseErrorStack from "react-native/Libraries/Core/Devtools/parseErrorStack";
+import { formatInterpolate } from "../hoc";
 
 type HeaderBackgroundProps = {
   backgroundColor?: string;
@@ -13,14 +13,38 @@ const defaultProps = {
   fadeOut: false,
   parallax: 0,
   scale: 1.3,
-  offset: 0,
+  scrollOffset: 0,
 };
 
 const HeaderBackground = (props: HeaderBackgroundProps) => {
-  const { backgroundColor, children, fadeOut, parallax, scale, offset } = props;
-  const { headerHeight, navigationBarHeight, animatedValue } = React.useContext(
-    Context
-  );
+  const {
+    backgroundColor,
+    children,
+    fadeOut,
+    parallax,
+    scale,
+    scrollOffset,
+  } = props;
+  const {
+    headerHeight,
+    navigationBarHeight,
+    animatedValue,
+    offset,
+  } = React.useContext(Context);
+
+  const translateY = useMemo(() => {
+    return animatedValue.interpolate(
+      formatInterpolate({
+        inputRange: [
+          0,
+          offset,
+          offset + scrollOffset,
+          offset + scrollOffset + 1,
+        ],
+        outputRange: [0, 0, 0, parallax],
+      })
+    );
+  }, [scrollOffset, offset, parallax]);
 
   return (
     <View style={{ backgroundColor }}>
@@ -28,10 +52,7 @@ const HeaderBackground = (props: HeaderBackgroundProps) => {
         style={{
           transform: [
             {
-              translateY: animatedValue.interpolate({
-                inputRange: offset !== 0 ? [0, offset, offset + 1] : [0, 1],
-                outputRange: offset !== 0 ? [0, 0, parallax] : [0, parallax],
-              }),
+              translateY,
             },
           ],
         }}

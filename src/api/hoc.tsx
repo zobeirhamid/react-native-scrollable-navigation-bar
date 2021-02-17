@@ -72,3 +72,22 @@ export function appear(
     </Animated.View>
   );
 }
+export const formatInterpolate = (config) => {
+  const { inputRange, outputRange } = config;
+  const duplicates = [];
+  const visited = [];
+
+  inputRange.forEach((value, index) => {
+    if (visited.includes(value)) {
+      duplicates.push(index);
+    } else {
+      visited.push(value);
+    }
+  });
+
+  return {
+    ...config,
+    inputRange: inputRange.filter((_, index) => !duplicates.includes(index)),
+    outputRange: outputRange.filter((_, index) => !duplicates.includes(index)),
+  };
+};

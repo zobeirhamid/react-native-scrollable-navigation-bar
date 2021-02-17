@@ -1,7 +1,8 @@
 import * as React from 'react';
-import {View} from 'react-native';
+import {View, Animated} from 'react-native';
 import Sticky from '../Sticky';
 import Context, {ReachedTransitionPointContext} from '../Context';
+import {Extrapolate} from 'react-native-reanimated';
 
 type HeaderBorderProps = {
   borderColor?: string;
@@ -16,7 +17,9 @@ const HeaderBorder: React.FC<HeaderBorderProps> = ({
   collapsible,
   stayCollapsed,
 }) => {
-  const {navigationBarHeight} = React.useContext(Context);
+  const {navigationBarHeight, animatedValue, offset} = React.useContext(
+    Context,
+  );
   const {hasReachedTransitionPoint} = React.useContext(
     ReachedTransitionPointContext,
   );
@@ -27,12 +30,25 @@ const HeaderBorder: React.FC<HeaderBorderProps> = ({
       collapsible={collapsible}
       stayCollapsed={stayCollapsed}
       collapseHeight={navigationBarHeight}>
-      <View
+      <Animated.View
         style={{
           height: 1,
           backgroundColor: hasReachedTransitionPoint
             ? borderColor
             : headerBorderColor || borderColor,
+
+          transform: [
+            {
+              translateY:
+                offset !== 0
+                  ? animatedValue.interpolate({
+                      inputRange: [0, offset],
+                      outputRange: [offset, 0],
+                      extrapolate: Extrapolate.CLAMP,
+                    })
+                  : 0,
+            },
+          ],
         }}
       />
     </Sticky>

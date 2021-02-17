@@ -9,6 +9,7 @@ export type ScrollableNavigationBarContextType = {
   headerHeight: number;
   componentHeight: number;
   animatedValue: Animated.Value;
+  offset: number;
 };
 
 export const ScrollableNavigationBarContext = React.createContext<
@@ -19,6 +20,7 @@ export const ScrollableNavigationBarContext = React.createContext<
   headerHeight: NAVIGATION_BAR_HEIGHT,
   componentHeight: NAVIGATION_BAR_HEIGHT,
   animatedValue: new Animated.Value(0),
+  offset: 0,
 });
 
 export type ReachedTransitionPointContextType = {

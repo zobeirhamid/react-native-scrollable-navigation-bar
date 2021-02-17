@@ -5,6 +5,7 @@ import HeaderBorder from "./HeaderBorder";
 import HeaderForeground from "./HeaderForeground";
 import HeaderNavigationBar from "./HeaderNavigationBar";
 import Context, { ScrollableNavigationBarContextType } from "../Context";
+import { formatInterpolate } from "../hoc";
 
 type ForegroundComponentProps = {
   title?: string;
@@ -19,7 +20,7 @@ export type HeaderProps = {
   fadeOut?: boolean;
   parallax?: number;
   scale?: number;
-  offset?: number;
+  scrollOffset?: number;
   title?: string;
   titleStyle?: object;
   style?: object;
@@ -33,7 +34,7 @@ export type HeaderProps = {
 
 const defaultProps = {
   NavigationBarComponent: HeaderNavigationBar,
-  offset: 0,
+  scrollOffset: 0,
 };
 
 const Header = ({
@@ -44,7 +45,7 @@ const Header = ({
   fadeOut,
   parallax,
   scale,
-  offset,
+  scrollOffset,
   title,
   titleStyle,
   style,
@@ -62,7 +63,34 @@ const Header = ({
     headerHeight,
     navigationBarHeight,
     componentHeight,
+    offset,
   } = React.useContext(Context);
+
+  const translateY = React.useMemo(() => {
+    return snapHeight
+      ? animatedValue.interpolate(
+          formatInterpolate({
+            inputRange: [
+              -1,
+              0,
+              scrollOffset + snapHeight,
+              scrollOffset + snapHeight + 1,
+            ],
+            outputRange: [1, 0, 0, -1],
+          })
+        )
+      : animatedValue.interpolate(
+          formatInterpolate({
+            inputRange: [
+              0,
+              offset,
+              offset + scrollOffset,
+              offset + scrollOffset + 1,
+            ],
+            outputRange: [0, -offset, -offset, -offset - 1],
+          })
+        );
+  }, [snapHeight, scrollOffset, offset]);
 
   return (
     <React.Fragment>
@@ -83,22 +111,8 @@ const Header = ({
             height: headerHeight,
             transform: [
               {
+                translateY,
                 // translateY: Animated.multiply(animatedValue, -1),
-                translateY: snapHeight
-                  ? animatedValue.interpolate({
-                      inputRange: [
-                        -1,
-                        0,
-                        offset + snapHeight,
-                        offset + snapHeight + 1,
-                      ],
-                      outputRange: [1, 0, 0, -1],
-                    })
-                  : animatedValue.interpolate({
-                      inputRange:
-                        offset !== 0 ? [-1, 0, offset, offset + 1] : [-1, 0, 1],
-                      outputRange: offset !== 0 ? [1, 0, 0, -1] : [1, 0, -1],
-                    }),
               },
             ],
           },
@@ -110,7 +124,7 @@ const Header = ({
           scale={scale}
           backgroundColor={backgroundColor}
           fadeOut={fadeOut}
-          offset={offset}
+          scrollOffset={scrollOffset}
         >
           {BackgroundComponent !== undefined && (
             <BackgroundComponent

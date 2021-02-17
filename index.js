@@ -2,7 +2,9 @@ import NavigationBar from "./src/components/NavigationBar";
 import NavigationBarIcon from "./src/components/NavigationBar/NavigationBarIcon";
 import NavigationBarContainer from "./src/api/NavigationBarContainer";
 import HeaderNavigationBar from "./src/api/Header/HeaderNavigationBar";
-import CustomScrollView from './src/api/CustomScrollView';
+import RegularScrollComponent from "./src/api/ScrollComponents/RegularScrollComponent";
+import SnappingScrollComponent from "./src/api/ScrollComponents/SnappingScrollComponent";
+import ClosingScrollComponent from "./src/api/ScrollComponents/ClosingScrollComponent";
 import Container from "./src/api/Container";
 import SearchContainer from "./src/api/SearchContainer";
 import StatusBarManager from "./src/components/StatusBarManager";
@@ -23,7 +25,9 @@ export {
   NavigationBarContainer,
   NavigationBarIcon,
   HeaderNavigationBar,
-  CustomScrollView,
+  RegularScrollComponent,
+  SnappingScrollComponent,
+  ClosingScrollComponent,
   Container,
   SearchContainer,
   StatusBarManager as StatusBar,
