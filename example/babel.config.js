@@ -26,7 +26,7 @@ module.exports = {
           navigation: './src/navigation',
           screens: './src/screens',
           'test-utils': './jest/test-utils.tsx',
-          [pak.name]: path.join(__dirname, '..', pak.source),
+          //[pak.name]: path.join(__dirname, '..', pak.source),
         },
       },
     ],

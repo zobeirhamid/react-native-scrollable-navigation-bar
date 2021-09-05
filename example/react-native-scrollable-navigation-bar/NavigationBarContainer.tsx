@@ -1,9 +1,9 @@
-import React, { useMemo } from 'react';
-import { Animated, StyleSheet } from 'react-native';
-import { useMeasurements } from './contexts/MeasurementsContext';
+import React, {useMemo} from 'react';
+import {Animated, StyleSheet} from 'react-native';
+import {useMeasurements} from './contexts/MeasurementsContext';
 import Collapser from './Collapser';
 import Snapper from './Snapper';
-import { useAnimatedValue } from './contexts/AnimatedValueContext';
+import {useAnimatedValue} from './contexts/AnimatedValueContext';
 import Sticker from './Sticker';
 import Transitioner from './Transitioner';
 
@@ -19,9 +19,7 @@ interface NavigationBarContainerProps {
   stickyStayCollapsed?: boolean;
 }
 
-const NavigationBarContainer: React.FC<NavigationBarContainerProps> = (
-  props
-) => {
+const NavigationBarContainer: React.FC<NavigationBarContainerProps> = props => {
   const {
     navigationBarHeight,
     statusBarHeight,
@@ -70,7 +68,7 @@ const NavigationBarContainer: React.FC<NavigationBarContainerProps> = (
       ...StyleSheet.absoluteFillObject,
       height: headerHeight + snapHeight + borderHeight + stickyHeight,
       top: statusBarHeight,
-      transform: [{ translateY: animatedValue }],
+      transform: [{translateY: animatedValue}],
       zIndex: 1,
     };
   }, [
@@ -100,19 +98,17 @@ const NavigationBarContainer: React.FC<NavigationBarContainerProps> = (
           stayCollapsed={stayCollapsed}
           distance={distance}
           height={navigationBarHeight + stickyHeight + borderHeight}
-          offset={offset}
-        >
+          offset={offset}>
           <Sticker
             collapsible={collapsible}
             stayCollapsed={stayCollapsed}
             stickyCollapsible={stickyCollapsible}
             stickyStayCollapsed={stickyStayCollapsed}
-            height={stickyHeight}
-          >
+            height={stickyHeight}>
             <StickyComponent />
             <BorderComponent />
           </Sticker>
-          <Animated.View style={{ height: navigationBarHeight }}>
+          <Animated.View style={{height: navigationBarHeight}}>
             <UnscrolledNavigationBarComponent />
             <Transitioner style={navigationBarStyle}>
               <NavigationBarComponent />

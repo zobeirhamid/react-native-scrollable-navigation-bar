@@ -1,7 +1,7 @@
-import React, { useMemo } from 'react';
-import { View, StyleSheet } from 'react-native';
+import React, {useMemo} from 'react';
+import {View, StyleSheet} from 'react-native';
 import Transitioner from './Transitioner';
-import { useMeasurements } from './contexts/MeasurementsContext';
+import {useMeasurements} from './contexts/MeasurementsContext';
 
 interface StatusBarContainerProps {
   transition?: boolean;
@@ -9,8 +9,8 @@ interface StatusBarContainerProps {
   UnscrolledStatusBarComponent?: React.ComponentType<any>;
 }
 
-const StatusBarContainer: React.FC<StatusBarContainerProps> = (props) => {
-  const { statusBarHeight } = useMeasurements();
+const StatusBarContainer: React.FC<StatusBarContainerProps> = props => {
+  const {statusBarHeight} = useMeasurements();
   const {
     StatusBarComponent = () => null,
     UnscrolledStatusBarComponent = () => null,

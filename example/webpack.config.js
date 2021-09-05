@@ -65,7 +65,7 @@ module.exports = {
       'test-utils': path.resolve(__dirname, 'jest/test-utils.tsx'),
       'react-native-scrollable-navigation-bar': path.resolve(
         __dirname,
-        '../src',
+        'react-native-scrollable-navigation-bar',
       ),
     },
   },

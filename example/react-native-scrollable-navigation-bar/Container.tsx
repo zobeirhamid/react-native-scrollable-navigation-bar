@@ -6,14 +6,14 @@ import {
   StyleSheet,
   TouchableWithoutFeedback,
 } from 'react-native';
-import { NAVIGATION_BAR_HEIGHT, STATUS_BAR_HEIGHT } from './constants';
-import { MeasurementsProvider } from './contexts/MeasurementsContext';
-import { AnimatedValueProvider } from './contexts/AnimatedValueContext';
+import {NAVIGATION_BAR_HEIGHT, STATUS_BAR_HEIGHT} from './constants';
+import {MeasurementsProvider} from './contexts/MeasurementsContext';
+import {AnimatedValueProvider} from './contexts/AnimatedValueContext';
 import HeaderContainer from './HeaderContainer';
 import NavigationBarContainer from './NavigationBarContainer';
 import Scroller from './Scroller';
 import StatusBarContainer from './StatusBarContainer';
-import { HasReachedTransitionPointProvider } from './contexts/HasReachedTransitionPoint.tsx';
+import {HasReachedTransitionPointProvider} from './contexts/HasReachedTransitionPoint.tsx';
 
 export interface ContainerProps
   extends React.ComponentProps<typeof ScrollView> {
@@ -60,7 +60,7 @@ class Container extends React.PureComponent<ContainerProps, ContainerState> {
   containerStyle = [
     styles.container,
     {
-      transform: [{ translateY: this.containerAnimatedValue }],
+      transform: [{translateY: this.containerAnimatedValue}],
     },
   ];
   overlayStyle = {
@@ -80,7 +80,7 @@ class Container extends React.PureComponent<ContainerProps, ContainerState> {
       onFocus = () => {},
     } = this.props;
 
-    this.setState({ focused: true });
+    this.setState({focused: true});
     onFocus();
     Animated.timing(this.containerAnimatedValue, {
       toValue:
@@ -99,9 +99,9 @@ class Container extends React.PureComponent<ContainerProps, ContainerState> {
   }
 
   blur() {
-    const { onBlur = () => {} } = this.props;
+    const {onBlur = () => {}} = this.props;
 
-    this.setState({ focused: false });
+    this.setState({focused: false});
     onBlur();
     Animated.timing(this.containerAnimatedValue, {
       toValue: 0,
@@ -146,7 +146,7 @@ class Container extends React.PureComponent<ContainerProps, ContainerState> {
       fadeOut = false,
     } = this.props;
 
-    const { focused } = this.state;
+    const {focused} = this.state;
 
     const height =
       navigationBarHeight === headerHeight
@@ -166,8 +166,7 @@ class Container extends React.PureComponent<ContainerProps, ContainerState> {
           transitionPoint={transitionPoint}
           stickyHeight={stickyHeight}
           snapHeight={snapHeight}
-          borderHeight={borderHeight}
-        >
+          borderHeight={borderHeight}>
           <HasReachedTransitionPointProvider>
             <Scroller scrollEnabled={!focused} {...this.props}>
               <Animated.View style={this.containerStyle}>
@@ -191,7 +190,7 @@ class Container extends React.PureComponent<ContainerProps, ContainerState> {
                   parallax={parallax}
                   fadeOut={fadeOut}
                 />
-                <Animated.View style={{ height }} />
+                <Animated.View style={{height}} />
                 <View style={contentContainerStyle}>
                   <TouchableWithoutFeedback onPress={() => this.blur()}>
                     <Animated.View

@@ -16,7 +16,6 @@ import Container, {AppleStyle} from 'react-native-scrollable-navigation-bar';
 import {useWindowDimensions} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {SearchBar} from 'react-native-elements';
-import {Platform} from 'react-native';
 
 const NavBarIcon = ({
   name,
@@ -73,6 +72,7 @@ const ImageCarousel = () => {
 };
 
 export default withTheme(() => {
+  const {height} = useWindowDimensions();
   const ref = useRef<Container>(null);
   const inputRef = useRef<TextInput>(null);
 
@@ -105,13 +105,14 @@ export default withTheme(() => {
   }, []);
 
   return (
-    <GestureHandlerRootView style={{flex: 1}}>
+    <GestureHandlerRootView style={{height}}>
       <AppleStyle
         /*
         refreshControl={
           <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
         }
         */
+        scrollEventThrottle={1}
         ref={ref}
         leftIcons={[<NavBarIcon name={'ios-heart'} color={'white'} />]}
         unscrolledLeftIcons={[
@@ -121,7 +122,7 @@ export default withTheme(() => {
         unscrolledRightIcons={[
           <NavBarIcon name={'ios-rocket'} color={'black'} />,
         ]}
-        //HeaderBackgroundComponent={ImageCarousel}
+        HeaderBackgroundComponent={ImageCarousel}
         /*
         contentInset={Platform.select({ios: {top: -30}})}
         contentOffset={Platform.select({
@@ -138,24 +139,24 @@ export default withTheme(() => {
           StatusBar.setBarStyle('light-content');
         }}
         afterTransitionPoint={() => {
-          StatusBar.setBarStyle('dark-content');
+          StatusBar.setBarStyle('light-content');
         }}
         onBlur={() => {
           inputRef.current?.blur();
         }}
-        //headerHeight={300}
-        //SnapComponent={SnapComponent}
-        //snapHeight={72}
+        headerHeight={300}
+        SnapComponent={SnapComponent}
+        snapHeight={72}
         StickyComponent={StickyComponent}
         stickyHeight={30}
-        stickyCollapsible
+        //stickyCollapsible
         //stickyStayCollapsed
         // STYLE ATTRIBUTES
         transition
         navigationBarBackgroundColor={'dodgerblue'}
         titleColor={'white'}
         headerTitleColor={'black'}
-        headerBackgroundColor={'#f5f5f5'}
+        headerBackgroundColor={'transparent'}
         borderHeight={10}
         navigationBorderColor={'darkblue'}
         headerBorderColor={'lightgrey'}

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Animated, StyleSheet } from 'react-native';
+import {Animated, StyleSheet} from 'react-native';
 import Transitioner from '../Transitioner';
-import { useMeasurements } from '../contexts/MeasurementsContext';
+import {useMeasurements} from '../contexts/MeasurementsContext';
 
 interface BorderProps {
   navigationBorderColor?: string;
@@ -12,10 +12,10 @@ const Border: React.FC<BorderProps> = ({
   navigationBorderColor,
   headerBorderColor,
 }) => {
-  const { borderHeight } = useMeasurements();
+  const {borderHeight} = useMeasurements();
   return (
     <>
-      <Animated.View style={{ height: borderHeight }}>
+      <Animated.View style={{height: borderHeight}}>
         <Animated.View
           style={{
             ...StyleSheet.absoluteFillObject,
