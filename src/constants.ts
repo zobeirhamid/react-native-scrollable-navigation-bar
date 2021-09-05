@@ -21,7 +21,7 @@ export const STATUS_BAR_HEIGHT =
       : 20
     : StatusBar.currentHeight || 0;
 
-export const NAVIGATION_BAR_HEIGHT = 60 + STATUS_BAR_HEIGHT;
+export const NAVIGATION_BAR_HEIGHT = 60;
 
 export default {
   STATUS_BAR_HEIGHT,

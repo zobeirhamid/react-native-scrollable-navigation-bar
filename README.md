@@ -1,17 +1,27 @@
 # react-native-scrollable-navigation-bar
 
-## Update - 04/16/2020
+Scrollable Navigation Bar for React Native.
 
-Rewrote whole Library using React Hooks and TypeScript. Tried using react-native-reanimated, but the performance on Android was too bad.
+## Installation
 
-## Description
+```sh
+npm install react-native-scrollable-navigation-bar
+```
 
-This package provides a set of navigation bars for ScrollViews with different animations.
+## Usage
 
-![Collapsible Regular Navigation Bar](https://raw.githubusercontent.com/zobeirhamid/react-native-scrollable-navigation-bar/master/collapsibleRegular.gif "Collapsible Regular Navigation Bar")
-![Search Title Navigation Bar](https://raw.githubusercontent.com/zobeirhamid/react-native-scrollable-navigation-bar/master/searchTitle.gif "Search Title Navigation Bar")
-![Image Title Navigation Bar](https://raw.githubusercontent.com/zobeirhamid/react-native-scrollable-navigation-bar/master/imageTitle.gif "Image Title Navigation Bar")
+```js
+import ScrollableNavigationBar from "react-native-scrollable-navigation-bar";
 
-## Documentation
+// ...
 
-_Coming soon; for now checkout the example folder._
+const result = await ScrollableNavigationBar.multiply(3, 7);
+```
+
+## Contributing
+
+See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
+
+## License
+
+MIT

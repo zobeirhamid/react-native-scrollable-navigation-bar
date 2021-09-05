@@ -1,37 +1,41 @@
-import * as React from 'react';
-import {Animated, View} from 'react-native';
+import React from 'react';
+import { Animated, StyleSheet, Text, TextStyle, ViewStyle } from 'react-native';
 
-type HeaderTitleProps = {
+export interface HeaderTitleProps {
   title?: string;
-  children?: React.ReactNode;
-  style?: object;
-  titleStyle?: object;
-  containerStyle?: object;
-};
+  titleStyle?: TextStyle;
+  containerStyle?: ViewStyle;
+}
 
 const HeaderTitle: React.FC<HeaderTitleProps> = ({
   title,
-  children,
-  style,
-  titleStyle,
-  containerStyle,
-}) => (
-  <View
-    style={[{flex: 1, justifyContent: 'flex-end', padding: 15}, containerStyle]}
-    pointerEvents="box-none">
-    <Animated.Text
-      style={[
-        {
-          fontWeight: 'bold',
-          fontSize: 36,
-          color: 'black',
-        },
-        style,
-        titleStyle,
-      ]}>
-      {children || title}
-    </Animated.Text>
-  </View>
-);
+  titleStyle = {},
+  containerStyle = {},
+}) => {
+  return (
+    <>
+      <Animated.View
+        style={[styles.container, containerStyle]}
+        pointerEvents={'none'}
+      >
+        <Text style={[styles.title, titleStyle]}>{title}</Text>
+      </Animated.View>
+    </>
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    padding: 15,
+    zIndex: 1,
+  },
+  title: {
+    fontSize: 36,
+    fontWeight: 'bold',
+    color: 'black',
+  },
+});
 
 export default HeaderTitle;
