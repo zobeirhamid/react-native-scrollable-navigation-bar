@@ -1,16 +1,7 @@
 import React, {useMemo, useRef} from 'react';
-import {
-  Animated,
-  View,
-  StatusBar,
-  TextInput,
-  RefreshControl,
-} from 'react-native';
+import {Animated, View, StatusBar, TextInput, StyleSheet} from 'react-native';
 import withTheme from 'library/higherOrderComponents/withTheme';
-import {
-  GestureHandlerRootView,
-  TouchableOpacity,
-} from 'react-native-gesture-handler';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 //import RootNavigation from 'navigation/RootNavigation';
 import Container, {AppleStyle} from 'react-native-scrollable-navigation-bar';
 import {useWindowDimensions} from 'react-native';
@@ -28,19 +19,11 @@ const NavBarIcon = ({
 };
 
 const Placeholder = () => {
-  return (
-    <View
-      style={{
-        height: 200,
-        margin: 50,
-        backgroundColor: 'grey',
-      }}
-    />
-  );
+  return <View style={styles.placeholder} />;
 };
 
 const StickyComponent = () => {
-  return <View style={{height: 30, backgroundColor: 'red'}} />;
+  return <View style={styles.stickyComponent} />;
 };
 
 const ImageCarousel = () => {
@@ -90,50 +73,19 @@ export default withTheme(() => {
         onBlur={() => {
           ref.current?.blur();
         }}
-        containerStyle={{backgroundColor: 'transparent'}}
+        containerStyle={styles.searchBarContainer}
       />
     );
-  }, []);
-
-  const [refreshing, setRefreshing] = React.useState(false);
-
-  const onRefresh = React.useCallback(() => {
-    setRefreshing(true);
-    setTimeout(() => {
-      setRefreshing(false);
-    }, 2000);
   }, []);
 
   return (
     <GestureHandlerRootView style={{height}}>
       <AppleStyle
-        /*
-        refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-        }
-        */
         scrollEventThrottle={1}
         ref={ref}
         leftIcons={[<NavBarIcon name={'ios-heart'} color={'white'} />]}
-        unscrolledLeftIcons={[
-          <NavBarIcon name={'ios-heart'} color={'black'} />,
-        ]}
         rightIcons={[<NavBarIcon name={'ios-rocket'} color={'white'} />]}
-        unscrolledRightIcons={[
-          <NavBarIcon name={'ios-rocket'} color={'black'} />,
-        ]}
         HeaderBackgroundComponent={ImageCarousel}
-        /*
-        contentInset={Platform.select({ios: {top: -30}})}
-        contentOffset={Platform.select({
-          ios: {
-            x: 0,
-            y: 30,
-          },
-        })}
-        */
-        //collapsible
-        //stayCollapsed
         title={'Hello World'}
         beforeTransitionPoint={() => {
           StatusBar.setBarStyle('light-content');
@@ -149,13 +101,10 @@ export default withTheme(() => {
         snapHeight={72}
         StickyComponent={StickyComponent}
         stickyHeight={30}
-        //stickyCollapsible
-        //stickyStayCollapsed
-        // STYLE ATTRIBUTES
         transition
         navigationBarBackgroundColor={'dodgerblue'}
         titleColor={'white'}
-        headerTitleColor={'black'}
+        headerTitleColor={'white'}
         headerBackgroundColor={'transparent'}
         borderHeight={10}
         navigationBorderColor={'darkblue'}
@@ -168,4 +117,19 @@ export default withTheme(() => {
       </AppleStyle>
     </GestureHandlerRootView>
   );
+});
+
+const styles = StyleSheet.create({
+  placeholder: {
+    height: 200,
+    margin: 50,
+    backgroundColor: 'grey',
+  },
+  stickyComponent: {
+    height: 30,
+    backgroundColor: 'red',
+  },
+  searchBarContainer: {
+    backgroundColor: 'transparent',
+  },
 });

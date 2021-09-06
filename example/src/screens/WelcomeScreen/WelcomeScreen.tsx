@@ -1,50 +1,55 @@
 import React from 'react';
-import {Text, View, TouchableOpacity} from 'react-native';
+import {Text, View, TouchableOpacity, StyleSheet} from 'react-native';
 
 const WelcomeScreen: React.FC = () => {
   const [greeting, setGreeting] = React.useState<string | undefined>(undefined);
   if (greeting) {
     return (
-      <View
-        style={{
-          flex: 1,
-          paddingTop: 20,
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}>
-        <Text style={{fontSize: 25, color: 'white'}}>{greeting}!!!</Text>
+      <View style={styles.greetingContainer}>
+        <Text style={styles.text}>{greeting}!!!</Text>
       </View>
     );
   }
   return (
-    <View
-      testID="welcome"
-      style={{
-        flex: 1,
-        paddingTop: 20,
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}>
-      <Text style={{fontSize: 25, marginBottom: 30}}>Welcome</Text>
+    <View testID="welcome" style={styles.container}>
+      <Text style={styles.text}>Welcome</Text>
       <TouchableOpacity
         testID="hello_button"
         onPress={() => setGreeting('Hello')}>
-        <Text style={{color: 'white', marginBottom: 20}}>Say Hello</Text>
+        <Text style={styles.text}>Say Hello</Text>
       </TouchableOpacity>
       <TouchableOpacity
         testID="world_button"
         onPress={() => setGreeting('World')}>
-        <Text style={{color: 'white', marginBottom: 20}}>Say World</Text>
+        <Text style={styles.text}>Say World</Text>
       </TouchableOpacity>
       <TouchableOpacity
         testID="goodbye_button"
         onPress={() => setGreeting('Goodbye, World')}>
-        <Text style={{color: 'white', marginTop: 50, marginBottom: 20}}>
-          Say Goodbye
-        </Text>
+        <Text style={styles.text}>Say Goodbye</Text>
       </TouchableOpacity>
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  greetingContainer: {
+    flex: 1,
+    paddingTop: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  container: {
+    flex: 1,
+    paddingTop: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  text: {
+    color: 'white',
+    marginBottom: 30,
+    fontSize: 25,
+  },
+});
 
 export default WelcomeScreen;

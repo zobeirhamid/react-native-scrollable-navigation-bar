@@ -83,15 +83,18 @@ const AppleStyle = React.forwardRef<Container, AppleStyleProps>(
       headerBackgroundColor,
     ]);
 
-    const HeaderBackgroundComponent = useMemo(() => {
-      return () => {
-        return (
-          <Animated.View
-            style={{ backgroundColor: headerBackgroundColor, flex: 1 }}
-          />
-        );
+    const headerBackgroundComponentStyle = useMemo(() => {
+      return {
+        backgroundColor: headerBackgroundColor,
+        flex: 1,
       };
     }, [headerBackgroundColor]);
+
+    const HeaderBackgroundComponent = useMemo(() => {
+      return () => {
+        return <Animated.View style={headerBackgroundComponentStyle} />;
+      };
+    }, [headerBackgroundComponentStyle]);
 
     const HeaderForegroundComponent = useMemo(() => {
       return () => (

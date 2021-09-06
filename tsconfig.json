@@ -2,7 +2,13 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "react-native-scrollable-navigation-bar": ["./src/index"]
+      "react-native-scrollable-navigation-bar": ["./src/index"],
+      "components/*": ["./example/src/components/*"],
+      "library/*": ["./example/src/library/*"],
+      "resources/*": ["./example/src/resources/*"],
+      "navigation/*": ["./example/src/navigation/*"],
+      "screens/*": ["./example/src/screens/*"],
+      "test-utils": ["./example/jest/test-utils.tsx"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
