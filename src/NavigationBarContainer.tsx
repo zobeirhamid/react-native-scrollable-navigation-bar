@@ -3,7 +3,6 @@ import { Animated, StyleSheet } from 'react-native';
 import { useMeasurements } from './contexts/MeasurementsContext';
 import Collapser from './Collapser';
 import Snapper from './Snapper';
-import { useAnimatedValue } from './contexts/AnimatedValueContext';
 import Sticker from './Sticker';
 import Transitioner from './Transitioner';
 
@@ -30,8 +29,6 @@ const NavigationBarContainer: React.FC<NavigationBarContainerProps> = (
     snapHeight,
     borderHeight,
   } = useMeasurements();
-
-  const animatedValue = useAnimatedValue();
 
   const {
     NavigationBarComponent = () => null,
@@ -70,17 +67,9 @@ const NavigationBarContainer: React.FC<NavigationBarContainerProps> = (
       ...StyleSheet.absoluteFillObject,
       height: headerHeight + snapHeight + borderHeight + stickyHeight,
       top: statusBarHeight,
-      transform: [{ translateY: animatedValue }],
       zIndex: 1,
     };
-  }, [
-    statusBarHeight,
-    animatedValue,
-    headerHeight,
-    snapHeight,
-    borderHeight,
-    stickyHeight,
-  ]);
+  }, [statusBarHeight, headerHeight, snapHeight, borderHeight, stickyHeight]);
 
   const navigationBarStyle = useMemo(() => {
     return {

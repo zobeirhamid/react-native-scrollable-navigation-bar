@@ -140,6 +140,7 @@ const AppleStyle = React.forwardRef<Container, AppleStyleProps>(
         transitionPoint={
           headerHeight - navigationBarHeight - statusBarHeight - 30
         }
+        overScrollMode={'never'}
         {...props}
         ref={ref}
       >

@@ -7,7 +7,6 @@ module.exports = {
     [
       'module-resolver',
       {
-        root: ['./src'],
         extensions: [
           '.ios.ts',
           '.android.ts',
@@ -20,6 +19,7 @@ module.exports = {
           '.json',
         ],
         alias: {
+          [pak.name]: path.join(__dirname, '..', pak.source),
           react: './node_modules/react',
           'react-native-web': './node_modules/react-native-web',
           resources: './src/resources',
@@ -28,7 +28,6 @@ module.exports = {
           navigation: './src/navigation',
           screens: './src/screens',
           'test-utils': './jest/test-utils.tsx',
-          [pak.name]: path.join(__dirname, '..', pak.source),
         },
       },
     ],

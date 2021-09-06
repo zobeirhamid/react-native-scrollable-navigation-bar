@@ -38,15 +38,15 @@
 
     /* Module Resolution Options */
     "moduleResolution": "node" /* Specify module resolution strategy: 'node' (Node.js) or 'classic' (TypeScript pre-1.6). */,
-    "baseUrl": "./src",
+    "baseUrl": ".",
     "paths": {
-      "components/*": ["./components/*"],
-      "library/*": ["./library/*"],
-      "resources/*": ["./resources/*"],
-      "navigation/*": ["./navigation/*"],
-      "screens/*": ["./screens/*"],
-      "test-utils": ["../jest/test-utils.tsx"],
-      "react-native-scrollable-navigation-bar": ["../../src/index"]
+      "components/*": ["./src/components/*"],
+      "library/*": ["./src/library/*"],
+      "resources/*": ["./src/resources/*"],
+      "navigation/*": ["./src/navigation/*"],
+      "screens/*": ["./src/screens/*"],
+      "test-utils": ["./jest/test-utils.tsx"],
+      "react-native-scrollable-navigation-bar": ["../src/index"]
     },
     // "baseUrl": "./",                       /* Base directory to resolve non-absolute module names. */
     // "paths": {},                           /* A series of entries which re-map imports to lookup locations relative to the 'baseUrl'. */
@@ -74,5 +74,6 @@
     "babel.config.js",
     "metro.config.js",
     "jest.config.js"
-  ]
+  ],
+  "include": ["src"]
 }
