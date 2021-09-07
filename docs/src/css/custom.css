@@ -14,6 +14,9 @@
   --ifm-color-primary-lighter: rgb(102, 212, 189);
   --ifm-color-primary-lightest: rgb(146, 224, 208);
   --ifm-code-font-size: 95%;
+  --ifm-table-border-color: #282c34;
+  --ifm-table-head-background: #242526;
+  --ifm-table-stripe-background: #101113;
 }
 
 .docusaurus-highlight-code-line {
@@ -25,4 +28,35 @@
 
 html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+article table {
+  display: table;
+  width: 100%;
+  font-size: 14px;
+}
+article table thead th {
+  text-align: left;
+  text-transform: uppercase;
+}
+
+article table th,
+article table td {
+  padding: 6px 10px;
+}
+
+article table tr:nth-child(2n) {
+  background-color: var(--ifm-table-stripe-background);
+}
+
+.row .col.col--3 {
+  padding: 0 var(--ifm-spacing-horizontal) 0, 0;
+}
+
+.table-of-contents ul {
+  padding-left: 0px;
+}
+
+.table-of-contents ul li {
+  margin-left: 0px;
 }
