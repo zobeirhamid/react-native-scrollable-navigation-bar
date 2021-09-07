@@ -6,14 +6,14 @@ import { useMeasurements } from './contexts/MeasurementsContext';
 interface StatusBarContainerProps {
   transition?: boolean;
   StatusBarComponent?: React.ComponentType<any>;
-  UnscrolledStatusBarComponent?: React.ComponentType<any>;
+  HeaderStatusBarComponent?: React.ComponentType<any>;
 }
 
 const StatusBarContainer: React.FC<StatusBarContainerProps> = (props) => {
   const { statusBarHeight } = useMeasurements();
   const {
     StatusBarComponent = () => null,
-    UnscrolledStatusBarComponent = () => null,
+    HeaderStatusBarComponent = () => null,
   } = props;
 
   const statusBarStyle = useMemo(() => {
@@ -26,7 +26,7 @@ const StatusBarContainer: React.FC<StatusBarContainerProps> = (props) => {
 
   return (
     <View style={statusBarStyle}>
-      <UnscrolledStatusBarComponent />
+      <HeaderStatusBarComponent />
 
       <Transitioner style={statusBarStyle}>
         <StatusBarComponent />

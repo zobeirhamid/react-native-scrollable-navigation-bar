@@ -5,12 +5,14 @@ import Collapser from './Collapser';
 import Snapper from './Snapper';
 import Sticker from './Sticker';
 import Transitioner from './Transitioner';
+import BorderContainer from './BorderContainer';
 
 interface NavigationBarContainerProps {
   NavigationBarComponent?: React.ComponentType<any>;
-  UnscrolledNavigationBarComponent?: React.ComponentType<any>;
+  HeaderNavigationBarComponent?: React.ComponentType<any>;
   StickyComponent?: React.ComponentType<any>;
   SnapComponent?: React.ComponentType<any>;
+  HeaderBorderComponent?: React.ComponentType<any>;
   BorderComponent?: React.ComponentType<any>;
   collapsible?: boolean;
   stickyCollapsible?: boolean;
@@ -32,9 +34,10 @@ const NavigationBarContainer: React.FC<NavigationBarContainerProps> = (
 
   const {
     NavigationBarComponent = () => null,
-    UnscrolledNavigationBarComponent = () => null,
+    HeaderNavigationBarComponent = () => null,
     StickyComponent = () => null,
     SnapComponent = () => null,
+    HeaderBorderComponent = () => null,
     BorderComponent = () => null,
     collapsible = false,
     stickyCollapsible = false,
@@ -99,10 +102,13 @@ const NavigationBarContainer: React.FC<NavigationBarContainerProps> = (
             height={stickyHeight}
           >
             <StickyComponent />
-            <BorderComponent />
+            <BorderContainer
+              HeaderBorderComponent={HeaderBorderComponent}
+              BorderComponent={BorderComponent}
+            />
           </Sticker>
           <Animated.View style={{ height: navigationBarHeight }}>
-            <UnscrolledNavigationBarComponent />
+            <HeaderNavigationBarComponent />
             <Transitioner style={navigationBarStyle}>
               <NavigationBarComponent />
             </Transitioner>

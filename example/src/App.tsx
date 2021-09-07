@@ -107,7 +107,7 @@ export default withTheme(() => {
         headerTitleColor={'white'}
         headerBackgroundColor={'transparent'}
         borderHeight={10}
-        navigationBorderColor={'darkblue'}
+        navigationBarBorderColor={'darkblue'}
         headerBorderColor={'lightgrey'}
         backgroundColor={'white'}>
         <Placeholder />

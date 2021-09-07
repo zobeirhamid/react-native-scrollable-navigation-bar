@@ -1,27 +1,20 @@
-# react-native-scrollable-navigation-bar
+# React Native Scrollable Navigation Bar
 
-Scrollable Navigation Bar for React Native.
+This package provides smooth scroll animations for react native.
 
-## Installation
+## Getting Started
 
-```sh
-npm install react-native-scrollable-navigation-bar
-```
+[Check out the docs](https://zobeirhamid.github.io/react-native-scrollable-navigation-bar)
 
-## Usage
+## Features
 
-```js
-import ScrollableNavigationBar from "react-native-scrollable-navigation-bar";
+- 60 FPS scroll animations
+- Works on all Platforms
+- Uses react-native Animated API, so no extra dependencies are needed
+- Fully customizable
 
-// ...
+## Roadmap
 
-const result = await ScrollableNavigationBar.multiply(3, 7);
-```
-
-## Contributing
-
-See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
-
-## License
-
-MIT
+- [ ] Custom RefreshControl Animation
+- [ ] Supporting FlatList
+- [ ] ScrollView Methods

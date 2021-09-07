@@ -1,34 +1,18 @@
 import React from 'react';
-import { Animated, StyleSheet } from 'react-native';
-import Transitioner from '../Transitioner';
-import { useMeasurements } from '../contexts/MeasurementsContext';
+import { Animated } from 'react-native';
 
-interface BorderProps {
-  navigationBorderColor?: string;
-  headerBorderColor?: string;
+export interface BorderProps {
+  backgroundColor?: string;
+  height?: number;
 }
 
 const Border: React.FC<BorderProps> = ({
-  navigationBorderColor,
-  headerBorderColor,
+  backgroundColor = 'transparent',
+  height,
 }) => {
-  const { borderHeight } = useMeasurements();
   return (
     <>
-      <Animated.View style={{ height: borderHeight }}>
-        <Animated.View
-          style={{
-            ...StyleSheet.absoluteFillObject,
-            backgroundColor: headerBorderColor,
-          }}
-        />
-        <Transitioner
-          style={{
-            ...StyleSheet.absoluteFillObject,
-            backgroundColor: navigationBorderColor,
-          }}
-        />
-      </Animated.View>
+      <Animated.View style={{ height, backgroundColor }} />
     </>
   );
 };

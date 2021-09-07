@@ -5,20 +5,22 @@ import {
   StatusBarPropsIOS,
   StatusBarPropsAndroid,
 } from 'react-native';
-import { useMeasurements } from '../contexts/MeasurementsContext';
+import { STATUS_BAR_HEIGHT } from '../constants';
 
-export type StatusBarProps = StatusBarPropsIOS & StatusBarPropsAndroid;
+export type StatusBarProps = StatusBarPropsIOS &
+  StatusBarPropsAndroid & {
+    height?: number;
+  };
 
 const StatusBar: React.FC<StatusBarProps> = (props) => {
-  const { statusBarHeight } = useMeasurements();
-  const { backgroundColor = 'transparent' } = props;
+  const { backgroundColor = 'transparent', height = STATUS_BAR_HEIGHT } = props;
 
   const style = useMemo(() => {
     return {
-      height: statusBarHeight,
+      height,
       backgroundColor,
     };
-  }, [statusBarHeight, backgroundColor]);
+  }, [backgroundColor, height]);
 
   return (
     <>

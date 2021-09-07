@@ -5,7 +5,6 @@ import {
   View,
   StyleSheet,
   TouchableWithoutFeedback,
-  Dimensions,
 } from 'react-native';
 import { NAVIGATION_BAR_HEIGHT, STATUS_BAR_HEIGHT } from './constants';
 import { MeasurementsProvider } from './contexts/MeasurementsContext';
@@ -27,11 +26,12 @@ export interface ContainerProps
   snapHeight?: number;
   borderHeight?: number;
   StatusBarComponent?: React.ComponentType<any>;
-  UnscrolledStatusBarComponent?: React.ComponentType<any>;
+  HeaderStatusBarComponent?: React.ComponentType<any>;
   NavigationBarComponent?: React.ComponentType<any>;
-  UnscrolledNavigationBarComponent?: React.ComponentType<any>;
+  HeaderNavigationBarComponent?: React.ComponentType<any>;
   StickyComponent?: React.ComponentType<any>;
   SnapComponent?: React.ComponentType<any>;
+  HeaderBorderComponent?: React.ComponentType<any>;
   BorderComponent?: React.ComponentType<any>;
   collapsible?: boolean;
   stickyCollapsible?: boolean;
@@ -46,7 +46,6 @@ export interface ContainerProps
   fadeOut?: boolean;
   onFocus?: () => void;
   onBlur?: () => void;
-  height?: number;
 }
 
 type ContainerState = {
@@ -59,12 +58,9 @@ class Container extends React.PureComponent<ContainerProps, ContainerState> {
   };
   containerAnimatedValue = new Animated.Value(0);
   overlayAnimatedValue = new Animated.Value(0);
-  containerStyle = [
-    styles.container,
-    {
-      transform: [{ translateY: this.containerAnimatedValue }],
-    },
-  ];
+  containerStyle = {
+    transform: [{ translateY: this.containerAnimatedValue }],
+  };
   overlayStyle = {
     ...StyleSheet.absoluteFillObject,
     zIndex: 9999,
@@ -77,7 +73,6 @@ class Container extends React.PureComponent<ContainerProps, ContainerState> {
       navigationBarHeight = NAVIGATION_BAR_HEIGHT,
       headerHeight = NAVIGATION_BAR_HEIGHT,
       snapHeight = 0,
-      borderHeight = 0,
       statusBarHeight = STATUS_BAR_HEIGHT,
       onFocus = () => {},
     } = this.props;
@@ -87,7 +82,7 @@ class Container extends React.PureComponent<ContainerProps, ContainerState> {
     Animated.timing(this.containerAnimatedValue, {
       toValue:
         navigationBarHeight !== headerHeight
-          ? -headerHeight + snapHeight + borderHeight + statusBarHeight
+          ? -headerHeight + snapHeight + statusBarHeight
           : -navigationBarHeight,
       duration: 500,
       useNativeDriver: true,
@@ -130,11 +125,12 @@ class Container extends React.PureComponent<ContainerProps, ContainerState> {
       transitionPoint = headerHeight - navigationBarHeight - statusBarHeight,
       borderHeight = 0,
       StatusBarComponent = () => null,
-      UnscrolledStatusBarComponent = () => null,
+      HeaderStatusBarComponent = () => null,
       NavigationBarComponent = () => null,
-      UnscrolledNavigationBarComponent = () => null,
+      HeaderNavigationBarComponent = () => null,
       StickyComponent = () => null,
       SnapComponent = () => null,
+      HeaderBorderComponent = () => null,
       BorderComponent = () => null,
       collapsible = false,
       stickyCollapsible = false,
@@ -147,7 +143,6 @@ class Container extends React.PureComponent<ContainerProps, ContainerState> {
       scale = 1.1,
       parallax = 0,
       fadeOut = false,
-      height = Dimensions.get('window').height,
     } = this.props;
 
     const { focused } = this.state;
@@ -162,7 +157,7 @@ class Container extends React.PureComponent<ContainerProps, ContainerState> {
         : stickyHeight + borderHeight;
 
     return (
-      <View style={{ height }}>
+      <View style={styles.container}>
         <AnimatedValueProvider animatedValue={animatedValue}>
           <MeasurementsProvider
             statusBarHeight={statusBarHeight}
@@ -180,20 +175,26 @@ class Container extends React.PureComponent<ContainerProps, ContainerState> {
               >
                 <NavigationBarContainer
                   NavigationBarComponent={NavigationBarComponent}
-                  UnscrolledNavigationBarComponent={
-                    UnscrolledNavigationBarComponent
-                  }
+                  HeaderNavigationBarComponent={HeaderNavigationBarComponent}
                   StickyComponent={StickyComponent}
                   SnapComponent={SnapComponent}
                   collapsible={collapsible}
                   stayCollapsed={stayCollapsed}
                   stickyCollapsible={stickyCollapsible}
                   stickyStayCollapsed={stickyStayCollapsed}
+                  HeaderBorderComponent={HeaderBorderComponent}
                   BorderComponent={BorderComponent}
                 />
               </Animated.View>
-              <Scroller scrollEnabled={!focused} {...this.props}>
-                <Animated.View style={[this.containerStyle]}>
+              <Scroller
+                scrollEnabled={!focused}
+                {...this.props}
+                contentContainerStyle={undefined}
+                showsVerticalScrollIndicator={false}
+              >
+                <Animated.View
+                  style={[this.containerStyle, styles.contentContainer]}
+                >
                   <HeaderContainer
                     HeaderForegroundComponent={HeaderForegroundComponent}
                     HeaderBackgroundComponent={HeaderBackgroundComponent}
@@ -215,7 +216,7 @@ class Container extends React.PureComponent<ContainerProps, ContainerState> {
               </Scroller>
               <StatusBarContainer
                 StatusBarComponent={StatusBarComponent}
-                UnscrolledStatusBarComponent={UnscrolledStatusBarComponent}
+                HeaderStatusBarComponent={HeaderStatusBarComponent}
               />
             </HasReachedTransitionPointProvider>
           </MeasurementsProvider>
@@ -227,6 +228,10 @@ class Container extends React.PureComponent<ContainerProps, ContainerState> {
 
 const styles = StyleSheet.create({
   container: {
+    overflow: 'hidden',
+    flex: 1,
+  },
+  contentContainer: {
     overflow: 'visible',
   },
 

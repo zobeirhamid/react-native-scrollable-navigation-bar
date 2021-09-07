@@ -13,7 +13,7 @@ interface AppleStyleProps extends ContainerProps {
   navigationBarBackgroundColor?: string;
   headerBackgroundColor?: string;
   borderColor?: string;
-  navigationBorderColor?: string;
+  navigationBarBorderColor?: string;
   headerBorderColor?: string;
   transition?: boolean;
   titleColor?: string;
@@ -21,8 +21,8 @@ interface AppleStyleProps extends ContainerProps {
   backgroundColor?: string;
   leftIcons?: React.ReactElement[];
   rightIcons?: React.ReactElement[];
-  unscrolledLeftIcons?: React.ReactElement[];
-  unscrolledRightIcons?: React.ReactElement[];
+  headerLeftIcons?: React.ReactElement[];
+  headerRightIcons?: React.ReactElement[];
   children?: React.ReactNode;
 }
 
@@ -35,7 +35,7 @@ const AppleStyle = React.forwardRef<Container, AppleStyleProps>(
       navigationBarBackgroundColor = '#f5f5f5',
       headerBackgroundColor = navigationBarBackgroundColor,
       borderColor = 'lightgrey',
-      navigationBorderColor = borderColor,
+      navigationBarBorderColor = borderColor,
       headerBorderColor = borderColor,
       transition = false,
       titleColor = 'black',
@@ -43,11 +43,12 @@ const AppleStyle = React.forwardRef<Container, AppleStyleProps>(
       backgroundColor = 'white',
       leftIcons,
       rightIcons,
-      unscrolledLeftIcons = leftIcons,
-      unscrolledRightIcons = rightIcons,
+      headerLeftIcons = leftIcons,
+      headerRightIcons = rightIcons,
       headerHeight = NAVIGATION_BAR_HEIGHT,
       navigationBarHeight = NAVIGATION_BAR_HEIGHT,
       statusBarHeight = STATUS_BAR_HEIGHT,
+      borderHeight = 1,
     } = props;
 
     const NavigationBarComponent = useMemo(
@@ -65,23 +66,18 @@ const AppleStyle = React.forwardRef<Container, AppleStyleProps>(
       [title, navigationBarBackgroundColor, titleColor, leftIcons, rightIcons]
     );
 
-    const UnscrolledNavigationBarComponent = useMemo(() => {
+    const HeaderNavigationBarComponent = useMemo(() => {
       if (transition) {
         return () => (
           <NavigationBar
             backgroundColor={headerBackgroundColor}
-            leftIcons={unscrolledLeftIcons}
-            rightIcons={unscrolledRightIcons}
+            leftIcons={headerLeftIcons}
+            rightIcons={headerRightIcons}
           />
         );
       }
       return undefined;
-    }, [
-      unscrolledLeftIcons,
-      unscrolledRightIcons,
-      transition,
-      headerBackgroundColor,
-    ]);
+    }, [headerLeftIcons, headerRightIcons, transition, headerBackgroundColor]);
 
     const headerBackgroundComponentStyle = useMemo(() => {
       return {
@@ -108,17 +104,23 @@ const AppleStyle = React.forwardRef<Container, AppleStyleProps>(
     const BorderComponent = useMemo(() => {
       return () => (
         <Border
-          navigationBorderColor={navigationBorderColor}
-          headerBorderColor={headerBorderColor}
+          backgroundColor={navigationBarBorderColor}
+          height={borderHeight}
         />
       );
-    }, [navigationBorderColor, headerBorderColor]);
+    }, [navigationBarBorderColor, borderHeight]);
+
+    const HeaderBorderComponent = useMemo(() => {
+      return () => (
+        <Border backgroundColor={headerBorderColor} height={borderHeight} />
+      );
+    }, [headerBorderColor, borderHeight]);
 
     const StatusBarComponent = useMemo(() => {
       return () => <StatusBar backgroundColor={navigationBarBackgroundColor} />;
     }, [navigationBarBackgroundColor]);
 
-    const UnscrolledStatusBarComponent = useMemo(() => {
+    const HeaderStatusBarComponent = useMemo(() => {
       return () => <StatusBar backgroundColor={headerBackgroundColor} />;
     }, [headerBackgroundColor]);
 
@@ -131,11 +133,12 @@ const AppleStyle = React.forwardRef<Container, AppleStyleProps>(
         HeaderBackgroundComponent={HeaderBackgroundComponent}
         HeaderForegroundComponent={HeaderForegroundComponent}
         NavigationBarComponent={NavigationBarComponent}
-        UnscrolledNavigationBarComponent={UnscrolledNavigationBarComponent}
+        HeaderNavigationBarComponent={HeaderNavigationBarComponent}
         StatusBarComponent={StatusBarComponent}
-        UnscrolledStatusBarComponent={UnscrolledStatusBarComponent}
+        HeaderStatusBarComponent={HeaderStatusBarComponent}
+        HeaderBorderComponent={HeaderBorderComponent}
         BorderComponent={BorderComponent}
-        borderHeight={1}
+        borderHeight={borderHeight}
         contentContainerStyle={contentContainerStyle}
         transitionPoint={
           headerHeight - navigationBarHeight - statusBarHeight - 30
