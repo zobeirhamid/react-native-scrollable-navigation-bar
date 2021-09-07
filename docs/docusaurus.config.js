@@ -26,13 +26,13 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
             sidebarPath: require.resolve('./sidebars.js'),
             routeBasePath: '/',
             editUrl:
-              'https://github.com/zobeirhamid/react-native-scrollable-navigation-bar/edit/main/docs/',
+              'https://github.com/zobeirhamid/react-native-scrollable-navigation-bar/edit/master/docs/',
             remarkPlugins: [require('./src/plugins/remark-npm2yarn.js')],
           },
           blog: {
             showReadingTime: true,
             editUrl:
-              'https://github.com/zobeirhamid/react-native-scrollable-navigation-bar/edit/main/docs/blog/',
+              'https://github.com/zobeirhamid/react-native-scrollable-navigation-bar/edit/master/docs/blog/',
           },
           theme: {
             customCss: require.resolve('./src/css/custom.css'),
