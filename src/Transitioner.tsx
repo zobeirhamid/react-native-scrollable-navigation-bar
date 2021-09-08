@@ -5,7 +5,6 @@ import { Animated, ViewStyle } from 'react-native';
 
 interface TransitionerProps {
   style?: ViewStyle;
-  active?: boolean;
   offset?: number;
   distance?: number;
 }
@@ -17,14 +16,12 @@ const Transitioner: React.FC<TransitionerProps> = (props) => {
 
   const {
     children,
-    style,
-    active = true,
+    style = {},
     offset = navigationBarHeight,
     distance = offset,
   } = props;
 
   const transitionStyle = useMemo(() => {
-    if (!active) return style;
     return [
       style,
       {
@@ -42,7 +39,6 @@ const Transitioner: React.FC<TransitionerProps> = (props) => {
       },
     ];
   }, [
-    active,
     headerHeight,
     navigationBarHeight,
     transitionPoint,

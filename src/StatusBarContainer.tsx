@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import { View, StyleSheet } from 'react-native';
-import Transitioner from './Transitioner';
+import Appearer from './Appearer';
 import { useMeasurements } from './contexts/MeasurementsContext';
 
 interface StatusBarContainerProps {
@@ -28,9 +28,9 @@ const StatusBarContainer: React.FC<StatusBarContainerProps> = (props) => {
     <View style={statusBarStyle}>
       <HeaderStatusBarComponent />
 
-      <Transitioner style={statusBarStyle}>
+      <Appearer style={statusBarStyle}>
         <StatusBarComponent />
-      </Transitioner>
+      </Appearer>
     </View>
   );
 };

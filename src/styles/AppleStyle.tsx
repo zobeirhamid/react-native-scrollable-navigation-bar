@@ -15,7 +15,6 @@ interface AppleStyleProps extends ContainerProps {
   borderColor?: string;
   navigationBarBorderColor?: string;
   headerBorderColor?: string;
-  transition?: boolean;
   titleColor?: string;
   headerTitleColor?: string;
   backgroundColor?: string;
@@ -30,19 +29,18 @@ const AppleStyle = React.forwardRef<Container, AppleStyleProps>(
   (props, ref) => {
     const {
       children,
-      title,
+      title = '',
       headerTitle = title,
       navigationBarBackgroundColor = '#f5f5f5',
       headerBackgroundColor = navigationBarBackgroundColor,
       borderColor = 'lightgrey',
       navigationBarBorderColor = borderColor,
       headerBorderColor = borderColor,
-      transition = false,
       titleColor = 'black',
       headerTitleColor = titleColor,
       backgroundColor = 'white',
-      leftIcons,
-      rightIcons,
+      leftIcons = [],
+      rightIcons = [],
       headerLeftIcons = leftIcons,
       headerRightIcons = rightIcons,
       headerHeight = NAVIGATION_BAR_HEIGHT,
@@ -67,17 +65,14 @@ const AppleStyle = React.forwardRef<Container, AppleStyleProps>(
     );
 
     const HeaderNavigationBarComponent = useMemo(() => {
-      if (transition) {
-        return () => (
-          <NavigationBar
-            backgroundColor={headerBackgroundColor}
-            leftIcons={headerLeftIcons}
-            rightIcons={headerRightIcons}
-          />
-        );
-      }
-      return undefined;
-    }, [headerLeftIcons, headerRightIcons, transition, headerBackgroundColor]);
+      return () => (
+        <NavigationBar
+          backgroundColor={headerBackgroundColor}
+          leftIcons={headerLeftIcons}
+          rightIcons={headerRightIcons}
+        />
+      );
+    }, [headerLeftIcons, headerRightIcons, headerBackgroundColor]);
 
     const headerBackgroundComponentStyle = useMemo(() => {
       return {

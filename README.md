@@ -1,6 +1,8 @@
 # React Native Scrollable Navigation Bar
 
-This package provides smooth scroll animations for react native.
+|                                                     |                                         |
+| :-------------------------------------------------: | :-------------------------------------: |
+| ![Image Background](./image-background-preview.gif) | ![Search Bar](./search-bar-preview.gif) |
 
 ## Getting Started
 

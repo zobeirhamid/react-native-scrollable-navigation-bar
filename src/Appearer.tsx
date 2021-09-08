@@ -11,7 +11,7 @@ const Appearer: React.FC<AppearerProps> = (props) => {
   const { hasReachedTransitionPoint } = useHasReachedTransitionPoint();
   const { transitionPoint } = useMeasurements();
 
-  const { children, style } = props;
+  const { children, style = {} } = props;
 
   const opacityAnimatedValue = useRef(new Animated.Value(0)).current;
 

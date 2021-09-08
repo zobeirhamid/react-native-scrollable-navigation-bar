@@ -4,7 +4,7 @@ import { useMeasurements } from './contexts/MeasurementsContext';
 import Collapser from './Collapser';
 import Snapper from './Snapper';
 import Sticker from './Sticker';
-import Transitioner from './Transitioner';
+import Appearer from './Appearer';
 import BorderContainer from './BorderContainer';
 
 interface NavigationBarContainerProps {
@@ -56,7 +56,7 @@ const NavigationBarContainer: React.FC<NavigationBarContainerProps> = (
     if (stickyCollapsible && !stayCollapsed) {
       return navigationBarHeight + stickyHeight + borderHeight;
     }
-    return navigationBarHeight;
+    return navigationBarHeight + borderHeight;
   }, [
     stickyCollapsible,
     stayCollapsed,
@@ -109,9 +109,9 @@ const NavigationBarContainer: React.FC<NavigationBarContainerProps> = (
           </Sticker>
           <Animated.View style={{ height: navigationBarHeight }}>
             <HeaderNavigationBarComponent />
-            <Transitioner style={navigationBarStyle}>
+            <Appearer style={navigationBarStyle}>
               <NavigationBarComponent />
-            </Transitioner>
+            </Appearer>
           </Animated.View>
         </Collapser>
       </Animated.View>

@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { View, Text, StyleSheet, TextStyle } from 'react-native';
+import { NAVIGATION_BAR_HEIGHT } from '../constants';
 import Appearer from '../Appearer';
 
 export interface NavigationBarProps {
@@ -13,11 +14,11 @@ export interface NavigationBarProps {
 
 const NavigationBar: React.FC<NavigationBarProps> = ({
   backgroundColor = 'transparent',
-  height = 60,
+  height = NAVIGATION_BAR_HEIGHT,
   title,
   titleStyle,
-  leftIcons,
-  rightIcons,
+  leftIcons = [],
+  rightIcons = [],
 }) => {
   const backgroundStyle = useMemo(() => {
     return [
@@ -41,8 +42,12 @@ const NavigationBar: React.FC<NavigationBarProps> = ({
 
   return (
     <View style={backgroundStyle}>
-      {leftIcons?.map(iconWrapper)}
-      {rightIcons?.map(iconWrapper)}
+      <View style={styles.leftIconsContainer}>
+        {leftIcons.map(iconWrapper)}
+      </View>
+      <View style={styles.rightIconsContainer}>
+        {rightIcons.map(iconWrapper)}
+      </View>
       <Appearer style={styles.titleContainer}>
         <Text style={[styles.title, titleStyle]}>{title}</Text>
       </Appearer>
@@ -70,6 +75,14 @@ const styles = StyleSheet.create({
   },
   iconContainer: {
     marginHorizontal: 10,
+  },
+  leftIconsContainer: {
+    flexDirection: 'row',
+  },
+
+  rightIconsContainer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
   },
 });
 
