@@ -1,0 +1,46 @@
+---
+sidebar_position: 1
+slug: /
+---
+
+# Getting Started
+
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
+<div style={{margin:'auto', display:'flex', justifyContent:'space-between'}}>
+<video
+  muted={true}
+  loop={true}
+  autoPlay={true}
+  controls={false}
+  playsInline={true}
+  width="390"
+  style={{ marginRight: 50 }}
+>
+  <source src={useBaseUrl('video/image-background-preview.mov')} type="video/mp4" />
+</video>
+
+<video
+  muted={true}
+  loop={true}
+  autoPlay={true}
+  controls={false}
+  playsInline={true}
+  width="390"
+>
+  <source src={useBaseUrl('video/search-bar-preview.mov')} type="video/mp4" />
+</video>
+</div>
+
+## Features
+
+- 60 FPS scroll animations
+- Works on all Platforms
+- Uses react-native Animated API, so no extra dependencies are needed
+- Fully customizable
+
+## Roadmap
+
+- [ ] Custom RefreshControl Animation
+- [ ] Supporting FlatList
+- [ ] ScrollView Methods

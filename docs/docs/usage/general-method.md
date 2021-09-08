@@ -1,13 +1,14 @@
 ---
-sidebar_position: 3
+sidebar_position: 1
 ---
 
-# Usage
+# General Method
 
-There are two ways of using the package, either using the general method or using predefined styles. The general method is great when you already have all the UI components created and just wanna add the animations to it, whereas using predefined styles is good when you want a out of the box solution including predefined UI components.
+This method should be used when you already have all the UI elements and just wanna add the animations. Check the Container API.
 
 ```jsx
-import Container, {
+import {
+  Container,
   NavigationBar,
   HeaderTitle,
   StatusBar,
