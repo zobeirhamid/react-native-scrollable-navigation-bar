@@ -1,8 +1,8 @@
 # React Native Scrollable Navigation Bar
 
-|                                                     |                                         |
-| :-------------------------------------------------: | :-------------------------------------: |
-| ![Image Background](./image-background-preview.gif) | ![Search Bar](./search-bar-preview.gif) |
+| [Image Background Example](https://zobeirhamid.github.io/react-native-scrollable-navigation-bar/examples/image-background) | [Search Bar Example](https://zobeirhamid.github.io/react-native-scrollable-navigation-bar/examples/search-bar) |
+| :------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------: |
+|                                    ![Image Background](./image-background-preview.gif)                                     |                                    ![Search Bar](./search-bar-preview.gif)                                     |
 
 ## Getting Started
 
