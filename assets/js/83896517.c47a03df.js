@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[12],{3367:function(a){a.exports=JSON.parse('{"allTagsPath":"/react-native-scrollable-navigation-bar/blog/tags","slug":"/react-native-scrollable-navigation-bar/blog/tags/docusaurus","name":"docusaurus","count":4,"permalink":"/react-native-scrollable-navigation-bar/blog/tags/docusaurus"}')}}]);

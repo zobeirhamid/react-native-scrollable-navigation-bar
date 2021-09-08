@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdocs=self.webpackChunkdocs||[]).push([[57],{5889:function(a){a.exports=JSON.parse('{"allTagsPath":"/react-native-scrollable-navigation-bar/blog/tags","slug":"/react-native-scrollable-navigation-bar/blog/tags/hola","name":"hola","count":1,"permalink":"/react-native-scrollable-navigation-bar/blog/tags/hola"}')}}]);
