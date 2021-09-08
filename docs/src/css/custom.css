@@ -62,6 +62,6 @@ article table tr:nth-child(2n) {
 }
 
 @font-face {
-  src: url('../../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf');
-  font-family: Ionicons;
+  font-family: 'Ionicons';
+  src: url('/static/fonts/Ionicons.ttf') format('truetype');
 } ;
