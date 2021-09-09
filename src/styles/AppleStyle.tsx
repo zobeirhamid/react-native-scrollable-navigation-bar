@@ -47,6 +47,7 @@ const AppleStyle = React.forwardRef<Container, AppleStyleProps>(
       navigationBarHeight = NAVIGATION_BAR_HEIGHT,
       statusBarHeight = STATUS_BAR_HEIGHT,
       borderHeight = 1,
+      contentContainerStyle = {},
     } = props;
 
     const NavigationBarComponent = useMemo(
@@ -119,7 +120,11 @@ const AppleStyle = React.forwardRef<Container, AppleStyleProps>(
       return () => <StatusBar backgroundColor={headerBackgroundColor} />;
     }, [headerBackgroundColor]);
 
-    const contentContainerStyle = useMemo(() => {
+    const contentContainerStyleWithBackgroundColor = useMemo(() => {
+      return [{ backgroundColor }, contentContainerStyle];
+    }, [backgroundColor, contentContainerStyle]);
+
+    const scrollViewStyle = useMemo(() => {
       return { backgroundColor };
     }, [backgroundColor]);
 
@@ -134,11 +139,12 @@ const AppleStyle = React.forwardRef<Container, AppleStyleProps>(
         HeaderBorderComponent={HeaderBorderComponent}
         BorderComponent={BorderComponent}
         borderHeight={borderHeight}
-        contentContainerStyle={contentContainerStyle}
+        contentContainerStyle={contentContainerStyleWithBackgroundColor}
         transitionPoint={
           headerHeight - navigationBarHeight - statusBarHeight - 30
         }
         overScrollMode={'never'}
+        style={scrollViewStyle}
         {...props}
         ref={ref}
       >
