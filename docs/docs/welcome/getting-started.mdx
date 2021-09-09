@@ -7,15 +7,13 @@ slug: /
 
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
-<div style={{margin:'auto', display:'flex', justifyContent:'space-between'}}>
+<div className="getting-started-video-container">
 <video
   muted={true}
   loop={true}
   autoPlay={true}
   controls={false}
   playsInline={true}
-  width="390"
-  style={{ marginRight: 50 }}
 >
   <source src={useBaseUrl('video/image-background-preview.mov')} type="video/mp4" />
 </video>
@@ -26,7 +24,6 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
   autoPlay={true}
   controls={false}
   playsInline={true}
-  width="390"
 >
   <source src={useBaseUrl('video/search-bar-preview.mov')} type="video/mp4" />
 </video>

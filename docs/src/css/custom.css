@@ -64,4 +64,26 @@ article table tr:nth-child(2n) {
 @font-face {
   font-family: 'Ionicons';
   src: url('/static/fonts/Ionicons.ttf') format('truetype');
-} ;
+}
+
+.getting-started-video-container {
+  margin: auto 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.getting-started-video-container video {
+  width: 100% !important;
+  max-width: 390px;
+  height: auto !important;
+}
+@media (max-width: 1460px) {
+  .getting-started-video-container {
+    flex-direction: column;
+  }
+  .getting-started-video-container video:first-child {
+    margin-bottom: 50px;
+  }
+}
