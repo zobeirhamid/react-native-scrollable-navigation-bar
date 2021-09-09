@@ -20,3 +20,8 @@
 - [ ] Custom RefreshControl Animation
 - [ ] Supporting FlatList
 - [ ] ScrollView Methods
+
+## Bugs
+
+- Web[iOS]: Bouncing won't scale up the HeaderBackground Component
+- Web: Border flickering
