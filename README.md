@@ -25,3 +25,4 @@
 
 - Web[iOS]: Bouncing won't scale up the HeaderBackground Component
 - Web: Border flickering
+- RegularNavigationBar: If `collapsible=true`, `stickyCollapsible=true`, and a `SnapComponent` exists, so the `StickyComponent` collapses too early, as it does not count in `snapHeight`
