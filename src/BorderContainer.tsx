@@ -19,14 +19,14 @@ const BorderContainer: React.FC<BorderContainerProps> = ({
       <Animated.View style={{ height: borderHeight }}>
         <Animated.View
           style={{
-            ...StyleSheet.absoluteFillObject,
+            ...StyleSheet.absoluteFill,
           }}
         >
           <HeaderBorderComponent />
         </Animated.View>
         <Transitioner
           style={{
-            ...StyleSheet.absoluteFillObject,
+            ...StyleSheet.absoluteFill,
           }}
         >
           <BorderComponent />

@@ -13,7 +13,7 @@ import HeaderContainer from './HeaderContainer';
 import NavigationBarContainer from './NavigationBarContainer';
 import Scroller from './Scroller';
 import StatusBarContainer from './StatusBarContainer';
-import { HasReachedTransitionPointProvider } from './contexts/HasReachedTransitionPoint.tsx';
+import { HasReachedTransitionPointProvider } from './contexts/HasReachedTransitionPoint';
 
 export interface ContainerProps
   extends React.ComponentProps<typeof ScrollView> {
@@ -62,7 +62,7 @@ class Container extends React.PureComponent<ContainerProps, ContainerState> {
     transform: [{ translateY: this.containerAnimatedValue }],
   };
   overlayStyle = {
-    ...StyleSheet.absoluteFillObject,
+    ...StyleSheet.absoluteFill,
     zIndex: 9999,
     opacity: this.overlayAnimatedValue,
     backgroundColor: 'black',
@@ -236,7 +236,7 @@ const styles = StyleSheet.create({
   },
 
   navigationBarContainer: {
-    ...StyleSheet.absoluteFillObject,
+    ...StyleSheet.absoluteFill,
     zIndex: 9999,
   },
 });

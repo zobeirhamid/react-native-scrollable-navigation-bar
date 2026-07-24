@@ -8,6 +8,7 @@ interface CollapserProps {
   offset?: number;
   stayCollapsed?: boolean;
   height?: number;
+  children?: React.ReactNode;
 }
 
 const Collapser: React.FC<CollapserProps> = ({

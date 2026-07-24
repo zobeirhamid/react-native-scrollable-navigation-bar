@@ -64,7 +64,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   titleContainer: {
-    ...StyleSheet.absoluteFillObject,
+    ...StyleSheet.absoluteFill,
     alignItems: 'center',
     justifyContent: 'center',
   },

@@ -10,7 +10,7 @@ function isIphoneX() {
   return (
     Platform.OS === 'ios' &&
     !Platform.isPad &&
-    !Platform.isTVOS &&
+    !Platform.isTV &&
     (dimen.height === 780 ||
       dimen.width === 780 ||
       dimen.height === 812 ||

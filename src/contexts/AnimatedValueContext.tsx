@@ -19,6 +19,7 @@ export const useAnimatedValue = () => {
 
 export const AnimatedValueProvider: React.FC<{
   animatedValue?: Animated.Value;
+  children?: React.ReactNode;
 }> = ({ children, animatedValue }) => {
   const animatedValueContext = useRef(
     animatedValue !== undefined ? animatedValue : new Animated.Value(0)

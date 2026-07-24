@@ -14,6 +14,13 @@ yarn
 
 While developing, you can run the [example app](/example/) to test your changes. Any changes you make in your library's JavaScript code will be reflected in the example app without a rebuild. If you change any native code, then you'll need to rebuild the example app.
 
+> **Known debt:** the library itself was migrated to build and type-check against React Native 0.86
+> (see [`docs/rn-0.86-migration.md`](./docs/rn-0.86-migration.md)), but `/example` is still pinned to
+> React Native 0.65.1 with an old Storybook 6 / Detox 18 / React Navigation 6 / Reanimated
+> 2.3-alpha stack. It needs its own separate upgrade (or a from-scratch regeneration) before it can
+> be used to visually validate the library on RN 0.86 — that work is intentionally out of scope for
+> the library-compatibility migration above.
+
 To start the packager:
 
 ```sh

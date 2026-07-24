@@ -7,7 +7,7 @@ import constants from './constants';
 import AppleStyle from './styles/AppleStyle';
 import { useAnimatedValue } from './contexts/AnimatedValueContext';
 import { useMeasurements } from './contexts/MeasurementsContext';
-import { useHasReachedTransitionPoint } from './contexts/HasReachedTransitionPoint.tsx';
+import { useHasReachedTransitionPoint } from './contexts/HasReachedTransitionPoint';
 import Transitioner from './Transitioner';
 import Appearer from './Appearer';
 

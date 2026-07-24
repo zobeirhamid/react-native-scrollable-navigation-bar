@@ -7,6 +7,7 @@ interface TransitionerProps {
   style?: ViewStyle;
   offset?: number;
   distance?: number;
+  children?: React.ReactNode;
 }
 
 const Transitioner: React.FC<TransitionerProps> = (props) => {

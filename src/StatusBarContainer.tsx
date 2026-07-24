@@ -18,7 +18,7 @@ const StatusBarContainer: React.FC<StatusBarContainerProps> = (props) => {
 
   const statusBarStyle = useMemo(() => {
     return {
-      ...StyleSheet.absoluteFillObject,
+      ...StyleSheet.absoluteFill,
       height: statusBarHeight,
       zIndex: 1,
     };
