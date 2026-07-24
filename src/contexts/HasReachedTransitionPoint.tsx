@@ -21,9 +21,9 @@ export const useHasReachedTransitionPoint = () => {
   return context;
 };
 
-export const HasReachedTransitionPointProvider: React.FC<{}> = ({
-  children,
-}) => {
+export const HasReachedTransitionPointProvider: React.FC<{
+  children?: React.ReactNode;
+}> = ({ children }) => {
   const [hasReachedTransitionPoint, setHasReachedTransitionPoint] =
     useState(false);
   const hasReachedTransitionPointContext = useMemo(() => {

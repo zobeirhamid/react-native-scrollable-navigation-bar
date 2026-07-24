@@ -26,7 +26,9 @@ export const useMeasurements = () => {
   return context;
 };
 
-export const MeasurementsProvider: React.FC<MeasurementsState> = ({
+export const MeasurementsProvider: React.FC<
+  MeasurementsState & { children?: React.ReactNode }
+> = ({
   children,
   statusBarHeight,
   navigationBarHeight,

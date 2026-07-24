@@ -25,7 +25,7 @@ const HeaderContainer: React.FC<HeaderContainerProps> = (props) => {
 
   const containerStyle = useMemo(() => {
     return {
-      //...StyleSheet.absoluteFillObject,
+      //...StyleSheet.absoluteFill,
       height: headerHeight,
       transform: [
         {
@@ -77,7 +77,7 @@ const HeaderContainer: React.FC<HeaderContainerProps> = (props) => {
     fadeOut,
   ]);
   const foregroundStyle = useMemo(() => {
-    return [StyleSheet.absoluteFillObject, { bottom: snapHeight }];
+    return [StyleSheet.absoluteFill, { bottom: snapHeight }];
   }, [snapHeight]);
 
   if (headerHeight === navigationBarHeight) return null;

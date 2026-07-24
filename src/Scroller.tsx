@@ -7,7 +7,7 @@ import {
 } from 'react-native';
 import { useMeasurements } from './contexts/MeasurementsContext';
 import { useAnimatedValue } from './contexts/AnimatedValueContext';
-import { useHasReachedTransitionPoint } from './contexts/HasReachedTransitionPoint.tsx';
+import { useHasReachedTransitionPoint } from './contexts/HasReachedTransitionPoint';
 
 interface ScrollerProps extends React.ComponentProps<typeof ScrollView> {
   beforeTransitionPoint?: () => void;

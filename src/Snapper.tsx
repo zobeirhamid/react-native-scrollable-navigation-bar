@@ -3,7 +3,9 @@ import { Animated, StyleSheet } from 'react-native';
 import { useMeasurements } from './contexts/MeasurementsContext';
 import { useAnimatedValue } from './contexts/AnimatedValueContext';
 
-interface SnapperProps {}
+interface SnapperProps {
+  children?: React.ReactNode;
+}
 
 const Snapper: React.FC<SnapperProps> = ({ children }) => {
   const { snapHeight, navigationBarHeight, headerHeight, statusBarHeight } =
@@ -17,7 +19,7 @@ const Snapper: React.FC<SnapperProps> = ({ children }) => {
 
   const style = useMemo(() => {
     return {
-      ...StyleSheet.absoluteFillObject,
+      ...StyleSheet.absoluteFill,
       height: snapHeight,
       transform: [
         {

@@ -10,6 +10,7 @@ interface StickerProps {
   stayCollapsed?: boolean;
   stickyStayCollapsed?: boolean;
   height?: number;
+  children?: React.ReactNode;
 }
 
 const Sticker: React.FC<StickerProps> = (props) => {
@@ -77,7 +78,7 @@ const Sticker: React.FC<StickerProps> = (props) => {
 
   const style = useMemo(() => {
     return {
-      ...StyleSheet.absoluteFillObject,
+      ...StyleSheet.absoluteFill,
       transform: [
         {
           translateY,

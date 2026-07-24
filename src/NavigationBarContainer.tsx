@@ -67,7 +67,7 @@ const NavigationBarContainer: React.FC<NavigationBarContainerProps> = (
 
   const style = useMemo(() => {
     return {
-      ...StyleSheet.absoluteFillObject,
+      ...StyleSheet.absoluteFill,
       height: headerHeight + snapHeight + borderHeight + stickyHeight,
       top: statusBarHeight,
       zIndex: 1,
@@ -76,7 +76,7 @@ const NavigationBarContainer: React.FC<NavigationBarContainerProps> = (
 
   const navigationBarStyle = useMemo(() => {
     return {
-      ...StyleSheet.absoluteFillObject,
+      ...StyleSheet.absoluteFill,
       height: navigationBarHeight,
     };
   }, [navigationBarHeight]);

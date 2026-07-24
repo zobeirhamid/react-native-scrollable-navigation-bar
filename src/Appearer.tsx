@@ -1,10 +1,11 @@
 import { useMeasurements } from './contexts/MeasurementsContext';
 import React, { useMemo, useRef, useEffect } from 'react';
 import { Animated, ViewStyle } from 'react-native';
-import { useHasReachedTransitionPoint } from './contexts/HasReachedTransitionPoint.tsx';
+import { useHasReachedTransitionPoint } from './contexts/HasReachedTransitionPoint';
 
 interface AppearerProps {
   style?: ViewStyle;
+  children?: React.ReactNode;
 }
 
 const Appearer: React.FC<AppearerProps> = (props) => {
